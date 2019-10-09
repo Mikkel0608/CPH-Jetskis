@@ -1,4 +1,4 @@
-class ordre {
+class order {
     constructor(minutes, date, price, model, quantity, phone, cancelled, completed) {
         this.minutes = minutes;
         this.date = date;
