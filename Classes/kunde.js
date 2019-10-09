@@ -7,10 +7,15 @@ class customer {
     this.email = email;
     this.password = password;
     }
-    whoIsThisCustomer() {
-    console.log(`This customer is $(this.navn)`);
-    }
+//Email og password fra signup
+    this.email = document.getElementById('email')
+    this.password = document.getElementById('password')
 
+//Denne funktion lagrer input fra sign-up i local storage
+    function storeLogin(){
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('password', password.value);
+    }
 }
 
 
