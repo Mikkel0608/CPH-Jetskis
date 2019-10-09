@@ -1,9 +1,9 @@
 //Der oprettes en klasse for kunden. Herunder står kundens log-in oplysninger samt kontakt-oplysninger//
-class kunde {
-    constructor(navn, addresse, tlf, email, password){
-    this.navn = navn;
-    this.addresse = addresse;
-    this.tlf = tlf;
+class customer {
+    constructor(name, address, phone, email, password){
+    this.name = name;
+    this.address = address;
+    this.phone = phone;
     this.email = email;
     this.password = password;
     }
@@ -13,6 +13,5 @@ class kunde {
 
 }
 
-let mikkelCustomer = new kunde("Mikkel");
 
 

@@ -1,28 +1,24 @@
 class ordre {
-    constructor(minutter, dato, pris, model, antal, tlf, annulleret, gennemfort) {
-        this.minutter = minutter;
-        this.dato = dato;
-        this.pris = pris;
+    constructor(minutes, date, price, model, quantity, phone, cancelled, completed) {
+        this.minutes = minutes;
+        this.date = date;
+        this.price = price;
         this.model = model;
-        this.antal = antal;
-        this.tlf = tlf;
-        this.annulleret = annulleret;
-        this.gennemført = gennemfort;
-        this.lejVandscooter = lejVandscooter();
-        this.bekraeftOrdre = bekraeftOrdre();
-        this.annullerOrdre = annullerOrdre();
-        this.aendreOrdre = aendreOrdre();
+        this.quantity = quantity;
+        this.phone = phone;
+        this.canceled = cancelled;
+        this.completed = completed;
     }
-}
-function lejVandscooter() {
+    rentJetSki(){
 
-}
-function bekraeftOrdre() {
+    }
+    confirmOrder(){
 
-}
-function annullerOrdre() {
+    }
+    cancelOrder(){
 
-}
-function aendreOrdre() {
+    }
+    changeOrder(){
 
+    }
 }
