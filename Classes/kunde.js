@@ -7,12 +7,19 @@ class customer {
     this.email = email;
     this.password = password;
     }
-//Email og password fra signup
-    this.email = document.getElementById('email')
-    this.password = document.getElementById('password')
+//Oplysninger hentes fra signup når der bliver indtastet inputs
+    this.name = document.getElementById("name")
+    this.address = document.getElementById("address")
+    this.phone = document.getElementById("phone")
+    this.email = document.getElementById("email")
+    this.password = document.getElementById("password")
+
 
 //Denne funktion lagrer input fra sign-up i local storage
-    function storeLogin(){
+    storeLogin(){
+        localStorage.setItem('name', name.value);
+        localStorage.setItem('address', address.value);
+        localStorage.setItem('phone', phone.value);
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
     }
