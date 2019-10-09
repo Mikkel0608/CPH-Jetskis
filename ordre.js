@@ -1,11 +1,11 @@
 class ordre {
-    constructor(minutter, dato, pris, model, antal, id, annulleret, gennemfort) {
+    constructor(minutter, dato, pris, model, antal, tlf, annulleret, gennemfort) {
         this.minutter = minutter;
         this.dato = dato;
         this.pris = pris;
         this.model = model;
         this.antal = antal;
-        this.id = id;
+        this.tlf = tlf;
         this.annulleret = annulleret;
         this.gennemført = gennemfort;
         this.lejVandscooter = lejVandscooter();
