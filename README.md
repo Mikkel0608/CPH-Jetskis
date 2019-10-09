@@ -70,6 +70,12 @@ Klassediagram
 
 
 
+
+
+
+
+
+
 ![alt text](https://github.com/Mikkel0608/CPH-Jetskis/blob/master/CPHJetskis.drawio-4.png)
 
 
