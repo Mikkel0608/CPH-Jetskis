@@ -1,6 +1,6 @@
 Programmeringsprojekt
 
-Introduktion
+
 CPH Jetskis er en udlejningsservice, der gør det muligt for privatpersoner at udleje
 vandscootere i København. Kunder kan vælge hvilken vandscooter de ønsker at leje, og
 hvornår udlejningen skal tage sted. Hvis vandscooteren er ledig, kan kunden reservere den i
