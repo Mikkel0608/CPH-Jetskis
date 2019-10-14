@@ -1,11 +1,11 @@
 @font-face {
     font-family: modernSansLight;
-    src: url("ModernSans-Light.otf");
+    src: url("../fonts/ModernSans-Light.otf");
 }
 
 
 body{
-    background-image: url("frontPhoto.jpeg");
+    background-image: url("../images/frontPhoto.jpeg");
     height: 100vh;
     background-size: cover;
     background-position: center;
@@ -74,7 +74,6 @@ body{
 }
 
 
-
 .form #logintext{
     color: ghostwhite;
     font-size: x-large;
@@ -82,22 +81,22 @@ body{
     font-family: sans-serif;
 }
 
-#registration {
+#link {
     color: ghostwhite;
     font-size: medium;
     font-family: sans-serif;
 }
-.form #registration:hover {
+.form #link:hover {
     color: #00A8FF;
     font-size: medium;
     font-family: sans-serif;
 }
-#registration:active {
+#link:active {
     color: #00A8FF;
     font-size: medium;
     font-family: sans-serif;
 }
-#registration:visited {
+#link:visited {
     color: ghostwhite;
     font-size: medium;
     font-family: sans-serif;
