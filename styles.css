@@ -39,6 +39,14 @@
     color: rgb(0, 168, 255);
 }
 
+#buttonOnPage {
+    font-family: modernSansLight;
+    font-size: 17px;
+    color: ghostwhite;
+    background-color: rgb(0, 168, 255);
+    border-color: ghostwhite;
+    cursor: pointer;
+}
 #modelContainer {
 
 }
