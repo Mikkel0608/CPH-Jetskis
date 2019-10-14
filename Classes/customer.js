@@ -15,7 +15,6 @@ class customer {
         localStorage.setItem('phone', phone.value);
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
-
         alert("Ny bruger er blevet oprettet");
     }
 }
@@ -31,8 +30,6 @@ function register() {
 
     var customer1 = new customer(customerName, address, phone, email, password)
     customer1.storeLogin()
-    var customer2 = new customer(customerName, address, phone, email, password)
-    customer2.storeLogin()
     //Down here, the function storeLogin is called.
 
 }
@@ -59,7 +56,7 @@ function loginVal() {
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
         alert('Velkommen! Du er logget ind.');
     }else {
-        alert(Fejl ved login - forkert telefonnummer og password kombination)
+        alert('Fejl ved login - forkert telefonnummer og password kombination')
     }
 }
 
