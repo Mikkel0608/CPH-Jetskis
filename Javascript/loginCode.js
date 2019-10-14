@@ -16,6 +16,7 @@ class customer {
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
         alert("Ny bruger er blevet oprettet");
+        window.location = "Loginpage.html";
     }
 }
 
