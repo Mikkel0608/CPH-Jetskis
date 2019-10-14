@@ -1,0 +1,106 @@
+@font-face {
+    font-family: modernSansLight;
+    src: url("../fonts/ModernSans-Light.otf");
+}
+
+
+body{
+    background-image: url("../images/frontPhoto.jpeg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+.loginPage{
+    width: 360px;
+    padding: 10% 0 0;
+    margin: auto;
+    text-align: center;
+}
+
+.form{
+    font-family: modernSansLight;
+    position: relative;
+    font-size: x-large;
+    z-index: 1;
+    background: #2f3640;
+    -webkit-text-fill-color: aliceblue;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+
+.form input{
+    font-family: modernSansLight;
+    outline: 1px;
+    position: center;
+    background-color: #f2f2f2;
+    -webkit-text-fill-color: darkgray;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.form button{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #00A8FF;
+    width: 100%;
+    border: 0;
+    box-sizing: 14px;
+    padding: 15px;
+    color: aliceblue;
+    font-size: 14px;
+}
+.form button:hover, .form button:active {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: aliceblue;
+    -webkit-text-fill-color: #00A8FF;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: aliceblue;
+    font-size: 14px;
+}
+
+#loginTitle {
+    text-align: center;
+    color: ghostwhite;
+    font-family: modernSansLight;
+
+}
+
+
+.form #logintext{
+    color: ghostwhite;
+    font-size: x-large;
+    margin-top:5px;
+    font-family: sans-serif;
+}
+
+#link {
+    color: ghostwhite;
+    font-size: medium;
+    font-family: sans-serif;
+}
+.form #link:hover {
+    color: #00A8FF;
+    font-size: medium;
+    font-family: sans-serif;
+}
+#link:active {
+    color: #00A8FF;
+    font-size: medium;
+    font-family: sans-serif;
+}
+#link:visited {
+    color: ghostwhite;
+    font-size: medium;
+    font-family: sans-serif;
+}
+
+
+
