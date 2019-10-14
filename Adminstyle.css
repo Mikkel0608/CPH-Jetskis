@@ -1,0 +1,45 @@
+@font-face {
+    font-family: modernSansLight;
+    src= url("ModernSans-Light.otf")
+}
+#headTitle {
+    font-family: Candara;
+    font-style: oblique;
+    position: fixed;
+    font-size: 25px;
+    top: 0;
+    z-index: 2;
+    color: ghostwhite;
+}
+
+#naviBar {
+    position: fixed;
+    background-color: rgb(0, 168, 255);
+    text-align: center;
+    width:100%;
+    top:0;
+    left:0;
+}
+
+#buttonStyle {
+    font-family: modernSansLight;
+    font-size: 17px;
+    color: ghostwhite;
+    background-color: rgb(0, 168, 255);
+    width: 15%;
+    height: 50px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-color: ghostwhite;
+}
+#form{
+    font-family: modernSansLight;
+    font-size: 17px;
+    color: ghostwhite;
+    background-color: rgb(0, 168, 255);
+    width: 15%;
+    height: 50px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-color: ghostwhite;
+}
