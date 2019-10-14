@@ -20,24 +20,101 @@
     <a href="profile.html"><button  id="buttonStyle"> Profil </button> </a>
 </div>
 
-<!-- Text on the page-->
+<!-- Headline on the page-->
 <div id="tekstFelt">
     <br><br><br>
     <h2 style="font-family: modernSansLight; font-size:30px;"> Udlej en vandscooter </h2>
     <br>
-    <h3 style="font-family: modernSansLight;"> Ledige vandscootere:</h3>
+</div>
+    <!-- Selection of date and time -->
+<div>
+    <h3> Vælg venligst et udlejningstidspunkt for at se ledige vandscootere:</h3>
     <br>
+    <p> Udlejningsdato </p>
+    <select type="text" id="rentDay">
+        <option value="00" selected disabled>-Dag-</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="08">08</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select>
+    <select type="text" id="rentMonth">
+        <option value="00" selected disabled>-Måned-</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+
+    <select type="text" id="rentYear">
+        <option value="00" selected disabled>-År-</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+    </select>
+    <br><br>
+    <p> Udlejningstidspunkt</p>
+    <select type="text" id="rentTime">
+        <option value="00" selected disabled>-Tid-</option>
+        <option value="10-12">10:00-12:00</option>
+        <option value="12-14">12:00-14:00</option>
+        <option value="14-16">14:00-16:00</option>
+        <option value="16-18">16:00-18:00</option>
+    </select>
+    <br><br><br>
+
+    <!-- This confirmation button checks the vacant jetskis for the given time -->
+    <button onclick="confirmTime()" type="submit" id="buttonOnPage"> Bekræft tidspunkt </button>
+
 </div>
 
-<!-- Jetski models -->
-<div id="modelContainer">
-    <div style="float: left; width: 45%; padding: 5px" id="jetski1">
+<!-- Jetski model 1 -->
+<div style="display:none; float: left;" id="modelContainer1">
+    <div style="float: left; width: 45%; padding: 20px" id="jetski1Photo">
         <h2 style="text-align: center"> Sea Doo Spark </h2>
         <img style="width:100%" src="../images/sea-doo-spark.jpg">
-        <br>
-        <p>Antal minutter </p>
+    </div>
+    <br><br><br>
+    <div style="float: left; width: 45%; padding: 20px" id="jetski1Text">
+        <p>Sea Doo Spark er en fornuftig maskine til en stærk pris. <br><br> Antal minutter: </p>
         <select type="text" id="orderMinutes">
-            <option selected disabled> min. </option>
+            <option selected disabled> -Min.- </option>
             <option value="30">30</option>
             <option value="60">60</option>
             <option value="90">90</option>
@@ -46,20 +123,58 @@
             <option value="180">180</option>
             <option value="210">210</option>
             <option value="240">240</option>
-
         </select>
+        <br style="clear: left">
     </div>
-    <div style="float: right; width: 45%; padding: 5px;" id="jetski2">
+</div>
+<!-- Jetski model 2-->
+<div style="display:none; float: left;" id="modelContainer2">
+    <div style="float: left; width: 45%; padding: 20px;" id="jetski2Photo">
         <h2 style="text-align: center"> Yamaha Waverunner VX </h2>
         <img style="width: 100%" src="../images/yamaha-waverunner-vx.jpg">
     </div>
-    <br><br>
-    <div style="float: left; width: 45%; padding: 10px;" id="jetski3">
-        <h2 style="text-align: center"> Test Test Jetski </h2>
-        <img style="width: 100%" src="../images/yamaha-waverunner-vx.jpg">
+    <div style="float: left; width: 45%; padding: 20px;" id="jetski2Text">
+        <br><br><br>
+        <p>Antal minutter </p>
+        <select type="text" id="orderMinutes">
+            <option value="0" selected disabled> -Min.- </option>
+            <option value="30">30</option>
+            <option value="60">60</option>
+            <option value="90">90</option>
+            <option value="120">120</option>
+            <option value="150">150</option>
+            <option value="180">180</option>
+            <option value="210">210</option>
+            <option value="240">240</option>
+        </select>
     </div>
     <br style="clear: left">
 </div>
+<!-- Jetski model 3-->
+<div style="display:none;" id="modelContainer3">
+    <div style="float: left; width: 45%; padding: 20px;" id="jetski3Photo">
+        <h2 style="text-align: center"> Kawasaki STX-15F </h2>
+        <img style="width: 100%" src="../images/kawasaki-stx-15f.jpg">
+    </div>
+    <div style="float: left; width: 45%; padding: 20px;" id="jetski3Text">
+        <br><br><br>
+        <p>Antal minutter </p>
+        <select type="text" id="orderMinutes">
+            <option selected disabled> -Min.- </option>
+            <option value="30">30</option>
+            <option value="60">60</option>
+            <option value="90">90</option>
+            <option value="120">120</option>
+            <option value="150">150</option>
+            <option value="180">180</option>
+            <option value="210">210</option>
+            <option value="240">240</option>
+            </select>
+    </div>
+</div>
+<script type="text/javascript" src="orderPage.js">
+
+</script>
 </body>
 
 </html
