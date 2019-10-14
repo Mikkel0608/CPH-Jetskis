@@ -16,7 +16,7 @@ class customer {
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
 
-        alert("new user has been created");
+        alert("Ny bruger er blevet oprettet");
     }
 }
 
