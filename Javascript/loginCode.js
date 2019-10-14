@@ -1,4 +1,4 @@
-//A class called customer is created. It's variables are info about the customer.
+//A class is created. It's variables are info about the customers.
 class customer {
     constructor(customerName, address, phone, email, password){
         this.customerName = customerName;
