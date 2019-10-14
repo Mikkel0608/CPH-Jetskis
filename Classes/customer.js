@@ -59,7 +59,7 @@ function loginVal() {
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
         alert('Velkommen! Du er logget ind.');
     }else {
-        alert(Fejl ved login - forkert telefonnummer og password kombination)
+        alert('Fejl ved login - forkert telefonnummer og password kombination')
     }
 }
 
