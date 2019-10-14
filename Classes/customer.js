@@ -30,8 +30,6 @@ function register() {
 
     var customer1 = new customer(customerName, address, phone, email, password)
     customer1.storeLogin()
-    var customer2 = new customer(customerName, address, phone, email, password)
-    customer2.storeLogin()
     //Down here, the function storeLogin is called.
 
 }
