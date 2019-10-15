@@ -1,4 +1,4 @@
-//A class called customer is created. It's variables are info about the customer.
+//A class is created. It's variables are info about the customers.
 class customer {
     constructor(customerName, address, phone, email, password){
         this.customerName = customerName;
@@ -16,6 +16,7 @@ class customer {
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
         alert("Ny bruger er blevet oprettet");
+        window.location = "Loginpage.html";
     }
 }
 
