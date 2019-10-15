@@ -29,12 +29,16 @@ class Jetski {
     }
 }
 
-var jetski1= new Jetski('Sea Doo Spark', 3, 60);
-var jetski2= new Jetski('Yamaha Waverunner VX', 5, 125);
-var jetski3= new Jetski('Kawasaki STX 15F', 7, 160);
+var jetski1= new Jetski('Sea Doo Spark', 300, 60);
+var jetski2= new Jetski('Yamaha Waverunner VX', 500, 125);
+var jetski3= new Jetski('Kawasaki STX 15F', 600, 160);
 
-
+//calculates the total price of the current order
 function calculatePrice() {
-    var orderAmountJS = document.getElementById('orderAmount').value;
-    document.getElementById('orderPrice').innerHTML = orderAmountJS*3;
+    var orderAmount1JS = document.getElementById('orderAmount1').value;
+    var orderAmount2JS = document.getElementById('orderAmount2').value;
+    var orderAmount3JS = document.getElementById('orderAmount3').value;
+    var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
+    document.getElementById('totalPrice').innerHTML = "Samlet Pris: " + finalPrice + " kr.";
+    document.getElementById('basketDivFull').style.display = "";
 }

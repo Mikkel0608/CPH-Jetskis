@@ -110,15 +110,16 @@
     </div>
     <br><br><br>
     <div style="float: left; width: 45%; padding: 20px" id="jetski1Text">
-        <p>Sea Doo Spark er en fornuftig maskine til <br> en stærk pris. <br><br> Antal: </p>
-        <select onchange="calculatePrice()" type="text" id="orderAmount">
-            <option selected disabled> -Antal- </option>
+        <p>Sea Doo Spark er en fornuftig maskine til <br> en stærk pris. <br><br>
+            Pris: 300 kr. for 2 timer. <br><br>
+            Antal: </p>
+        <select type="text" id="orderAmount1">
+            <option value="0" selected disabled> -Antal- </option>
             <option value="1"> 1</option>
             <option value="2"> 2</option>
             <option value="3"> 3</option>
         </select>
-        Samlet pris:
-        <p id="orderPrice"></p>
+        <button onclick="calculatePrice()" id="addToBasket1"> Tilføj til kurv </button>
         <br style="clear: left">
     </div>
 </div>
@@ -131,18 +132,15 @@
     </div>
     <div style="float: left; width: 45%; padding: 20px;" id="jetski2Text">
         <br><br><br>
-        <p>Antal minutter </p>
-        <select type="text" id="orderMinutes">
-            <option value="0" selected disabled> -Min.- </option>
-            <option value="30">30</option>
-            <option value="60">60</option>
-            <option value="90">90</option>
-            <option value="120">120</option>
-            <option value="150">150</option>
-            <option value="180">180</option>
-            <option value="210">210</option>
-            <option value="240">240</option>
+        <p>Pris: 500 kr. for 2 timer. <br><br>
+        Antal: </p>
+        <select type="text" id="orderAmount2">
+            <option value="0" selected disabled> -Antal- </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
         </select>
+        <button onclick="calculatePrice()" id="addToBasket2"> Tilføj til kurv </button>
     </div>
     <br style="clear: left">
 </div>
@@ -155,21 +153,24 @@
     </div>
     <div style="float: left; width: 45%; padding: 20px;" id="jetski3Text">
         <br><br><br>
-        <p>Antal minutter </p>
-        <select type="text" id="orderMinutes">
-            <option selected disabled> -Min.- </option>
-            <option value="30">30</option>
-            <option value="60">60</option>
-            <option value="90">90</option>
-            <option value="120">120</option>
-            <option value="150">150</option>
-            <option value="180">180</option>
-            <option value="210">210</option>
-            <option value="240">240</option>
-            </select>
+        <p>Pris: 600 kr. for 2 timer. <br><br>
+        Antal: </p>
+        <select type="text" id="orderAmount3">
+            <option value="0" selected disabled> -Antal- </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <button onclick="calculatePrice()" id="addToBasket3"> Tilføj til kurv </button>
     </div>
+    <br style="clear: left">
 </div>
-<div style="display:;" id="basketDivFull">
+
+<!-- The following is code for the basket. It is made up of 4 different divs, and should only be shown after the user
+presses the "add to basket" button"-->
+<!-- basketDivFull is the div that spans the entire basket. Display should be "none" unless the user adds something
+ to it -->
+<div style="display:none;" id="basketDivFull">
     <div id="basketDivHeadline">
         <div style="position:absolute; top: 4px; left: 5px;">
             Kurv:
@@ -177,14 +178,17 @@
     </div>
     <div id="basketDivBorder"></div>
     <div id="basketDivBottom">
-        <div id="totalPriceText" style="position: absolute; left: 5px; top: 15px;"> Samlet Pris:</div>
+        <div id="totalPriceText" style="position: absolute; left: 5px; top: 15px;">
+            <!-- The following div "totalPrice" shows the total price of everything in the basket  -->
+            <div id="totalPrice"> </div>
+        </div>
         <button id="confirmPurchaseButton"> BESTIL </button>
     </div>
-
+    <br style="clear: left">
 </div>
 <script type="text/javascript" src="../Javascript/orderPage.js">
 
 </script>
 </body>
 
-</html
+</html>
