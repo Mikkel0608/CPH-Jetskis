@@ -8,7 +8,7 @@ class customer {
         this.password = password;
     }
 
-//This function stores input from the sign-up page in the local storage, as well as creating an alert box.
+//This method stores input from the sign-up page in the local storage, as well as creating an alert box.
     storeLogin(){
         localStorage.setItem('customerName', customerName.value);
         localStorage.setItem('address', address.value);
@@ -29,23 +29,10 @@ function register() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-    var customer1 = new customer(customerName, address, phone, email, password)
+    var customer1 = new customer(customerName, address, phone, email, password);
     customer1.storeLogin()
     //Down here, the function storeLogin is called.
 
-}
-
-
-function validate(){
-    var phone = document.getElementById("phone").value;
-    var password = document.getElementById("password").value;
-    if (phone == "admin" && password == 12345) {
-        window.location = "adminpage.html";
-    } else if (phone == "admin" && password != 12345){
-        alert("Wrong Password")
-    } else if (phone != 'admin'){
-        loginVal()
-        }
 }
 
 function loginVal() {
@@ -67,5 +54,41 @@ function loginVal() {
         window.location ="frontpage.html";
     }else {
         alert('Fejl ved login - forkert telefonnummer og password kombination')
+    }
+}
+
+
+/*This function is used for validating the log-in. First, it checks whether the login input for admin matches
+the variables the are created. Logging into the admin account doesn't require a phone number, but just the 'admin'
+username. It also has another outcome, where an alert box will pop up, if the entered password is not correct.
+At last, the function loginVal is called, which uses a conditional statement to check whether the stored
+phone number and the stored password matches the input.
+
+ */
+
+
+//A class is created for the admin. The only variables in this class are username and password.
+class Admin {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+    }
+}
+//An object is created from the class
+var admin1 = new Admin('admin', 12345);
+
+/*This function validates the login. It retrieves the input entered, and uses if-statements to check whether
+the input matches the properties in the admin1 object. It also calls the function loginVal, to validate the
+customer log-in.
+ */
+function validate() {
+    var phone = document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
+    if (phone == admin1.username && password == admin1.password) {
+        window.location = "adminpage.html";
+    } else if (phone == admin1.username && password != admin1.password) {
+        alert("Wrong Password")
+    } else if (phone != 'admin') {
+        loginVal()
     }
 }
