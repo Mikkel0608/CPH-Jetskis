@@ -1,4 +1,4 @@
-//A class called customer is created. It's variables are info about the customer.
+//A class is created. It's variables are info about the customers.
 class customer {
     constructor(customerName, address, phone, email, password){
         this.customerName = customerName;
@@ -8,7 +8,7 @@ class customer {
         this.password = password;
     }
 
-//This function stores input from the sign-up page in the local storage, as well as creating an alert box.
+//This method stores input from the sign-up page in the local storage, as well as creating an alert box.
     storeLogin(){
         localStorage.setItem('customerName', customerName.value);
         localStorage.setItem('address', address.value);
@@ -29,25 +29,13 @@ function register() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-    var customer1 = new customer(customerName, address, phone, email, password)
+    var customer1 = new customer(customerName, address, phone, email, password);
     customer1.storeLogin()
     //Down here, the function storeLogin is called.
 
 }
 
-// This function is made to validate password and phone number in the login form.
-function validate(){
-    var phone = document.getElementById("phone").value;
-    var password = document.getElementById("password").value;
-    if (phone == "admin" && password == 12345) {
-        window.location = "adminpage.html";
-    } else if (phone == "admin" && password != 12345){
-        alert("Wrong Password")
-    } else if (phone != 'admin'){
-        loginVal()
-        }
-}
-
+//This function will validate whether the input values correspond to the values stored in localStorage.
 function loginVal() {
 
     //Creating variables for the stored values
@@ -59,13 +47,44 @@ function loginVal() {
     var inputPassword = document.getElementById('password');
 
 
-    /*Now an if-statement is created to check whether these values match each other, so the
-    user can log in or not.
+    /*Now an if-statement is created to check whether these values match each other, which determines wheter
+    the user can log in or not.
      */
 
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
         window.location ="frontpage.html";
     }else {
         alert('Fejl ved login - forkert telefonnummer og password kombination')
+    }
+}
+
+
+
+
+
+
+//A class is created for the admin. The only variables in this class are username and password.
+class Admin {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+    }
+}
+//An object is created from the class
+var admin1 = new Admin('admin', 12345);
+
+/*This function validates the login. It retrieves the input entered, and uses if-statements to check whether
+the input matches the properties in the admin1 object. It also calls the function loginVal, to validate the
+customer log-in.
+ */
+function validate() {
+    var phone = document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
+    if (phone == admin1.username && password == admin1.password) {
+        window.location = "adminpage.html";
+    } else if (phone == admin1.username && password != admin1.password) {
+        alert("Wrong Password")
+    } else if (phone != 'admin') {
+        loginVal()
     }
 }
