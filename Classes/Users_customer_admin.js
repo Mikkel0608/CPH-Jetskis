@@ -35,6 +35,7 @@ function register() {
 
 }
 
+//This function will validate whether the input values correspond to the values stored in localStorage.
 function loginVal() {
 
     //Creating variables for the stored values
@@ -46,8 +47,8 @@ function loginVal() {
     var inputPassword = document.getElementById('password');
 
 
-    /*Now an if-statement is created to check whether these values match each other, so the
-    user can log in or not.
+    /*Now an if-statement is created to check whether these values match each other, which determines wheter
+    the user can log in or not.
      */
 
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
@@ -58,13 +59,8 @@ function loginVal() {
 }
 
 
-/*This function is used for validating the log-in. First, it checks whether the login input for admin matches
-the variables the are created. Logging into the admin account doesn't require a phone number, but just the 'admin'
-username. It also has another outcome, where an alert box will pop up, if the entered password is not correct.
-At last, the function loginVal is called, which uses a conditional statement to check whether the stored
-phone number and the stored password matches the input.
 
- */
+
 
 
 //A class is created for the admin. The only variables in this class are username and password.
