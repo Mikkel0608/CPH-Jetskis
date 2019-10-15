@@ -35,7 +35,7 @@ function register() {
 
 }
 
-
+// This function is made to validate password and phone number in the login form.
 function validate(){
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
