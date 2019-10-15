@@ -35,6 +35,11 @@ function register() {
 
 }
 
+
+function viableInput() {
+
+}
+
 //This function will validate whether the input values correspond to the values stored in localStorage.
 function loginVal() {
 

@@ -16,6 +16,6 @@ function deleteUser() {
     if (choice == true) {
         localStorage.clear();
         alert('Brugeren er blevet slettet');
-        window.location.pathname = 'Eksamensprojekt/CPH-Jetskis/html/Loginpage.html'
+        window.location = 'Loginpage.html'
     }
 }
