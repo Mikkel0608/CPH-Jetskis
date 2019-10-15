@@ -9,3 +9,13 @@ window.onload = function getCustomerInfo() {
     document.getElementById('customerPhone').innerHTML=storedPhone;
     document.getElementById('customerEmail').innerHTML=storedEmail;
 }
+
+
+function deleteUser() {
+    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?")
+    if (choice == true) {
+        localStorage.clear();
+        alert('Brugeren er blevet slettet');
+        window.location.pathname = 'Eksamensprojekt/CPH-Jetskis/html/Loginpage.html'
+    }
+}
