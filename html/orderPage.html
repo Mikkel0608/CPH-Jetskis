@@ -9,15 +9,16 @@
 <body style="background-color:rgb(245, 246, 250)">
 
 <!-- Name and logo -->
-<div>
-    <h1 id="headTitle"> CPH JETSKIS </h1>
-</div>
+
 
 <!-- Navigation bar and navigation buttons -->
 <div id="naviBar">
     <a href="frontpage.html"><button style="border-right-width=1px" id="buttonStyle"> Forside </button></a>
     <a href="orderPage.html"><button style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
     <a href="profile.html"><button  id="buttonStyle"> Profil </button> </a>
+    <div>
+        <h1 id="headTitle">CPH JETSKIS </h1>
+    </div>
 </div>
 
 <!-- Headline on the page-->
@@ -112,7 +113,7 @@
     </div>
     <br><br><br>
     <div style="float: left; width: 45%; padding: 20px" id="jetski1Text">
-        <p>Sea Doo Spark er en fornuftig maskine til en stærk pris. <br><br> Antal: </p>
+        <p>Sea Doo Spark er en fornuftig maskine til <br> en stærk pris. <br><br> Antal: </p>
         <select onchange="calculatePrice()" type="text" id="orderAmount">
             <option selected disabled> -Antal- </option>
             <option value="1"> 1</option>
@@ -171,8 +172,17 @@
             </select>
     </div>
 </div>
-<div id="orderPriceDiv">
-
+<div style="display:;" id="basketDivFull">
+    <div id="basketDivHeadline">
+        <div style="position:absolute; top: 4px; left: 5px;">
+            Kurv:
+        </div>
+    </div>
+    <div id="basketDivBorder"></div>
+    <div id="basketDivBottom">
+        <div id="totalPriceText" style="position: absolute; left: 5px; top: 15px;"> Samlet Pris:</div>
+        <button id="confirmPurchaseButton"> BESTIL </button>
+    </div>
 
 </div>
 <script type="text/javascript" src="../Javascript/orderPage.js">
