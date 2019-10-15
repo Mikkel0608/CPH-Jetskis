@@ -35,7 +35,9 @@ function register() {
 
 }
 
-
+/*This function ensures that actual values are being entered in the text-fields, so that one cannot make an account
+without entering anything.
+*/
 function viableInput() {
 
 }
