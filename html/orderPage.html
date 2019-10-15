@@ -100,7 +100,7 @@
     <br><br><br>
 
     <!-- This confirmation button checks the vacant jetskis for the given time -->
-    <button onclick="confirmTime()" type="submit" id="buttonOnPage"> Bekræft tidspunkt </button>
+    <button onclick="confirmTime()" type="submit" id="buttonOnPage"> Find tidspunkt </button>
 
 </div>
 
@@ -112,21 +112,19 @@
     </div>
     <br><br><br>
     <div style="float: left; width: 45%; padding: 20px" id="jetski1Text">
-        <p>Sea Doo Spark er en fornuftig maskine til en stærk pris. <br><br> Antal minutter: </p>
-        <select type="text" id="orderMinutes">
-            <option selected disabled> -Min.- </option>
-            <option value="30">30</option>
-            <option value="60">60</option>
-            <option value="90">90</option>
-            <option value="120">120</option>
-            <option value="150">150</option>
-            <option value="180">180</option>
-            <option value="210">210</option>
-            <option value="240">240</option>
+        <p>Sea Doo Spark er en fornuftig maskine til en stærk pris. <br><br> Antal: </p>
+        <select onchange="calculatePrice()" type="text" id="orderAmount">
+            <option selected disabled> -Antal- </option>
+            <option value="1"> 1</option>
+            <option value="2"> 2</option>
+            <option value="3"> 3</option>
         </select>
+        Samlet pris:
+        <p id="orderPrice"></p>
         <br style="clear: left">
     </div>
 </div>
+
 <!-- Jetski model 2-->
 <div style="display:none; float: left;" id="modelContainer2">
     <div style="float: left; width: 45%; padding: 20px;" id="jetski2Photo">
@@ -150,6 +148,7 @@
     </div>
     <br style="clear: left">
 </div>
+
 <!-- Jetski model 3-->
 <div style="display:none;" id="modelContainer3">
     <div style="float: left; width: 45%; padding: 20px;" id="jetski3Photo">
@@ -171,6 +170,10 @@
             <option value="240">240</option>
             </select>
     </div>
+</div>
+<div id="orderPriceDiv">
+
+
 </div>
 <script type="text/javascript" src="../Javascript/orderPage.js">
 
