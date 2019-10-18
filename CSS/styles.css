@@ -79,6 +79,7 @@
     height: 250px;
     background-color: ghostwhite;
     position: fixed;
+    overflow: auto;
 }
 
 #basketDivBorder {
