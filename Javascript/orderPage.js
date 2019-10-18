@@ -1,3 +1,9 @@
+window.onload = function checkLogin() {
+    if (localStorage.getItem('phone') == null) {
+        window.location = "Loginpage.html"
+    }
+    document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
+}
 function confirmTime() {
     // creating variables that represents the user selection of date and time
     var rentDayID = document.getElementById("rentDay");
