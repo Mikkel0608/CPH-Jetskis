@@ -38,7 +38,6 @@ function register() {
     var customer1 = new customer(customerName, address, city, phone, email, password);
     //Down here, the function storeLogin is called.
 
-
     //The following lines of code will validate whether the inputs are valid.
     //1. Validating the form
     var form_valid = true;
@@ -100,6 +99,7 @@ function register() {
     }
 
 }
+
 
 
 //This function will validate whether the input values correspond to the values stored in localStorage.
