@@ -41,4 +41,27 @@ function calculatePrice() {
     var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
     document.getElementById('totalPrice').innerHTML = "Samlet Pris: " + finalPrice + " kr.";
     document.getElementById('basketDivFull').style.display = "";
+
+    //Checks if all order amounts are 0, then the basket should be hidden again
+    if (orderAmount1JS == 00 && orderAmount2JS == 00 && orderAmount3JS == 00)
+        document.getElementById('basketDivFull').style.display = "none";
+
+    /* Checks if the order amount if above 0, and if so, it adds the jetski name, photo, price and amount to the <p> in the basket.
+    If the order amount is 0, it empties the <p> so that the element is hidden in the basket */
+    if (orderAmount1JS > 0) {
+        document.getElementById('basketJetski1').innerHTML = "<img style=\"width:30%; float:left; \" src=\"../images/sea-doo-spark.jpg\"> Sea Doo Spark <br> Antal: " + orderAmount1JS + "<br> Pris: " + orderAmount1JS * jetski1.price + " kr.";
+    } else {
+        document.getElementById('basketJetski1').innerHTML = "";
+    }
+    if (orderAmount2JS > 0) {
+        document.getElementById('basketJetski2').innerHTML = "<img style=\"width:30%; float:left; \" src=\"../images/yamaha-waverunner-vx.jpg\"> Yamaha Waverunner VX <br> Antal: " + orderAmount2JS + "<br> Pris: " + orderAmount2JS * jetski2.price + " kr.";
+    } else {
+        document.getElementById('basketJetski2').innerHTML = "";
+    }
+    if (orderAmount3JS > 0) {
+        document.getElementById('basketJetski3').innerHTML = "<img style=\"width:30%; float:left; \" src=\"../images/kawasaki-stx-15f.jpg\"> Kawasaki STX-15F <br> Antal: " + orderAmount3JS + "<br> Pris: " + orderAmount3JS * jetski3.price + " kr.";
+    } else {
+        document.getElementById('basketJetski3').innerHTML = "";
+    }
 }
+

@@ -72,6 +72,15 @@
     font-size: 20px;
 }
 
+#basketDivMain {
+    right: 0;
+    width: 24.6%;
+    bottom: 50px;
+    height: 250px;
+    background-color: ghostwhite;
+    position: fixed;
+}
+
 #basketDivBorder {
     width: 0.4%;
     height: 300px;
