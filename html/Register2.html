@@ -6,6 +6,7 @@
     <title>CPH-Jetskis-Admin</title>
     <script src="../classes/Users_customer_admin.js"></script>
     <link rel="stylesheet" type= text/css href="../CSS/Loginstyle.css">
+    <meta charset=”utf-8″ />
 </head>
 
 
@@ -21,14 +22,15 @@
 <!-- This is the code for the registration form -->
 <div class="registerForm">
     <div class="form">
-        <form id="register_form">
-            <p id="logintext" >Login</p>
-            </br>
-            </br>
+        <br id="register_form">
+            <p id="logintext" >Opret bruger</p>
             <input id="customerName" type="text" placeholder="Navn" value=""/>
             </br>
             </br>
             <input id="address" type="text" placeholder="Addresse" value=""/>
+            </br>
+            </br>
+            <input id="city" type="text" placeholder="By" value=""/>
             </br>
             </br>
             <input id="phone" type="text" placeholder="Telefonnummer" value=""/>
@@ -38,11 +40,16 @@
             </br>
             </br>
             <input id="password" type="password" placeholder="Password" value=""/>
+            </br>
+            </br>
+            <input id="confirmPassword" type="password" placeholder="Gentag password" value=""/>
             <!-- Samt en knap hvor man kan submitte disse oplysninger -->
             </br>
             </br>
-            <button id="registration_button" type="button" onclick="register()">Registrer ny bruger</button>
-            <a id=link href="Loginpage.html">Login</a>
+            <button id="registration_button" type="button" onclick="register()">Opret ny bruger</button>
+            </br>
+            </br>
+            <a id=link href="Loginpage.html">Login med eksisterende bruger</a>
         </form>
 
     </div>

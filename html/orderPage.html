@@ -8,13 +8,11 @@
 
 <body style="background-color:rgb(245, 246, 250)">
 
-<!-- Name and logo -->
-<div>
-    <h1 id="headTitle"> CPH JETSKIS </h1>
-</div>
-
 <!-- Navigation bar and navigation buttons -->
 <div id="naviBar">
+    <div>
+        <h1 id="headTitle">CPH JETSKIS </h1>
+    </div>
     <a href="frontpage.html"><button style="border-right-width=1px" id="buttonStyle"> Forside </button></a>
     <a href="orderPage.html"><button style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
     <a href="profile.html"><button  id="buttonStyle"> Profil </button> </a>
@@ -100,81 +98,102 @@
     <br><br><br>
 
     <!-- This confirmation button checks the vacant jetskis for the given time -->
-    <button onclick="confirmTime()" type="submit" id="buttonOnPage"> Bekræft tidspunkt </button>
+    <button onclick="confirmTime()" type="submit" id="buttonOnPage"> Find tidspunkt </button>
 
 </div>
 
 <!-- Jetski model 1 -->
-<div style="display:none; float: left;" id="modelContainer1">
+<div style="display:none; float: left; width: 100%;" id="modelContainer1">
     <div style="float: left; width: 45%; padding: 20px" id="jetski1Photo">
         <h2 style="text-align: center"> Sea Doo Spark </h2>
         <img style="width:100%" src="../images/sea-doo-spark.jpg">
     </div>
     <br><br><br>
     <div style="float: left; width: 45%; padding: 20px" id="jetski1Text">
-        <p>Sea Doo Spark er en fornuftig maskine til en stærk pris. <br><br> Antal minutter: </p>
-        <select type="text" id="orderMinutes">
-            <option selected disabled> -Min.- </option>
-            <option value="30">30</option>
-            <option value="60">60</option>
-            <option value="90">90</option>
-            <option value="120">120</option>
-            <option value="150">150</option>
-            <option value="180">180</option>
-            <option value="210">210</option>
-            <option value="240">240</option>
+        <p>Sea Doo Spark er en fornuftig maskine til <br> en stærk pris. <br><br>
+            Pris: 300 kr. for 2 timer. <br><br>
+            Antal: </p>
+        <select onchange="calculatePrice()" type="text" id="orderAmount1">
+            <option value="0" selected disabled> -Antal- </option>
+            <option value="00">0</option>
+            <option value="1"> 1</option>
+            <option value="2"> 2</option>
+            <option value="3"> 3</option>
         </select>
         <br style="clear: left">
     </div>
 </div>
+
 <!-- Jetski model 2-->
-<div style="display:none; float: left;" id="modelContainer2">
+<div style="display:none; float: left; width: 100%;" id="modelContainer2">
     <div style="float: left; width: 45%; padding: 20px;" id="jetski2Photo">
         <h2 style="text-align: center"> Yamaha Waverunner VX </h2>
         <img style="width: 100%" src="../images/yamaha-waverunner-vx.jpg">
     </div>
     <div style="float: left; width: 45%; padding: 20px;" id="jetski2Text">
         <br><br><br>
-        <p>Antal minutter </p>
-        <select type="text" id="orderMinutes">
-            <option value="0" selected disabled> -Min.- </option>
-            <option value="30">30</option>
-            <option value="60">60</option>
-            <option value="90">90</option>
-            <option value="120">120</option>
-            <option value="150">150</option>
-            <option value="180">180</option>
-            <option value="210">210</option>
-            <option value="240">240</option>
+        <p>Pris: 500 kr. for 2 timer. <br><br>
+        Antal: </p>
+        <select onchange="calculatePrice()" type="text" id="orderAmount2">
+            <option value="0" selected disabled> -Antal- </option>
+            <option value="00">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
         </select>
     </div>
     <br style="clear: left">
 </div>
+
 <!-- Jetski model 3-->
-<div style="display:none;" id="modelContainer3">
+<div style="display:none; float: left; width: 100%;" id="modelContainer3">
     <div style="float: left; width: 45%; padding: 20px;" id="jetski3Photo">
         <h2 style="text-align: center"> Kawasaki STX-15F </h2>
         <img style="width: 100%" src="../images/kawasaki-stx-15f.jpg">
     </div>
     <div style="float: left; width: 45%; padding: 20px;" id="jetski3Text">
         <br><br><br>
-        <p>Antal minutter </p>
-        <select type="text" id="orderMinutes">
-            <option selected disabled> -Min.- </option>
-            <option value="30">30</option>
-            <option value="60">60</option>
-            <option value="90">90</option>
-            <option value="120">120</option>
-            <option value="150">150</option>
-            <option value="180">180</option>
-            <option value="210">210</option>
-            <option value="240">240</option>
-            </select>
+        <p>Pris: 600 kr. for 2 timer. <br><br>
+        Antal: </p>
+        <select onchange="calculatePrice()" type="text" id="orderAmount3">
+            <option value="0" selected disabled> -Antal- </option>
+            <option value="00">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
     </div>
+    <br style="clear: left">
+</div>
+
+<!-- The following is code for the basket. It is made up of different divs, and should only be shown after the user
+selects an amount of jetskis. -->
+<!-- basketDivFull is the div that spans the entire basket. Display should be "none" unless the user adds something
+ to it -->
+<div style="display:none;" id="basketDivFull">
+    <div id="basketDivHeadline">
+        <div style="position:absolute; top: 4px; left: 5px;">
+            Kurv:
+        </div>
+    </div>
+    <div id="basketDivMain">
+        <div style="width: 100%; float: left;" id="basketJetski1"> </div>
+        <div style="width: 100%; float: left;" id="basketJetski2"> </div>
+        <div style="width: 100%; float: left;" id="basketJetski3"> </div>
+    </div>
+    <div id="basketDivBorder"></div>
+    <div id="basketDivBottom">
+        <div id="totalPriceText" style="position: absolute; left: 5px; top: 15px;">
+            <!-- The following div "totalPrice" shows the total price of everything in the basket  -->
+            <div id="totalPrice"> </div>
+        </div>
+        <button id="confirmPurchaseButton"> BESTIL </button>
+    </div>
+    <br style="clear: left">
 </div>
 <script type="text/javascript" src="../Javascript/orderPage.js">
 
 </script>
 </body>
 
-</html
+</html>
