@@ -1,8 +1,7 @@
 @font-face {
     font-family: modernSansLight;
-    src= url("../fonts/ModernSans-Light.otf")
+    src= url("ModernSans-Light.otf")
 }
-
 #headTitle {
     font-family: Candara;
     font-style: oblique;
@@ -20,7 +19,6 @@
     width:100%;
     top:0;
     left:0;
-    font-size:0;
 }
 
 #buttonStyle {
@@ -28,29 +26,30 @@
     font-size: 17px;
     color: ghostwhite;
     background-color: rgb(0, 168, 255);
-    width: 7%;
+    width: 15%;
     height: 50px;
     border-top-width: 0px;
     border-bottom-width: 0px;
     border-color: ghostwhite;
-    cursor: pointer;
 }
-#buttonStyle:hover {
-    background-color: ghostwhite;
-    color: rgb(0, 168, 255);
-}
-
-#buttonOnPage {
+#form{
     font-family: modernSansLight;
     font-size: 17px;
     color: ghostwhite;
     background-color: rgb(0, 168, 255);
+    width: 15%;
+    height: 50px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
     border-color: ghostwhite;
-    height: 40px;
-    cursor: pointer;
-}
-#modelContainer {
-
 }
 
-
+table{
+    font-family: modernSansLight;
+    color: #00A8FF;
+    background-color: #2f3640;
+    border-width: medium;
+    border-color: ghostwhite;
+    margin-left: 250px;
+    margin-top: 100px;
+}
