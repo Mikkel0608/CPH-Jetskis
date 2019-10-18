@@ -3,6 +3,7 @@ class customer {
     constructor(customerName, address, phone, email, password){
         this.customerName = customerName;
         this.address = address;
+        this.city = city;
         this.phone = phone;
         this.email = email;
         this.password = password;
@@ -12,6 +13,7 @@ class customer {
     storeLogin(){
         localStorage.setItem('customerName', customerName.value);
         localStorage.setItem('address', address.value);
+        localStorage.setItem('city', city.value);
         localStorage.setItem('phone', phone.value);
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
@@ -25,22 +27,21 @@ class customer {
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
+    var city = document.getElementById("city").value;
     var phone = document.getElementById("phone").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
 
-    var customer1 = new customer(customerName, address, phone, email, password);
+    var customer1 = new customer(customerName, address, city, phone, email, password);
     customer1.storeLogin()
     //Down here, the function storeLogin is called.
 
-}
 
-/*This function ensures that actual values are being entered in the text-fields, so that one cannot make an account
-without entering anything.
-*/
-function viableInput() {
+    //The following lines of code will validate whether the inputs are valid.
+
 
 }
+
 
 //This function will validate whether the input values correspond to the values stored in localStorage.
 function loginVal() {
@@ -80,7 +81,7 @@ class Admin {
 //An object is created from the class
 var admin1 = new Admin('admin', 12345);
 
-/*This function validates the login. It retrieves the input entered, and uses if-statements to check whether
+/*This function validates the login. It retrieves the input entered, and uses an if-statement to check whether
 the input matches the properties in the admin1 object. It also calls the function loginVal, to validate the
 customer log-in.
  */
