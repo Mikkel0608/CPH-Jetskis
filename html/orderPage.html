@@ -113,13 +113,13 @@
         <p>Sea Doo Spark er en fornuftig maskine til <br> en stærk pris. <br><br>
             Pris: 300 kr. for 2 timer. <br><br>
             Antal: </p>
-        <select type="text" id="orderAmount1">
+        <select onchange="calculatePrice()" type="text" id="orderAmount1">
             <option value="0" selected disabled> -Antal- </option>
+            <option value="00">0</option>
             <option value="1"> 1</option>
             <option value="2"> 2</option>
             <option value="3"> 3</option>
         </select>
-        <button onclick="calculatePrice()" id="addToBasket1"> Tilføj til kurv </button>
         <br style="clear: left">
     </div>
 </div>
@@ -134,13 +134,13 @@
         <br><br><br>
         <p>Pris: 500 kr. for 2 timer. <br><br>
         Antal: </p>
-        <select type="text" id="orderAmount2">
+        <select onchange="calculatePrice()" type="text" id="orderAmount2">
             <option value="0" selected disabled> -Antal- </option>
+            <option value="00">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-        <button onclick="calculatePrice()" id="addToBasket2"> Tilføj til kurv </button>
     </div>
     <br style="clear: left">
 </div>
@@ -155,19 +155,19 @@
         <br><br><br>
         <p>Pris: 600 kr. for 2 timer. <br><br>
         Antal: </p>
-        <select type="text" id="orderAmount3">
+        <select onchange="calculatePrice()" type="text" id="orderAmount3">
             <option value="0" selected disabled> -Antal- </option>
+            <option value="00">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
         </select>
-        <button onclick="calculatePrice()" id="addToBasket3"> Tilføj til kurv </button>
     </div>
     <br style="clear: left">
 </div>
 
-<!-- The following is code for the basket. It is made up of 4 different divs, and should only be shown after the user
-presses the "add to basket" button"-->
+<!-- The following is code for the basket. It is made up of different divs, and should only be shown after the user
+selects an amount of jetskis. -->
 <!-- basketDivFull is the div that spans the entire basket. Display should be "none" unless the user adds something
  to it -->
 <div style="display:none;" id="basketDivFull">
@@ -175,6 +175,13 @@ presses the "add to basket" button"-->
         <div style="position:absolute; top: 4px; left: 5px;">
             Kurv:
         </div>
+    </div>
+    <div id="basketDivMain">
+        <p id="basketJetski1">
+
+        </p>
+        <p id="basketJetski2"> </p>
+        <p id="basketJetski3"> </p>
     </div>
     <div id="basketDivBorder"></div>
     <div id="basketDivBottom">
