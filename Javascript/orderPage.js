@@ -54,12 +54,12 @@ function calculatePrice() {
         document.getElementById('basketJetski1').innerHTML = "";
     }
     if (orderAmount2JS > 0) {
-        document.getElementById('basketJetski2').innerHTML = "<img style=\"width:30%; float:left; \" src=\"../images/yamaha-waverunner-vx.jpg\"> Yamaha Waverunner VX <br> Antal: " + orderAmount2JS + "<br> Pris: " + orderAmount2JS * jetski2.price + " kr.";
+        document.getElementById('basketJetski2').innerHTML = "<br><img style=\"width:30%; float:left; \" src=\"../images/yamaha-waverunner-vx.jpg\"> Yamaha Waverunner VX <br> Antal: " + orderAmount2JS + "<br> Pris: " + orderAmount2JS * jetski2.price + " kr.";
     } else {
         document.getElementById('basketJetski2').innerHTML = "";
     }
     if (orderAmount3JS > 0) {
-        document.getElementById('basketJetski3').innerHTML = "<img style=\"width:30%; float:left; \" src=\"../images/kawasaki-stx-15f.jpg\"> Kawasaki STX-15F <br> Antal: " + orderAmount3JS + "<br> Pris: " + orderAmount3JS * jetski3.price + " kr.";
+        document.getElementById('basketJetski3').innerHTML = "<br><img style=\"width:30%; float:left; \" src=\"../images/kawasaki-stx-15f.jpg\"> Kawasaki STX-15F <br> Antal: " + orderAmount3JS + "<br> Pris: " + orderAmount3JS * jetski3.price + " kr.";
     } else {
         document.getElementById('basketJetski3').innerHTML = "";
     }
