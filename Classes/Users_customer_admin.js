@@ -17,7 +17,7 @@ class customer {
         localStorage.setItem('phone', phone.value);
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
-        alert("Ny bruger er blevet oprettet");
+
         window.location = "Loginpage.html";
     }
 }
@@ -31,14 +31,73 @@ function register() {
     var phone = document.getElementById("phone").value;
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+
+
 
     var customer1 = new customer(customerName, address, city, phone, email, password);
-    customer1.storeLogin()
     //Down here, the function storeLogin is called.
 
 
     //The following lines of code will validate whether the inputs are valid.
+    //1. Validating the form
+    var form_valid = true;
+    var validation_message = "";
 
+    //2. Validating the name
+    if (customerName==null || customerName=="")
+    {
+        validation_message += "Venligst udfyld navn!";
+        form_valid = false;
+    }
+
+    //3. Validating the address (same method as the name)
+    if (address==null || address=="")
+    {
+        validation_message += "Venligst udfyld addresse!";
+        form_valid = false;
+    }
+
+    //4. Validating the City
+    if (city==null || city=="")
+    {
+        validation_message += "Venligst udfyld by!";
+        form_valid = false;
+    }
+
+    //5. Validating the phone number
+    if (isNaN(phone) || phone==null || phone=="")
+    {
+        validation_message += "Venligst udfyld telefonnummer!";
+        form_valid = false;
+    }
+
+    //6. Validating the e-mail
+
+
+    /*7. Validating the password. The else if statement validates whether the value for password
+     is the same as in the confirm password text area.
+     */
+    if (password==null || password=="")
+    {
+        validation_message += "Venligst udfyld password!";
+        form_valid = false;
+    }
+    else if (document.getElementById("password").value!=document.getElementById("confirmPassword").value) {
+        validation_message += "Passwords er ikke ens"
+        form_valid = false;
+    }
+
+    /*
+    If the form is valid, then an alert box will pop up,
+    and the function storeLogin, which stores the inputs, will be called.
+     */
+    if (form_valid) {
+        alert("Ny bruger er blevet oprettet");
+        customer1.storeLogin()
+    } else {
+        alert(validation_message)
+    }
 
 }
 
