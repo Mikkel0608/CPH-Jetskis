@@ -157,3 +157,7 @@ function validate() {
 }
 
 
+//An array is created for the customer users
+
+
+
