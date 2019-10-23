@@ -11,6 +11,14 @@ function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
     } else {
-        window.location =""
+        window.location ="orderPage.html"
+    }
+}
+
+function checkLoginProfilePage() {
+    if (localStorage.getItem('phone') == null) {
+        window.location = "Loginpage.html"
+    } else {
+        window.location ="profile.html"
     }
 }

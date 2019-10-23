@@ -14,8 +14,8 @@
         <h1 id="headTitle">CPH JETSKIS </h1>
     </div>
     <a href="frontpage.html"><button id="buttonStyle"> Forside </button></a>
-    <a href="orderPage.html"><button onClick="checkLogin();" style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
-    <a href="profile.html"><button onClick="checkLogin();" id="buttonStyle"> Profil </button> </a>
+    <button onClick="checkLoginOrderPage();" style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button>
+    <button onClick="checkLoginProfilePage();" id="buttonStyle"> Profil </button>
     <!-- Login button will only be shown if the localStorage is empty -->
     <a id="loginButton" style="display:;" href="Loginpage.html"><button style="position: absolute; right:0px;" id="buttonStyle"> Log-Ind </button> </a>
     <!-- If user is active in localStorage, show the users phone: -->
@@ -25,7 +25,7 @@
 <!-- Text on the page-->
 <div id="textField">
     <br><br>
-    <img width="100%" height="100%" src="../images/frontPhoto.jpeg">
+    <img width="100%" height="100%" src="../images/frontPhoto.png">
     <h2 style="font-family: modernSansLight; font-size:30px;"> Velkommen til CPH JETSKIS</h2>
     CPH Jetskis er en udlejningsservice, der gør det muligt for privatpersoner at udleje
     vandscootere i København. Kunder kan vælge hvilken vandscooter de ønsker at leje, og
