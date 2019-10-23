@@ -133,9 +133,10 @@ function getNumber() {
     /*
      for (i = 0; i ≤ 5; i++){
           option[1].innerHTML = customer1.phone
-  }*/
-}
-getNumber();
+
+  }*/     }
+
+
 
 
 
@@ -200,7 +201,7 @@ function validate() {
     }
 }
 
-
+ getNumber();
 
 
 
