@@ -19,18 +19,23 @@
     <!-- Login button will only be shown if the localStorage is empty -->
     <a id="loginButton" style="display:;" href="Loginpage.html"><button style="position: absolute; right:0px;" id="buttonStyle"> Log-Ind </button> </a>
     <!-- If user is active in localStorage, show the users phone: -->
-    <button id="loginPhone" style="display:none;"> </button>
+    <button id="loginPhone"> </button>
 </div>
 
 <!-- Text on the page-->
 <div>
     <br><br><br>
-    <h1> TAK FOR DIN BESTILLING </h1>
+    <h1 style="font-family: modernSansLight"> TAK FOR DIN BESTILLING </h1>
     <h2> Ordrebekræftelse </h2>
-    Vi kan bekræft, at du har gennemført følgende bestilling:
-
+    Vi kan bekræft, at du har gennemført følgende bestilling:<br>
+    <p id="date"></p>
+    <p id="timePeriod"></p>
+    <p id="amountOfJetski1"></p>
+    <p id="amountOfJetski2"></p>
+    <p id="amountOfJetski3"></p>
+    <p id="orderPrice"></p>
 </div>
-<script type="text/javascript" src="../Javascript/frontPage.js"></script>
+<script type="text/javascript" src="../Javascript/orderConfirmation.js"></script>
 </body>
 
 </html>

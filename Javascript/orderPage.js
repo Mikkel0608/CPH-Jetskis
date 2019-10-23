@@ -91,3 +91,33 @@ function calculatePrice() {
     }
 }
 
+//Creating class to define each individual order
+class Order {
+    constructor(amountOfJetski1, amountofJetski2, amountofJetski3, orderDay, orderMonth, orderYear, timePeriod, orderPrice) {
+        this.amountOfJetski1 = amountOfJetski1;
+        this.amountOfJetski2 = amountOfJetski2;
+        this.amountOfJetski3 = amountOfJetski3;
+        this.orderDay = orderDay;
+        this.orderMonth = orderMonth;
+        this.orderYear = orderYear;
+        this.timePeriod = timePeriod;
+        this.orderPrice = orderPrice;
+    }
+}
+
+function storeOrder() {
+    var orderAmount1JS = document.getElementById('orderAmount1').value;
+    var orderAmount2JS = document.getElementById('orderAmount2').value;
+    var orderAmount3JS = document.getElementById('orderAmount3').value;
+    var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
+    localStorage.setItem('storedJetski1', document.getElementById('orderAmount1').value);
+    localStorage.setItem('storedJetski2', document.getElementById('orderAmount2').value);
+    localStorage.setItem('storedJetski3', document.getElementById('orderAmount3').value);
+    localStorage.setItem('storedDay', document.getElementById('rentDay').value);
+    localStorage.setItem('storedMonth', document.getElementById('rentMonth').value);
+    localStorage.setItem('storedYear', document.getElementById('rentYear').value);
+    localStorage.setItem('storedTimePeriod', document.getElementById('rentTime').value);
+    localStorage.setItem('storedOrderPrice', finalPrice);
+    window.location = "orderConfirmation.html";
+}
+
