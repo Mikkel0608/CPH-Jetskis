@@ -76,7 +76,12 @@ function register() {
     }
 
     //6. Validating the e-mail
-
+    if (email==null || email=="")
+    {
+        document.getElementById('email').style.borderColor = "red";
+        validation_message += "Venligst udfyld E-mail!";
+        form_valid = false;
+    }
 
     /*7. Validating the password. The else if statement validates whether the value for password
      is the same as in the confirm password text area. The text fields for the password and the confirm password
