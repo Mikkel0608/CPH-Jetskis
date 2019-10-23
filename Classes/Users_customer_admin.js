@@ -45,6 +45,7 @@ function register() {
     //2. Validating the name
     if (customerName==null || customerName=="")
     {
+        document.getElementById('customerName').style.borderColor = "red";
         validation_message += "Venligst udfyld navn!";
         form_valid = false;
     }
@@ -52,6 +53,7 @@ function register() {
     //3. Validating the address (same method as the name)
     if (address==null || address=="")
     {
+        document.getElementById('address').style.borderColor = "red";
         validation_message += "Venligst udfyld addresse!";
         form_valid = false;
     }
@@ -59,6 +61,7 @@ function register() {
     //4. Validating the City
     if (city==null || city=="")
     {
+        document.getElementById('city').style.borderColor = "red";
         validation_message += "Venligst udfyld by!";
         form_valid = false;
     }
@@ -66,22 +69,32 @@ function register() {
     //5. Validating the phone number
     if (isNaN(phone) || phone==null || phone=="")
     {
+        document.getElementById('phone').style.borderColor = "red";
         validation_message += "Venligst udfyld telefonnummer!";
         form_valid = false;
     }
 
     //6. Validating the e-mail
-
+    if (email==null || email=="")
+    {
+        document.getElementById('email').style.borderColor = "red";
+        validation_message += "Venligst udfyld E-mail!";
+        form_valid = false;
+    }
 
     /*7. Validating the password. The else if statement validates whether the value for password
-     is the same as in the confirm password text area.
+     is the same as in the confirm password text area. The text fields for the password and the confirm password
+     are also made red when invalid.
      */
-    if (password==null || password=="")
+    if (password==null || password=="" || confirmPassword==null || confirmPassword=="")
     {
+        document.getElementById('password').style.borderColor = "red";
+        document.getElementById('confirmPassword').style.borderColor = "red";
         validation_message += "Venligst udfyld password!";
         form_valid = false;
     }
     else if (document.getElementById("password").value!=document.getElementById("confirmPassword").value) {
+        document.getElementById('confirmPassword').style.borderColor = "red";
         validation_message += "Passwords er ikke ens"
         form_valid = false;
     }
