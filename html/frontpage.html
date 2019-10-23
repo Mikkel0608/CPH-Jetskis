@@ -14,8 +14,8 @@
         <h1 id="headTitle">CPH JETSKIS </h1>
     </div>
     <a href="frontpage.html"><button id="buttonStyle"> Forside </button></a>
-    <a href="orderPage.html"><button style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
-    <a href="profile.html"><button id="buttonStyle"> Profil </button> </a>
+    <a href="orderPage.html"><button onClick="checkLogin();" style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
+    <a href="profile.html"><button onClick="checkLogin();" id="buttonStyle"> Profil </button> </a>
     <!-- Login button will only be shown if the localStorage is empty -->
     <a id="loginButton" style="display:;" href="Loginpage.html"><button style="position: absolute; right:0px;" id="buttonStyle"> Log-Ind </button> </a>
     <!-- If user is active in localStorage, show the users phone: -->

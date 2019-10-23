@@ -11,10 +11,6 @@ window.onload = function getCustomerInfo() {
     document.getElementById('customerPhone').innerHTML=storedPhone;
     document.getElementById('customerEmail').innerHTML=storedEmail;
 
-    //If the user is not logged in, it returns to the login page
-    if (localStorage.getItem('phone') == null) {
-        window.location = "Loginpage.html";
-    }
     //This part shows the logged in user in the navibar
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 }

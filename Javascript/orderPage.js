@@ -1,7 +1,4 @@
-window.onload = function checkLogin() {
-    if (localStorage.getItem('phone') == null) {
-        window.location = "Loginpage.html"
-    }
+window.onload = function checkLoginButton() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 }
 function confirmTime() {
