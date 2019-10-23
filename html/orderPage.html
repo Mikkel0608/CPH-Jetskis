@@ -14,8 +14,8 @@
         <h1 id="headTitle">CPH JETSKIS </h1>
     </div>
     <a href="frontpage.html"><button style="border-right-width=1px" id="buttonStyle"> Forside </button></a>
-    <a href="orderPage.html"><button style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
-    <a href="profile.html"><button  id="buttonStyle"> Profil </button> </a>
+    <button onclick="checkLoginOrderPage()" style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
+    <button onclick="checkLoginProfilePage()"  id="buttonStyle"> Profil </button> </a>
     <!-- If user is active in localStorage, show the users phone: -->
     <button id="loginPhone"> </button>
 </div>
@@ -100,7 +100,7 @@
     <br><br><br>
 
     <!-- This confirmation button checks the vacant jetskis for the given time -->
-    <button onclick="confirmTime()" type="submit" id="buttonOnPage"> Find tidspunkt </button>
+    <button onclick="confirmTime()" type="submit" id="buttonOnPage"> Vælg tidspunkt </button>
 
 </div>
 
@@ -189,7 +189,7 @@ selects an amount of jetskis. -->
             <!-- The following div "totalPrice" shows the total price of everything in the basket  -->
             <div id="totalPrice"> </div>
         </div>
-        <button id="confirmPurchaseButton"> BESTIL </button>
+        <a href="orderConfirmation.html"><button id="confirmPurchaseButton"> BESTIL </button></a>
     </div>
     <br style="clear: left">
 </div>
