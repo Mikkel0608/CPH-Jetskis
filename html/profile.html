@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>CPH Jetskis</title>
     <link rel="stylesheet" type="text/css" href="../CSS/styles.css">
-    <script type="text/javascript" src="../Javascript/profile.js"></script>
 </head>
 
 <body style="background-color:rgb(245, 246, 250)">
@@ -17,6 +16,8 @@
     <a href="frontpage.html"><button id="buttonStyle"> Forside </button></a>
     <a href="orderPage.html"><button style="border-right-width: 0; border-left-width: 0" id="buttonStyle"> Bestil tid </button></a>
     <a href="profile.html"><button id="buttonStyle"> Profil </button> </a>
+    <!-- If user is active in localStorage, show the users phone: -->
+    <button id="loginPhone"> </button>
 </div>
 
 <!-- Text on the page-->
@@ -30,16 +31,16 @@
     <h4>Navn: </h4> <p id="customerName"></p>
     <br>
 
-    <h4>Adresse:</h4> <p id="customerAddress"></p>
+    <h4>Adresse: </h4> <p id="customerAddress"></p>
     <br>
 
-    <h4>By:</h4> <p id="customerCity"></p>
+    <h4>By: </h4> <p id="customerCity"></p>
     <br>
 
-    <h4>Telefonnummer:</h4> <p id="customerPhone"></p>
+    <h4>Telefonnummer: </h4> <p id="customerPhone"></p>
     <br>
 
-    <h4>Email:</h4> <p id="customerEmail"></p>
+    <h4>Email: </h4> <p id="customerEmail"></p>
     <br>
 
     <br><br>
@@ -48,6 +49,7 @@
     <button id="deleteUser" onclick="deleteUser()"> Slet bruger </button>
 </div>
 
+<script type="text/javascript" src="../Javascript/profile.js"></script>
 </body>
 
 </html
