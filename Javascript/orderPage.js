@@ -36,7 +36,7 @@ function confirmTime() {
 
 
 
-//Tests if the vars set before are equal to 00 (haven't been set). If they are not, it shows the jetskis)
+    //Tests if the vars set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
         document.getElementById("modelContainer1").style.display = "";
         document.getElementById("modelContainer2").style.display = "";
@@ -44,7 +44,36 @@ function confirmTime() {
     } else {
         alert("Udfyld venligst alle felter.")
     }
-
+    //This next if statement checks the localstorage and sees if there are already any reservation on the given date/time.
+    if (rentDayValue == localStorage.getItem('storedDay') && rentMonthValue == localStorage.getItem('storedMonth') && rentYearValue == localStorage.getItem('storedYear') && rentTimeValue == localStorage.getItem('storedTimePeriod')) {
+        //Checks if there are any orders of Jetski 1 in local storage
+        if (localStorage.getItem('storedJetski1') == 1) {
+            document.getElementById('jetski1Amount3').style.display = "none";
+        } else if (localStorage.getItem('storedJetski1') == 2) {
+            document.getElementById('jetski1Amount3').style.display = "none";
+            document.getElementById('jetski1Amount2').style.display = "none";
+        } else if (localStorage.getItem('storedJetski1') == 3) {
+            document.getElementById("modelContainer1").style.display = "none";
+        }
+        // Checks if there are any orders of Jetski 2 in local storage
+        if (localStorage.getItem('storedJetski2') == 1) {
+            document.getElementById('jetski2Amount3').style.display = "none";
+        } else if (localStorage.getItem('storedJetski2') == 2) {
+            document.getElementById('jetski2Amount3').style.display = "none";
+            document.getElementById('jetski2Amount2').style.display = "none";
+        } else if (localStorage.getItem('storedJetski2') == 3) {
+            document.getElementById("modelContainer2").style.display = "none";
+        }
+        // Checks if there are any orders of Jetski 3 in local storage
+        if (localStorage.getItem('storedJetski3') == 1) {
+            document.getElementById('jetski3Amount3').style.display = "none";
+        } else if (localStorage.getItem('storedJetski3') == 2) {
+            document.getElementById('jetski3Amount3').style.display = "none";
+            document.getElementById('jetski3Amount2').style.display = "none";
+        } else if (localStorage.getItem('storedJetski3') == 3) {
+            document.getElementById("modelContainer3").style.display = "none";
+        }
+    }
 }
 
 class Jetski {

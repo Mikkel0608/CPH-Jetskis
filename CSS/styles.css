@@ -9,10 +9,11 @@
     position: fixed;
     font-size: 25px;
     top: -8px;
-    z-index: 2;
+    z-index: 3;
     color: ghostwhite;
     left: 5px;
 }
+
 
 #naviBar {
     position: fixed;
