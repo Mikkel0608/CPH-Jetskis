@@ -134,9 +134,6 @@ function getNumber() {
      for (i = 0; i ≤ 5; i++){
           option[1].innerHTML = customer1.phone
   }*/    }
-getNumber();
-
-
 
 
 //This function will validate whether the input values correspond to the values stored in localStorage.
@@ -199,7 +196,7 @@ function validate() {
     }
 }
 
-
+ getNumber();
 
 
 
