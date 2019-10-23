@@ -1,6 +1,6 @@
 //A class is created. It's variables are info about the customers.
 class customer {
-    constructor(customerName, address, phone, email, password){
+    constructor(customerName, address, city, phone, email, password){
         this.customerName = customerName;
         this.address = address;
         this.city = city;
@@ -21,7 +21,6 @@ class customer {
         window.location = "Loginpage.html";
     }
 }
-
 
 //Variables are created using the input from the form, and an object is created.
 function register() {
@@ -101,11 +100,29 @@ function register() {
 }
 
 //An array is created for the customer users
-var customer1 =['Per','Nørregade 31', 'København', '45678904','per@købenahvn.dk', 'per123'];
-var customer2 =['Tina','Gothersgade 42', 'København', '22340987','tina@gmail.com', 'Minkode122'];
-var customer3 =['Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42'];
-var customer4 =['Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig'];
-var customer5 =['Niels', 'Gurrevej 12', 'Helsingør', '73459011','Niels123@yahoo.dk','Niels8477'];
+var customer1 = new customer('Per','Nørregade 31', 'København', '45678904','per@købenahvn.dk', 'per123');
+var customer2 = new customer('Tina','Gothersgade 42', 'København', '22340987','tina@gmail.com', 'Minkode122');
+var customer3 = new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42');
+var customer4 = new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig');
+var customer5 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477');
+
+// this function is
+function getNumber() {
+   var selection = document. getElementById("phoneSelect");
+   var option = selection.options;
+          option[1].innerHTML = customer1.phone;
+          option[2].innerHTML = customer2.phone;
+          option[3].innerHTML = customer3.phone;
+          option[4].innerHTML = customer4.phone;
+          option[5].innerHTML = customer5.phone;
+          option[6].innerHTML = localStorage.getItem("phone");
+
+    /*
+     for (i = 0; i ≤ 5; i++){
+          option[1].innerHTML = customer1.phone
+  }*/    }
+getNumber();
+
 
 
 
