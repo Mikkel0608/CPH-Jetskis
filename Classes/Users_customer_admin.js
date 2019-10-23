@@ -34,7 +34,7 @@ function register() {
 
 
 
-    var customer1 = new customer(customerName, address, city, phone, email, password);
+    //var customer1 = new customer(customerName, address, city, phone, email, password);
     //Down here, the function storeLogin is called.
 
     //The following lines of code will validate whether the inputs are valid.
@@ -105,35 +105,33 @@ function register() {
      */
     if (form_valid) {
         alert("Ny bruger er blevet oprettet");
-        customer1.storeLogin()
+        customer1.storeLogin();
+        window.location ="Loginpage.html";
     } else {
         alert(validation_message)
     }
 
 }
 
-//An array is created for the customer users
-var customer1 = new customer('Per','Nørregade 31', 'København', '45678904','per@købenahvn.dk', 'per123');
-var customer2 = new customer('Tina','Gothersgade 42', 'København', '22340987','tina@gmail.com', 'Minkode122');
-var customer3 = new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42');
-var customer4 = new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig');
-var customer5 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477');
 
-// this function is
-function getNumber() {
-   var selection = document. getElementById("phoneSelect");
-   var option = selection.options;
-          option[1].innerHTML = customer1.phone;
-          option[2].innerHTML = customer2.phone;
-          option[3].innerHTML = customer3.phone;
-          option[4].innerHTML = customer4.phone;
-          option[5].innerHTML = customer5.phone;
-          option[6].innerHTML = localStorage.getItem("phone");
+var customer1;
+var customer2;
+var customer3;
+var customer4;
+var customer5;
+var customer6;
 
-    /*
-     for (i = 0; i ≤ 5; i++){
-          option[1].innerHTML = customer1.phone
-  }*/    }
+var customerArray = [];
+//5 customer objects are created
+customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
+customer2 = new customer('Per','Nørregade 31, 4th', 'København', '45678904','per@købenahvn.dk', 'per123');
+customer3 = new customer('Tina','Gothersgade 42, 3tv', 'København', '22340987','tina@gmail.com', 'Minkode122');
+customer4 = new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42');
+customer5 = new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig');
+customer6 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477');
+
+customerArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
+
 
 
 //This function will validate whether the input values correspond to the values stored in localStorage.
@@ -154,15 +152,15 @@ function loginVal() {
 
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
         window.location ="frontpage.html";
-    } else if (inputPhone.value == customer1[3] && inputPassword.value == customer1[5]){
+    } else if (inputPhone.value == customer1.phone && inputPassword.value == customer1.password){
         window.location ="frontpage.html";
-    } else if (inputPhone.value == customer2[3] && inputPassword.value == customer2[5]) {
+    } else if (inputPhone.value == customer2.phone && inputPassword.value == customer2.password) {
         window.location = "frontpage.html";
-    } else if (inputPhone.value == customer3[3] && inputPassword.value == customer3[5]) {
+    } else if (inputPhone.value == customer3.phone && inputPassword.value == customer3.password) {
         window.location = "frontpage.html";
-    } else if (inputPhone.value == customer4[3] && inputPassword.value == customer4[5]) {
+    } else if (inputPhone.value == customer4.phone && inputPassword.value == customer4.password) {
         window.location = "frontpage.html";
-    } else if (inputPhone.value == customer5[3] && inputPassword.value == customer5[5]) {
+    } else if (inputPhone.value == customer5.phone && inputPassword.value == customer5.password) {
         window.location = "frontpage.html";
     } else {
         alert('Fejl ved login - forkert telefonnummer og password kombination')
@@ -195,9 +193,32 @@ function validate() {
         loginVal()
     }
 }
+// this function is made to get phonenumbers from customers into the selectmenu in the Changeuser HTML.
+var selection = document.getElementById("phoneSelect");
+var option = selection.options;
+
+function getNumber() {
+    option[1].innerHTML = customer1.phone;
+    option[2].innerHTML = customer2.phone;
+    option[3].innerHTML = customer3.phone;
+    option[4].innerHTML = customer4.phone;
+    option[5].innerHTML = customer5.phone;
+    option[6].innerHTML = customer6.phone;
+}
 
  getNumber();
 
 
-
+function showInfo () {
+    for (i = 0; i < customerArray.length; i++) {
+        if (selection.value == customerArray[i].phone) {
+            document.getElementById('customerName').innerHTML = customerArray[i].customerName;
+            document.getElementById('customerAddress').innerHTML = customerArray[i].address;
+            document.getElementById('customerCity').innerHTML = customerArray[i].city;
+            document.getElementById('customerPhone').innerHTML = customerArray[i].phone;
+            document.getElementById('customerEmail').innerHTML = customerArray[i].email;
+            
+        }
+    }
+}
 

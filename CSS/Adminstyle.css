@@ -43,3 +43,30 @@
     border-bottom-width: 0px;
     border-color: ghostwhite;
 }
+#showinfo{
+    font-family: modernSansLight;
+    font-size: 17px;
+    color: ghostwhite;
+    background-color: rgb(0, 168, 255);
+    border-color: ghostwhite;
+    height: 40px;
+    cursor: pointer;
+}
+#showinfo:hover{
+    font-family: modernSansLight;
+    font-size: 17px;
+    color: rgb(0, 168, 255);
+    background-color: ghostwhite;
+    border-color: rgb(0, 168, 255);
+    height: 40px;
+    cursor: pointer;
+}
+#showinfo:active{
+    font-family: modernSansLight;
+    font-size: 17px;
+    color: rgb(0, 168, 255);
+    background-color: ghostwhite;
+    border-color: rgb(0, 168, 255);
+    height: 40px;
+    cursor: pointer;
+}

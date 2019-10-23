@@ -21,7 +21,7 @@
 <h2> style="font-family: modernSansLight; font-size: 30px;"> Brugerprofil </h2>
 <br>
 <br>
-<h4> Følgende brugere er registreret</h4>
+<h3>Vælg brugerens telefonnummer for at se brugerinformation</h3>
 
 <br>
 <select id="phoneSelect">
@@ -32,9 +32,22 @@
     <option id="customer4"></option>
     <option id="customer5"></option>
     <option id="customer6"></option>
-
-
 </select>
+<button id=showinfo onclick="showInfo()">Se oplysninger på bruger</button>
+
+ <div>
+    <h4>Brugerinformation</h4>
+    <h5>Navn</h5> <p id="customerName"></p>
+
+     <h5>Adresse</h5> <p id="customerAddress"></p>
+
+     <h5>By</h5> <p id="customerCity"></p>
+
+     <h5>Telefonnummer</h5> <p id="customerPhone"></p>
+
+     <h5>Email</h5><p id="customerEmail"></p>
+</div>
+
 
 </body>
 <script src="../Classes/Users_customer_admin.js"></script>
