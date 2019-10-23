@@ -100,6 +100,13 @@ function register() {
 
 }
 
+//An array is created for the customer users
+var customer1 =['Per','Nørregade 31', 'København', '45678904','per@købenahvn.dk', 'per123'];
+var customer2 =['Tina','Gothersgade 42', 'København', '22340987','tina@gmail.com', 'Minkode122'];
+var customer3 =['Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42'];
+var customer4 =['Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig'];
+var customer5 =['Niels', 'Gurrevej 12', 'Helsingør', '73459011','Niels123@yahoo.dk','Niels8477'];
+
 
 
 //This function will validate whether the input values correspond to the values stored in localStorage.
@@ -120,14 +127,20 @@ function loginVal() {
 
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
         window.location ="frontpage.html";
-    }else {
+    } else if (inputPhone.value == customer1[3] && inputPassword.value == customer1[5]){
+        window.location ="frontpage.html";
+    } else if (inputPhone.value == customer2[3] && inputPassword.value == customer2[5]) {
+        window.location = "frontpage.html";
+    } else if (inputPhone.value == customer3[3] && inputPassword.value == customer3[5]) {
+        window.location = "frontpage.html";
+    } else if (inputPhone.value == customer4[3] && inputPassword.value == customer4[5]) {
+        window.location = "frontpage.html";
+    } else if (inputPhone.value == customer5[3] && inputPassword.value == customer5[5]) {
+        window.location = "frontpage.html";
+    } else {
         alert('Fejl ved login - forkert telefonnummer og password kombination')
     }
 }
-
-
-
-
 
 
 //A class is created for the admin. The only variables in this class are username and password.
@@ -151,13 +164,13 @@ function validate() {
         window.location = "adminpage.html";
     } else if (phone == admin1.username && password != admin1.password) {
         alert("Wrong Password")
-    } else if (phone != 'admin') {
+    } else if (phone != admin1.username) {
         loginVal()
     }
 }
 
 
-//An array is created for the customer users
+
 
 
 
