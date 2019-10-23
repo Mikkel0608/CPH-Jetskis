@@ -1,6 +1,27 @@
 window.onload = function checkLoginButton() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
+
+    //checks if the user is logged in and redirects to loginpage if not (this is used if the user is linked directly to this page)
+    if (localStorage.getItem('phone') == null) {
+        window.location = "Loginpage.html"
+    }
 }
+function checkLoginOrderPage() {
+    if (localStorage.getItem('phone') == null) {
+        window.location = "Loginpage.html"
+    } else {
+        window.location ="orderPage.html"
+    }
+}
+
+function checkLoginProfilePage() {
+    if (localStorage.getItem('phone') == null) {
+        window.location = "Loginpage.html"
+    } else {
+        window.location ="profile.html"
+    }
+}
+
 function confirmTime() {
     // creating variables that represents the user selection of date and time
     var rentDayID = document.getElementById("rentDay");
@@ -12,6 +33,8 @@ function confirmTime() {
 
     var rentTimeID = document.getElementById("rentTime");
     var rentTimeValue = rentTimeID.options[rentTimeID.selectedIndex].value;
+
+
 
 //Tests if the vars set before are equal to 00 (haven't been set). If they are not, it shows the jetskis)
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
