@@ -22,7 +22,7 @@
 
 <!-- Text on the page-->
 <br><br><br>
-<div id="tekstFelt">
+<div style="float: left" id="leftTextArea">
     <h2 style="font-family: modernSansLight; font-size: 30px;"> Brugerprofil </h2>
     <br>
     <h4> Herunder kan du se de oplysninger vi har registreret om dig:</h4>
@@ -48,7 +48,17 @@
     <a href="Loginpage.html"><button id="buttonOnPage"> Log ud </button></a>
     <button id="deleteUser" onclick="deleteUser()"> Slet bruger </button>
 </div>
+<div style="position: absolute; top: 225px; right: 300px;" id="rightTextArea">
+    <h4> Dine tidligere bestillinger:</h4>
+    <p id="date"></p>
+    <p id="timePeriod"></p>
+    <p id="amountOfJetski1"></p>
+    <p id="amountOfJetski2"></p>
+    <p id="amountOfJetski3"></p>
+    <p id="orderPrice"></p>
 
+
+</div>
 <script type="text/javascript" src="../Javascript/profile.js"></script>
 </body>
 
