@@ -113,7 +113,7 @@ function register() {
 
 }
 
-
+// Here i create variables for the customers.
 var customer1;
 var customer2;
 var customer3;
@@ -121,6 +121,7 @@ var customer4;
 var customer5;
 var customer6;
 
+//An empty array is first created.
 var customerArray = [];
 //5 customer objects are created
 customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
@@ -130,6 +131,7 @@ customer4 = new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Lo
 customer5 = new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig');
 customer6 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477');
 
+//The 5 objects i just created is being pushed to the customerArray
 customerArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
 
 
