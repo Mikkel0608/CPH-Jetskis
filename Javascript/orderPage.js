@@ -137,6 +137,7 @@ class Order {
 
 
     var orderArray = [];
+    order1 = new Order(localStorage.getItem('phone'), localStorage.getItem('amount1'), localStorage.getItem('amount2'), localStorage.getItem('amount3'), localStorage.getItem('orderDay'), localStorage.getItem('orderMonth'), localStorage.getItem('orderYear'), localStorage.getItem('timePeriod'), localStorage.getItem('orderPrice'));
     order2 = new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400');
     order3 = new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700');
     order4 = new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600');
