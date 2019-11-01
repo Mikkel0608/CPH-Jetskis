@@ -71,10 +71,7 @@
     cursor: pointer;
 }
 
-.boxed {
-    width: 300px;
-    border: 8px solid #00A8FF;
-    padding: 50px;
-    margin: 20px;
-    text-align: center;
+#orderDetails{
+position: fixed;
+    margin-left: 300px;
 }

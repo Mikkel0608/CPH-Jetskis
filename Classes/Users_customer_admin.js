@@ -214,7 +214,7 @@ function showInfo () {
         }
     }
 }
-function showOrder(){
+/*function showOrder(){
     if (selection.value == customer1.phone){
 
     var day = localStorage.getItem('orderDay');
@@ -238,4 +238,5 @@ function showOrder(){
         document.getElementById('amountOfJetski3').innerHTML ="";
         document.getElementById('orderPrice').innerHTML = "";
     }
-}
+}*/
+

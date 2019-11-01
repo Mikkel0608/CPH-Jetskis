@@ -133,7 +133,8 @@ class Order {
         this.orderYear = orderYear;
         this.timePeriod = timePeriod;
         this.orderPrice = orderPrice;
-    } }
+    }
+}
 
 
     var orderArray = [];
@@ -144,7 +145,7 @@ class Order {
     order5 = new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900');
     order6 = new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600');
 
-    orderArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
+    orderArray.push(order1, order2, order3, order4, order5, order6);
 
  /* denne kode virker ikke   storeOrder(){
         localStorage.setItem('amount1', amount1.value);
@@ -198,6 +199,24 @@ function storeOrder() {
     localStorage.setItem('orderPrice', finalPrice);
     window.location = "orderConfirmation.html";
 }
+
+// Dette Loop viser undefined ved aktivering derfor skal det rettes før det bliver taget i brug.
+
+function showOrder(){
+    for (i = 0; i < orderArray.length; i++) {
+        if (selection.value === orderArray[i].phone) {
+            document.getElementById('orderHeadline').innerHTML = "<h4>Nuværende og tidligere bestilling</h4>";
+            document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
+            document.getElementById('timePeriod').innerHTML = "Tidspunkt for udlejning: kl. " + orderArray[i].timePeriod;
+            document.getElementById('amountOfJetski1').innerHTML = "Antal Sea Doo Spark: " + orderArray[i].amount1;
+            document.getElementById('amountOfJetski2').innerHTML = "Antal Yamaha Waverunner VX: " + orderArray[i].amount2;
+            document.getElementById('amountOfJetski3').innerHTML = "Antal Kawasaki STX-15F: " + orderArray[i].amount3;
+            document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + orderArray[i].orderPrice;
+
+        }
+    }
+}
+
 
 
 

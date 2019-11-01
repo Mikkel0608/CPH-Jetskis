@@ -33,14 +33,15 @@
     <option id="customer5"></option>
     <option id="customer6"></option>
 </select>
-<button id=showinfo onclick="showInfo(), showOrder()">Se oplysninger på bruger</button>
+<button id=showinfo onclick="showInfo()">Vis brugeroplysninger</button> <button id=showinfo onclick="showOrder()">Vis ordre tilhørende bruger</button>
+
 
 <br>
 <br>
 
  <div style="float: left">
-    <h4>Brugerinformation</h4>
-    <h5>Navn</h5> <p id="customerName"></p>
+     <h4>Brugerinformation</h4>
+     <h5>Navn</h5> <p id="customerName"></p>
 
      <h5>Adresse</h5> <p id="customerAddress"></p>
 
@@ -49,9 +50,10 @@
      <h5>Telefonnummer</h5> <p id="customerPhone"></p>
 
      <h5>Email</h5><p id="customerEmail"></p>
+
 </div>
 
-<div style="float: left;" >
+<div id="orderDetails">
     <p id="orderHeadline"></p>
     <p id="date"></p>
     <p id="timePeriod"></p>
@@ -64,5 +66,5 @@
 
 </body>
 <script type="text/javascript" src="../Classes/Users_customer_admin.js"></script>
-
+<script type="text/javascript" src="../Javascript/orderPage.js"></script>
 </html>
