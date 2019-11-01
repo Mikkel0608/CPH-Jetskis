@@ -49,28 +49,28 @@ function confirmTime() {
         //Checks if there are any orders of Jetski 1 in local storage and adjusts the amount shown
         if (localStorage.getItem('amountOfJetski1') == 1) {
             document.getElementById('jetski1Amount3').style.display = "none";
-        } else if (localStorage.getItem('amountOfJetski1') == 2) {
+        } else if (localStorage.getItem('amount1') == 2) {
             document.getElementById('jetski1Amount3').style.display = "none";
             document.getElementById('jetski1Amount2').style.display = "none";
-        } else if (localStorage.getItem('amountOfJetski1') == 3) {
+        } else if (localStorage.getItem('amount1') == 3) {
             document.getElementById("modelContainer1").style.display = "none";
         }
         // Checks if there are any orders of Jetski 2 in local storage and adjusts the amount shown
         if (localStorage.getItem('amountOfJetski2') == 1) {
             document.getElementById('jetski2Amount3').style.display = "none";
-        } else if (localStorage.getItem('amountOfJetski2') == 2) {
+        } else if (localStorage.getItem('amount2') == 2) {
             document.getElementById('jetski2Amount3').style.display = "none";
             document.getElementById('jetski2Amount2').style.display = "none";
-        } else if (localStorage.getItem('amountOfJetski2') == 3) {
+        } else if (localStorage.getItem('amount2') == 3) {
             document.getElementById("modelContainer2").style.display = "none";
         }
         // Checks if there are any orders of Jetski 3 in local storage and adjusts the amount shown
-        if (localStorage.getItem('amountOfJetski3') == 1) {
+        if (localStorage.getItem('amount3') == 1) {
             document.getElementById('jetski3Amount3').style.display = "none";
-        } else if (localStorage.getItem('amountOfJetski3') == 2) {
+        } else if (localStorage.getItem('amount3') == 2) {
             document.getElementById('jetski3Amount3').style.display = "none";
             document.getElementById('jetski3Amount2').style.display = "none";
-        } else if (localStorage.getItem('amountOfJetski3') == 3) {
+        } else if (localStorage.getItem('amount3') == 3) {
             document.getElementById("modelContainer3").style.display = "none";
         }
     }
