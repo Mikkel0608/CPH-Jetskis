@@ -36,7 +36,7 @@ function confirmTime() {
 
 
 
-    //Tests if the vars set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
+    //Tests if the variables set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
         document.getElementById("modelContainer1").style.display = "";
         document.getElementById("modelContainer2").style.display = "";
@@ -121,27 +121,67 @@ function calculatePrice() {
 }
 
 //Creating class to define each individual order
+
 class Order {
-    constructor(amountOfJetski1, amountofJetski2, amountofJetski3, orderDay, orderMonth, orderYear, timePeriod, orderPrice) {
-        this.amountOfJetski1 = amountOfJetski1;
-        this.amountOfJetski2 = amountOfJetski2;
-        this.amountOfJetski3 = amountOfJetski3;
+    constructor(amount1, amount2, amount3, orderDay, orderMonth, orderYear, timePeriod, orderPrice) {
+        this.amount1 = amount1;
+        this.amount2 = amount2;
+        this.amount3 = amount3;
         this.orderDay = orderDay;
         this.orderMonth = orderMonth;
         this.orderYear = orderYear;
         this.timePeriod = timePeriod;
         this.orderPrice = orderPrice;
+    } }
+
+
+    var orderArray = [];
+    order1 = new Order('2', '1', '1', '')
+ /*   storeOrder(){
+        localStorage.setItem('amount1', amount1.value);
+        localStorage.setItem('amount2', amount2.value);
+        localStorage.setItem('amount3', amount3.value);
+        localStorage.setItem('orderDay', orderDay.value);
+        localStorage.setItem('orderMonth', orderMonth.value);
+        localStorage.setItem('orderYear', orderYear.value);
+        localStorage.setItem('timePeriod', timePeriod.value);
+        localStorage.setItem('orderPrice', finalPrice.value);
+
     }
+
 }
+
+function registerOrder(){
+    var amount1 = document.getElementById('orderAmount1').value;
+    var amount2 = document.getElementById('orderAmount2').value;
+    var amount3 = document.getElementById('orderAmount3').value;
+    var orderDay = document.getElementById('rentDay').value;
+    var orderMonth = document.getElementById('rentMonth').value;
+    var orderYear = document.getElementById('rentYear').value;
+    var timePeriod = document.getElementById('rentTime').value;
+    var orderAmount1JS = document.getElementById('orderAmount1').value;
+    var orderAmount2JS = document.getElementById('orderAmount2').value;
+    var orderAmount3JS = document.getElementById('orderAmount3').value;
+    var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
+
+    var order1 = new order(amount1, amount2, amount3, orderDay, orderMonth, orderYear, timePeriod, finalPrice);
+
+    order1.storeOrder();
+    window.location = 'orderConfirmation.html';
+
+}
+*/
+
+
 
 function storeOrder() {
     var orderAmount1JS = document.getElementById('orderAmount1').value;
     var orderAmount2JS = document.getElementById('orderAmount2').value;
     var orderAmount3JS = document.getElementById('orderAmount3').value;
     var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
-    localStorage.setItem('amountOfJetski1', document.getElementById('orderAmount1').value);
-    localStorage.setItem('amountOfJetski2', document.getElementById('orderAmount2').value);
-    localStorage.setItem('amountOfJetski3', document.getElementById('orderAmount3').value);
+    localStorage.setItem('amount1', document.getElementById('orderAmount1').value);
+    localStorage.setItem('amount2', document.getElementById('orderAmount2').value);
+    localStorage.setItem('amount3', document.getElementById('orderAmount3').value);
     localStorage.setItem('orderDay', document.getElementById('rentDay').value);
     localStorage.setItem('orderMonth', document.getElementById('rentMonth').value);
     localStorage.setItem('orderYear', document.getElementById('rentYear').value);
@@ -149,4 +189,8 @@ function storeOrder() {
     localStorage.setItem('orderPrice', finalPrice);
     window.location = "orderConfirmation.html";
 }
+
+
+
+
 
