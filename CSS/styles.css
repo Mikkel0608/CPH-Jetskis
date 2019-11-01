@@ -136,5 +136,24 @@ html, body {
     right: 10px;
     bottom: 10px;
 }
-
+#frontContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+#frontText {
+    color: ghostwhite;
+    font-family: modernSansLight;
+    font-size: 25px;
+}
+@media screen and (max-width: 1100px) {
+    #frontText {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 900px) {
+    #frontText {
+        font-size: 15px;
+    }
+}
 
