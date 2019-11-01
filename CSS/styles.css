@@ -6,10 +6,10 @@
 #headTitle {
     font-family: Candara;
     font-style: oblique;
-    position: fixed;
+    position: absolute;
     font-size: 25px;
     top: -8px;
-    z-index: 2;
+    z-index: 3;
     color: ghostwhite;
     left: 5px;
 }

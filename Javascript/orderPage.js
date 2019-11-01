@@ -36,7 +36,7 @@ function confirmTime() {
 
 
 
-//Tests if the vars set before are equal to 00 (haven't been set). If they are not, it shows the jetskis)
+    //Tests if the vars set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
         document.getElementById("modelContainer1").style.display = "";
         document.getElementById("modelContainer2").style.display = "";
@@ -44,7 +44,36 @@ function confirmTime() {
     } else {
         alert("Udfyld venligst alle felter.")
     }
-
+    //This next if statement checks the localstorage and sees if there are already any reservation for the given date/time.
+    if (rentDayValue == localStorage.getItem('storedDay') && rentMonthValue == localStorage.getItem('storedMonth') && rentYearValue == localStorage.getItem('storedYear') && rentTimeValue == localStorage.getItem('storedTimePeriod')) {
+        //Checks if there are any orders of Jetski 1 in local storage and adjusts the amount shown
+        if (localStorage.getItem('storedJetski1') == 1) {
+            document.getElementById('jetski1Amount3').style.display = "none";
+        } else if (localStorage.getItem('storedJetski1') == 2) {
+            document.getElementById('jetski1Amount3').style.display = "none";
+            document.getElementById('jetski1Amount2').style.display = "none";
+        } else if (localStorage.getItem('storedJetski1') == 3) {
+            document.getElementById("modelContainer1").style.display = "none";
+        }
+        // Checks if there are any orders of Jetski 2 in local storage and adjusts the amount shown
+        if (localStorage.getItem('storedJetski2') == 1) {
+            document.getElementById('jetski2Amount3').style.display = "none";
+        } else if (localStorage.getItem('storedJetski2') == 2) {
+            document.getElementById('jetski2Amount3').style.display = "none";
+            document.getElementById('jetski2Amount2').style.display = "none";
+        } else if (localStorage.getItem('storedJetski2') == 3) {
+            document.getElementById("modelContainer2").style.display = "none";
+        }
+        // Checks if there are any orders of Jetski 3 in local storage and adjusts the amount shown
+        if (localStorage.getItem('storedJetski3') == 1) {
+            document.getElementById('jetski3Amount3').style.display = "none";
+        } else if (localStorage.getItem('storedJetski3') == 2) {
+            document.getElementById('jetski3Amount3').style.display = "none";
+            document.getElementById('jetski3Amount2').style.display = "none";
+        } else if (localStorage.getItem('storedJetski3') == 3) {
+            document.getElementById("modelContainer3").style.display = "none";
+        }
+    }
 }
 
 class Jetski {
@@ -89,5 +118,35 @@ function calculatePrice() {
     } else {
         document.getElementById('basketJetski3').innerHTML = "";
     }
+}
+
+//Creating class to define each individual order
+class Order {
+    constructor(amountOfJetski1, amountofJetski2, amountofJetski3, orderDay, orderMonth, orderYear, timePeriod, orderPrice) {
+        this.amountOfJetski1 = amountOfJetski1;
+        this.amountOfJetski2 = amountOfJetski2;
+        this.amountOfJetski3 = amountOfJetski3;
+        this.orderDay = orderDay;
+        this.orderMonth = orderMonth;
+        this.orderYear = orderYear;
+        this.timePeriod = timePeriod;
+        this.orderPrice = orderPrice;
+    }
+}
+
+function storeOrder() {
+    var orderAmount1JS = document.getElementById('orderAmount1').value;
+    var orderAmount2JS = document.getElementById('orderAmount2').value;
+    var orderAmount3JS = document.getElementById('orderAmount3').value;
+    var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
+    localStorage.setItem('storedJetski1', document.getElementById('orderAmount1').value);
+    localStorage.setItem('storedJetski2', document.getElementById('orderAmount2').value);
+    localStorage.setItem('storedJetski3', document.getElementById('orderAmount3').value);
+    localStorage.setItem('storedDay', document.getElementById('rentDay').value);
+    localStorage.setItem('storedMonth', document.getElementById('rentMonth').value);
+    localStorage.setItem('storedYear', document.getElementById('rentYear').value);
+    localStorage.setItem('storedTimePeriod', document.getElementById('rentTime').value);
+    localStorage.setItem('storedOrderPrice', finalPrice);
+    window.location = "orderConfirmation.html";
 }
 
