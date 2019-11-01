@@ -27,6 +27,8 @@ html, body {
     left:0;
     font-size:0;
     z-index: 10;
+    height: 50px;
+    overflow: hidden;
 }
 
 #buttonStyle {
@@ -35,11 +37,12 @@ html, body {
     color: ghostwhite;
     background-color: rgb(0, 168, 255);
     width: 7%;
-    height: 50px;
+    height: 100%;
     border-top-width: 0px;
     border-bottom-width: 0px;
     border-color: ghostwhite;
     cursor: pointer;
+    transition: 0.1s;
 }
 #buttonStyle:hover {
     background-color: ghostwhite;
@@ -79,6 +82,16 @@ html, body {
     height: 40px;
     cursor: pointer;
 }
+
+#jetskiHeadline {
+    position: absolute;
+    top:-15px;
+    left: 150px;
+    font-family: modernSansLight;
+    font-size: 30px;
+    color: ghostwhite;
+}
+
 #basketDivHeadline {
     width: 25%;
     height: 25px;
@@ -89,6 +102,10 @@ html, body {
     color: ghostwhite;
     font-family: modernSansLight;
     font-size: 20px;
+    border-top-style: solid;
+    border-left-style: solid;
+    border-color: ghostwhite;
+    border-width: 1px;
 }
 
 #basketDivMain {
@@ -111,6 +128,9 @@ html, body {
     color: ghostwhite;
     font-family: modernSansLight;
     font-size: 20px;
+    border-left-width: 1px;
+    border-color: ghostwhite;
+    border-left-style: solid;
 }
 #basketDivBottom {
     width: 25%;
@@ -165,6 +185,7 @@ html, body {
     border-color: ghostwhite;
     height: 40px;
     cursor: pointer;
+    transition: 0.1s;
 }
 #frontButton:hover {
     background-color: ghostwhite;
