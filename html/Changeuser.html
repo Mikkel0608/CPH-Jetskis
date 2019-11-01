@@ -25,7 +25,7 @@
 
 <br>
 <select id="phoneSelect">
-    <option > -Tlf- </option>
+    <option selected disabled id="optionTlf"> -Tlf- </option>
     <option id="customer1"> </option>
     <option id="customer2"></option>
     <option id="customer3"></option>
@@ -33,9 +33,12 @@
     <option id="customer5"></option>
     <option id="customer6"></option>
 </select>
-<button id=showinfo onclick="showInfo()">Se oplysninger på bruger</button>
+<button id=showinfo onclick="showInfo(), showOrder()">Se oplysninger på bruger</button>
 
- <div>
+<br>
+<br>
+
+ <div style="float: left">
     <h4>Brugerinformation</h4>
     <h5>Navn</h5> <p id="customerName"></p>
 
@@ -48,7 +51,18 @@
      <h5>Email</h5><p id="customerEmail"></p>
 </div>
 
+<div style="float: left;" >
+    <p id="orderHeadline"></p>
+    <p id="date"></p>
+    <p id="timePeriod"></p>
+    <p id="amountOfJetski1"></p>
+    <p id="amountOfJetski2"></p>
+    <p id="amountOfJetski3"></p>
+    <p id="orderPrice"></p>
+</div>
+
 
 </body>
-<script src="../Classes/Users_customer_admin.js"></script>
+<script type="text/javascript" src="../Classes/Users_customer_admin.js"></script>
+
 </html>

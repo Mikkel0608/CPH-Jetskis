@@ -22,7 +22,7 @@ class customer {
     }
 }
 
-//Variables are created using the input from the form, and an object is created.
+//Variables are created using the input from the form.
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
@@ -32,10 +32,6 @@ function register() {
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
 
-
-
-    //var customer1 = new customer(customerName, address, city, phone, email, password);
-    //Down here, the function storeLogin is called.
 
     //The following lines of code will validate whether the inputs are valid.
     //1. Validating the form
@@ -113,7 +109,7 @@ function register() {
 
 }
 
-
+// Here i create variables for the customers.
 var customer1;
 var customer2;
 var customer3;
@@ -121,6 +117,7 @@ var customer4;
 var customer5;
 var customer6;
 
+//An empty array is first created.
 var customerArray = [];
 //5 customer objects are created
 customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
@@ -130,8 +127,8 @@ customer4 = new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Lo
 customer5 = new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig');
 customer6 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477');
 
+//The 5 objects i just created is being pushed into the customerArray
 customerArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
-
 
 
 //This function will validate whether the input values correspond to the values stored in localStorage.
@@ -178,6 +175,7 @@ class Admin {
 //An object is created from the class
 var admin1 = new Admin('admin', 12345);
 
+
 /*This function validates the login. It retrieves the input entered, and uses an if-statement to check whether
 the input matches the properties in the admin1 object. It also calls the function loginVal, to validate the
 customer log-in.
@@ -193,10 +191,11 @@ function validate() {
         loginVal()
     }
 }
-// this function is made to get phonenumbers from customers into the selectmenu in the Changeuser HTML.
+// This function is made to get phone numbers from customers into the 'selectmenu' in the Changeuser HTML.
 var selection = document.getElementById("phoneSelect");
 var option = selection.options;
 
+//Here the function takes the customers phone number from the array.
 function getNumber() {
     option[1].innerHTML = customer1.phone;
     option[2].innerHTML = customer2.phone;
@@ -206,9 +205,12 @@ function getNumber() {
     option[6].innerHTML = customer6.phone;
 }
 
+// The function getNumber is being called.
  getNumber();
 
 
+/*This function is a loop that first check the selection value in an if statement. If the selection value matches a phone number from customerArray
+then the function shows the rest of the data from the customer object. */
 function showInfo () {
     for (i = 0; i < customerArray.length; i++) {
         if (selection.value == customerArray[i].phone) {
@@ -221,4 +223,28 @@ function showInfo () {
         }
     }
 }
+function showOrder(){
+    if (selection.value == customer1.phone){
 
+    var day = localStorage.getItem('orderDay');
+    var month = localStorage.getItem('orderMonth');
+    var year = localStorage.getItem('orderYear');
+
+    document.getElementById('orderHeadline').innerHTML = "<h4>Nuværende og tidligere bestilling</h4>";
+    document.getElementById('date').innerHTML ="Dato for udlejning: "+ day + "/" + month+"/"+year;
+    document.getElementById('timePeriod').innerHTML ="Tidspunkt for udlejning: kl. " + localStorage.getItem('timePeriod');
+    document.getElementById('amountOfJetski1').innerHTML ="Antal Sea Doo Spark: " + localStorage.getItem('amountOfJetski1');
+    document.getElementById('amountOfJetski2').innerHTML ="Antal Yamaha Waverunner VX: " + localStorage.getItem('amountOfJetski2');
+    document.getElementById('amountOfJetski3').innerHTML ="Antal Kawasaki STX-15F: " + localStorage.getItem('amountOfJetski3');
+    document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
+    }
+    else{
+        document.getElementById('orderHeadline').innerHTML = "";
+        document.getElementById('date').innerHTML ="";
+        document.getElementById('timePeriod').innerHTML ="";
+        document.getElementById('amountOfJetski1').innerHTML ="";
+        document.getElementById('amountOfJetski2').innerHTML ="";
+        document.getElementById('amountOfJetski3').innerHTML ="";
+        document.getElementById('orderPrice').innerHTML = "";
+    }
+}
