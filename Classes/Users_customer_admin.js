@@ -109,15 +109,6 @@ function register() {
 
 }
 
-// Here i create variables for the customers.
-var customer1;
-var customer2;
-var customer3;
-var customer4;
-var customer5;
-var customer6;
-
-//An empty array is first created.
 var customerArray = [];
 //5 customer objects are created
 customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
@@ -173,7 +164,7 @@ class Admin {
     }
 }
 //An object is created from the class
-var admin1 = new Admin('admin', 12345);
+admin1 = new Admin('admin', 12345);
 
 
 /*This function validates the login. It retrieves the input entered, and uses an if-statement to check whether
