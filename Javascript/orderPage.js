@@ -123,7 +123,8 @@ function calculatePrice() {
 //Creating class to define each individual order
 
 class Order {
-    constructor(amount1, amount2, amount3, orderDay, orderMonth, orderYear, timePeriod, orderPrice) {
+    constructor(phone, amount1, amount2, amount3, orderDay, orderMonth, orderYear, timePeriod, orderPrice) {
+        this.phone = phone;
         this.amount1 = amount1;
         this.amount2 = amount2;
         this.amount3 = amount3;
@@ -136,8 +137,15 @@ class Order {
 
 
     var orderArray = [];
-    order1 = new Order('2', '1', '1', '')
- /*   storeOrder(){
+    order2 = new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400');
+    order3 = new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700');
+    order4 = new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600');
+    order5 = new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900');
+    order6 = new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600');
+
+    orderArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
+
+ /* denne kode virker ikke   storeOrder(){
         localStorage.setItem('amount1', amount1.value);
         localStorage.setItem('amount2', amount2.value);
         localStorage.setItem('amount3', amount3.value);
