@@ -157,3 +157,16 @@ html, body {
     }
 }
 
+#frontButton {
+    font-family: modernSansLight;
+    font-size: 30px;
+    color: ghostwhite;
+    background-color: #00A8FF;
+    border-color: ghostwhite;
+    height: 40px;
+    cursor: pointer;
+}
+#frontButton:hover {
+    background-color: ghostwhite;
+    color: #00A8FF;
+}
