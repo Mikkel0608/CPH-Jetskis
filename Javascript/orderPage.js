@@ -200,7 +200,7 @@ function storeOrder() {
     window.location = "orderConfirmation.html";
 }
 
-// Dette Loop viser undefined ved aktivering derfor skal det rettes før det bliver taget i brug.
+// Dette Loop
 
 function showOrder(){
     for (i = 0; i < orderArray.length; i++) {
