@@ -35,7 +35,6 @@ function confirmTime() {
     var rentTimeValue = rentTimeID.options[rentTimeID.selectedIndex].value;
 
 
-
     //Tests if the variables set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
         document.getElementById("modelContainer1").style.display = "";
@@ -47,7 +46,7 @@ function confirmTime() {
     //This next if statement checks the localstorage and sees if there are already any reservation for the given date/time.
     if (rentDayValue == localStorage.getItem('orderDay') && rentMonthValue == localStorage.getItem('orderMonth') && rentYearValue == localStorage.getItem('orderYear') && rentTimeValue == localStorage.getItem('timePeriod')) {
         //Checks if there are any orders of Jetski 1 in local storage and adjusts the amount shown
-        if (localStorage.getItem('amountOfJetski1') == 1) {
+        if (localStorage.getItem('amount1') == 1) {
             document.getElementById('jetski1Amount3').style.display = "none";
         } else if (localStorage.getItem('amount1') == 2) {
             document.getElementById('jetski1Amount3').style.display = "none";
@@ -56,7 +55,7 @@ function confirmTime() {
             document.getElementById("modelContainer1").style.display = "none";
         }
         // Checks if there are any orders of Jetski 2 in local storage and adjusts the amount shown
-        if (localStorage.getItem('amountOfJetski2') == 1) {
+        if (localStorage.getItem('amount2') == 1) {
             document.getElementById('jetski2Amount3').style.display = "none";
         } else if (localStorage.getItem('amount2') == 2) {
             document.getElementById('jetski2Amount3').style.display = "none";
@@ -73,6 +72,19 @@ function confirmTime() {
         } else if (localStorage.getItem('amount3') == 3) {
             document.getElementById("modelContainer3").style.display = "none";
         }
+    } else {
+        document.getElementById('jetski1Amount3').style.display = "none";
+        document.getElementById('jetski1Amount3').style.display = "none";
+        document.getElementById('jetski1Amount2').style.display = "none";
+        document.getElementById("modelContainer1").style.display = "none";
+        document.getElementById('jetski2Amount3').style.display = "none";
+        document.getElementById('jetski2Amount3').style.display = "none";
+        document.getElementById('jetski2Amount2').style.display = "none";
+        document.getElementById("modelContainer2").style.display = "none";
+        document.getElementById('jetski3Amount3').style.display = "none";
+        document.getElementById('jetski3Amount3').style.display = "none";
+        document.getElementById('jetski3Amount2').style.display = "none";
+        document.getElementById("modelContainer3").style.display = "none";
     }
 }
 
