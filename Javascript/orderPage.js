@@ -73,18 +73,18 @@ function confirmTime() {
             document.getElementById("modelContainer3").style.display = "none";
         }
     } else {
-        document.getElementById('jetski1Amount3').style.display = "none";
-        document.getElementById('jetski1Amount3').style.display = "none";
-        document.getElementById('jetski1Amount2').style.display = "none";
-        document.getElementById("modelContainer1").style.display = "none";
-        document.getElementById('jetski2Amount3').style.display = "none";
-        document.getElementById('jetski2Amount3').style.display = "none";
-        document.getElementById('jetski2Amount2').style.display = "none";
-        document.getElementById("modelContainer2").style.display = "none";
-        document.getElementById('jetski3Amount3').style.display = "none";
-        document.getElementById('jetski3Amount3').style.display = "none";
-        document.getElementById('jetski3Amount2').style.display = "none";
-        document.getElementById("modelContainer3").style.display = "none";
+        document.getElementById('jetski1Amount3').style.display = "";
+        document.getElementById('jetski1Amount3').style.display = "";
+        document.getElementById('jetski1Amount2').style.display = "";
+        document.getElementById("modelContainer1").style.display = "";
+        document.getElementById('jetski2Amount3').style.display = "";
+        document.getElementById('jetski2Amount3').style.display = "";
+        document.getElementById('jetski2Amount2').style.display = "";
+        document.getElementById("modelContainer2").style.display = "";
+        document.getElementById('jetski3Amount3').style.display = "";
+        document.getElementById('jetski3Amount3').style.display = "";
+        document.getElementById('jetski3Amount2').style.display = "";
+        document.getElementById("modelContainer3").style.display = "";
     }
 }
 
