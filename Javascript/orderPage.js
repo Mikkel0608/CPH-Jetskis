@@ -184,7 +184,7 @@ function storeOrder() {
 function showOrder(){
     for (i = 0; i < orderArray.length; i++) {
         if (selection.value === orderArray[i].phone) {
-            document.getElementById('orderHeadline').innerHTML = "<h4>Nuværende og tidligere bestilling</h4>";
+            document.getElementById('orderHeadline').innerHTML = "<h4>Din bestilling</h4>";
             document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
             document.getElementById('timePeriod').innerHTML = "Tidspunkt for udlejning: kl. " + orderArray[i].timePeriod;
             document.getElementById('amountOfJetski1').innerHTML = "Antal Sea Doo Spark: " + orderArray[i].amount1;
