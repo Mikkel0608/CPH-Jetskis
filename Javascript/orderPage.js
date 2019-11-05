@@ -80,17 +80,8 @@ function confirmTime() {
         }
         //If the chosen date is not the date that may exist in the local storage, it should show all jetskis/amounts
     } else if (timeValid == true) {
-        document.getElementById('jetski1Amount3').style.display = "";
-        document.getElementById('jetski1Amount3').style.display = "";
-        document.getElementById('jetski1Amount2').style.display = "";
         document.getElementById("modelContainer1").style.display = "";
-        document.getElementById('jetski2Amount3').style.display = "";
-        document.getElementById('jetski2Amount3').style.display = "";
-        document.getElementById('jetski2Amount2').style.display = "";
         document.getElementById("modelContainer2").style.display = "";
-        document.getElementById('jetski3Amount3').style.display = "";
-        document.getElementById('jetski3Amount3').style.display = "";
-        document.getElementById('jetski3Amount2').style.display = "";
         document.getElementById("modelContainer3").style.display = "";
     }
 }
