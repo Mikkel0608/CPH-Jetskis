@@ -72,6 +72,7 @@ function confirmTime() {
         } else if (localStorage.getItem('amount3') == 3) {
             document.getElementById("modelContainer3").style.display = "none";
         }
+        //If the chosen date is not the date that may exist in the local storage, it should show all jetskis/amounts
     } else {
         document.getElementById('jetski1Amount3').style.display = "";
         document.getElementById('jetski1Amount3').style.display = "";
