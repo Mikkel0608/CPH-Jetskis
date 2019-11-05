@@ -6,6 +6,7 @@ window.onload = function checkLoginButton() {
         window.location = "Loginpage.html"
     }
 }
+
 function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
