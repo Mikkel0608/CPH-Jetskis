@@ -22,7 +22,9 @@ function checkLoginProfilePage() {
         window.location ="profile.html"
     }
 }
-
+/*MM: The following function is activated by the confirm time button, and does the following:
+1. It checks if the date/time values have been filed out, and displays and error if not.
+2. It checks if there already are reservations for the given time/date, and adjusts the amount of jetskis shown. */
 function confirmTime() {
     // creating variables that represents the user selection of date and time
     var rentDayID = document.getElementById("rentDay");
@@ -38,12 +40,15 @@ function confirmTime() {
 
     //Tests if the variables set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
+        var timeValid = true;
         document.getElementById("modelContainer1").style.display = "";
         document.getElementById("modelContainer2").style.display = "";
         document.getElementById("modelContainer3").style.display = "";
     } else {
-        alert("Udfyld venligst alle felter.")
+        alert("Udfyld venligst alle felter.");
+        timeValid = false;
     }
+
     //This next if statement checks the localstorage and sees if there are already any reservation for the given date/time.
     if (rentDayValue == localStorage.getItem('orderDay') && rentMonthValue == localStorage.getItem('orderMonth') && rentYearValue == localStorage.getItem('orderYear') && rentTimeValue == localStorage.getItem('timePeriod')) {
         //Checks if there are any orders of Jetski 1 in local storage and adjusts the amount shown
@@ -74,7 +79,7 @@ function confirmTime() {
             document.getElementById("modelContainer3").style.display = "none";
         }
         //If the chosen date is not the date that may exist in the local storage, it should show all jetskis/amounts
-    } else {
+    } else if (timeValid == true) {
         document.getElementById('jetski1Amount3').style.display = "";
         document.getElementById('jetski1Amount3').style.display = "";
         document.getElementById('jetski1Amount2').style.display = "";
@@ -102,7 +107,11 @@ var jetski1= new Jetski('Sea Doo Spark', 300, 60);
 var jetski2= new Jetski('Yamaha Waverunner VX', 500, 125);
 var jetski3= new Jetski('Kawasaki STX 15F', 600, 160);
 
-//calculates the total price of the current order
+/*MM: The following function is activated when the user changes the amount of jetskis in the selector. It does the following:
+1. It add up the total price of the selected jetskis and shows it in the basket.
+2. It shows the basket if the amount of jetskis is above 0.
+3. It shows the name of the jetski, the photo, and the price of the selected jetskis in the basket.
+ */
 function calculatePrice() {
     var orderAmount1JS = document.getElementById('orderAmount1').value;
     var orderAmount2JS = document.getElementById('orderAmount2').value;
