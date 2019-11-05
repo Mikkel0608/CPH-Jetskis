@@ -9,7 +9,7 @@ class customer {
         this.password = password;
     }
 
-//This method stores input from the sign-up page in the local storage, as well as creating an alert box.
+//This method stores input from the sign-up page in the local storage, as well as redirecting to the login-page.
     storeLogin(){
         localStorage.setItem('customerName', customerName.value);
         localStorage.setItem('address', address.value);
@@ -22,7 +22,17 @@ class customer {
     }
 }
 
-//Variables are created using the input from the form.
+/*MD: This function is supposed to collect the inputs from the form as well as validating whether the input
+is valid.
+This is accomplished by creating a variable called form_valid, which has a boolean value. The form can either be true
+or false. If the form is true, the registration is successful and the user is redirected to the login page. The method
+storeLogin is called if the form is true, so the inputs are stored.
+The form is false if the inputs are invalid, i.e. if the input in the phone number field is not a number. An alert box
+will pop up if this is the case.
+
+The reason we chose to implement this code, is because we have had form validation lessons in our other course, BIS,
+where we used this exact method of validating the form.
+ */
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
@@ -108,6 +118,7 @@ function register() {
     }
 
 }
+
 
 var customerArray = [];
 //5 customer objects are created
@@ -195,9 +206,8 @@ function getNumber() {
     option[5].innerHTML = customer5.phone;
     option[6].innerHTML = customer6.phone;
 }
-
 // The function getNumber is being called.
- getNumber();
+getNumber();
 
 
 /*This function is a loop that first check the selection value in an if statement. If the selection value matches a phone number from customerArray
