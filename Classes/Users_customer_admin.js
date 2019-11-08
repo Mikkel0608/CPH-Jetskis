@@ -10,7 +10,7 @@ class customer {
     }
 
 //This method stores input from the sign-up page in the local storage, as well as redirecting to the login-page.
-    storeLogin(){
+    /*storeLogin(){
         localStorage.setItem('customerName', customerName.value);
         localStorage.setItem('address', address.value);
         localStorage.setItem('city', city.value);
@@ -19,7 +19,9 @@ class customer {
         localStorage.setItem('password', password.value);
 
         window.location = "Loginpage.html";
+     
     }
+    */
 }
 
 /*MD: This function is supposed to collect the inputs from the form as well as validating whether the input
@@ -110,22 +112,50 @@ function register() {
     and the function storeLogin, which stores the inputs, will be called.
      */
     if (form_valid) {
+
+        var userArray = JSON.parse(localStorage.getItem('userArray'));
+        userArray.push(new customer(customerName, address, city, phone, email, password));
+
+        localStorage.setItem("userArray", JSON.stringify(userArray));
         alert("Ny bruger er blevet oprettet");
-        customer1.storeLogin();
+        window.location = "Loginpage.html";
+       /* var storedUsers = [];
+        storedUsers.push(new customer(customerName, address, city, phone, email, password));
+        localStorage.setItem("storedUsers", JSON.stringify(storedUsers));
+        alert("Ny bruger er blevet oprettet");
+        window.location = "Loginpage.html";
+        console.log(localStorage);*/
+
+
+
+        /*var userArray = JSON.parse(localStorage.getItem('user'));
+        userArray.push(new customer(customerName.value, address.value, city.value, phone.value, email.value, password.value));
+
+        localStorage.setItem("customer", JSON.stringify(customerArray));
+        alert("Ny bruger er blevet oprettet");
         window.location ="Loginpage.html";
+        console.log(localStorage);
+*/
     } else {
         alert(validation_message)
     }
 
 }
 
+var userArray;
+if (localStorage.getItem('userArray')==null) {
+    userArray = [];
 
-if (localStorage.getItem('customer') == null {
-    var customerArray = [];
-    customerArray.push(new U)
+    userArray.push(new customer('Per','Nørregade 31, 4th', 'København', '45678904','per@købenahvn.dk', 'per123'));
+    userArray.push(new customer('Tina','Gothersgade 42, 3tv', 'København', '22340987','tina@gmail.com', 'Minkode122'));
+    userArray.push(new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42'));
+    userArray.push(new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig'));
+    userArray.push(new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477'));
+    
+    var userArrayString = JSON.stringify(userArray);
+    localStorage.setItem('userArray', userArrayString);
 }
-
-var customerArray = [];
+/*
 //5 customer objects are created
 customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
 customer2 = new customer('Per','Nørregade 31, 4th', 'København', '45678904','per@købenahvn.dk', 'per123');
@@ -136,68 +166,19 @@ customer6 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels
 
 //The 5 objects i just created is being pushed into the customerArray
 customerArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
-
+*/
 
 //This function will validate whether the input values correspond to the values stored in localStorage.
 function loginVal() {
+    userArray = JSON.parse(localStorage.getItem('userArray'));
+    var phone = document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
 
-    //Creating variables for the stored values
-    var storedPhone = localStorage.getItem('phone');
-    var storedPassword = localStorage.getItem('password');
-
-    //Creating variables for the input values
-    var inputPhone = document.getElementById('phone');
-    var inputPassword = document.getElementById('password');
-
-
-    /*Now an if-statement is created to check whether these values match each other, which determines wheter
-    the user can log in or not. If they match, it adds the predefined user values to local storage.
-     */
-
-    if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
-        window.location ="frontpage.html";
-    } else if (inputPhone.value == customer1.phone && inputPassword.value == customer1.password){
-        localStorage.setItem('customerName', customer1.customerName);
-        localStorage.setItem('address', customer1.address);
-        localStorage.setItem('city', customer1.city);
-        localStorage.setItem('phone', customer1.phone);
-        localStorage.setItem('email', customer1.email);
-        localStorage.setItem('password', customer1.password);
-        window.location ="frontpage.html";
-    } else if (inputPhone.value == customer2.phone && inputPassword.value == customer2.password) {
-        localStorage.setItem('customerName', customer2.customerName);
-        localStorage.setItem('address', customer2.address);
-        localStorage.setItem('city', customer2.city);
-        localStorage.setItem('phone', customer2.phone);
-        localStorage.setItem('email', customer2.email);
-        localStorage.setItem('password', customer2.password);
-        window.location = "frontpage.html";
-    } else if (inputPhone.value == customer3.phone && inputPassword.value == customer3.password) {
-        localStorage.setItem('customerName', customer3.customerName);
-        localStorage.setItem('address', customer3.address);
-        localStorage.setItem('city', customer3.city);
-        localStorage.setItem('phone', customer3.phone);
-        localStorage.setItem('email', customer3.email);
-        localStorage.setItem('password', customer3.password);
-        window.location = "frontpage.html";
-    } else if (inputPhone.value == customer4.phone && inputPassword.value == customer4.password) {
-        localStorage.setItem('customerName', customer4.customerName);
-        localStorage.setItem('address', customer4.address);
-        localStorage.setItem('city', customer4.city);
-        localStorage.setItem('phone', customer4.phone);
-        localStorage.setItem('email', customer4.email);
-        localStorage.setItem('password', customer4.password);
-        window.location = "frontpage.html";
-    } else if (inputPhone.value == customer5.phone && inputPassword.value == customer5.password) {
-        localStorage.setItem('customerName', customer5.customerName);
-        localStorage.setItem('address', customer5.address);
-        localStorage.setItem('city', customer5.city);
-        localStorage.setItem('phone', customer5.phone);
-        localStorage.setItem('email', customer5.email);
-        localStorage.setItem('password', customer5.password);
-        window.location = "frontpage.html";
-    } else {
-        alert('Fejl ved login - forkert telefonnummer og password kombination')
+    for (let i = 0; i < userArray.length; i++ ) {
+        if(phone == userArray[i].phone && password == userArray[i].password) {
+            window.location ="frontpage.html";
+            console.log("logged in");
+        }
     }
 }
 
@@ -228,6 +209,8 @@ function validate() {
         loginVal()
     }
 }
+
+/*
 // This function is made to get phone numbers from customers into the 'selectmenu' in the Changeuser HTML.
 var selection = document.getElementById("phoneSelect");
 var option = selection.options;
@@ -243,7 +226,7 @@ function getNumber() {
 }
 // The function getNumber is being called.
 getNumber();
-
+*/
 
 /*This function is a loop that first check the selection value in an if statement. If the selection value matches a phone number from customerArray
 then the function shows the rest of the data from the customer object. */
@@ -255,7 +238,7 @@ function showInfo () {
             document.getElementById('customerCity').innerHTML = customerArray[i].city;
             document.getElementById('customerPhone').innerHTML = customerArray[i].phone;
             document.getElementById('customerEmail').innerHTML = customerArray[i].email;
-            
+
         }
     }
 }
