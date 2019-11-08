@@ -32,6 +32,18 @@ window.onload = function getCustomerInfo() {
     document.getElementById('amountOfJetski3').innerHTML ="Antal Kawasaki STX-15F: " + localStorage.getItem('amount3');
     document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
     }
+    var userAmount = JSON.parse(localStorage.getItem('storedOrders')).length;
+    var storedUsers = JSON.parse(localStorage.getItem('storedOrders'));
+    console.log(storedUsers);
+    var i;
+    for (i = 0; i <= userAmount; i++) {
+        if (localStorage.getItem('phone') == storedUsers[0]) {
+            var userInfo = document.createElement("P");
+            userInfo.innerHTML ="Dato for udlejning: "+ day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + localStorage.getItem('timePeriod') + "</br></br>" + "Antal Sea Doo Spark: " + localStorage.getItem('amount1') + "</br></br>" + "Antal Yamaha Waverunner VX: " + localStorage.getItem('amount2') + "</br></br>" + "Antal Kawasaki STX-15F: " + localStorage.getItem('amount3') + "</br></br>" + "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
+            document.getElementById('rightTextArea').appendChild(userInfo);
+        }
+    }
+
 }
 
 
