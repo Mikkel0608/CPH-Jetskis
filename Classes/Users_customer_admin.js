@@ -175,10 +175,11 @@ function loginVal() {
     var password = document.getElementById("password").value;
 
     for (let i = 0; i < userArray.length; i++ ) {
-        if(phone == userArray[i].phone && password == userArray[i].password) {
-            window.location ="frontpage.html";
+        if (phone == userArray[i].phone && password == userArray[i].password) {
+            window.location = "frontpage.html";
             console.log("logged in");
         }
+    }
 
     //Creating variables for the stored values
     var storedPhone = localStorage.getItem('phone');
@@ -289,7 +290,8 @@ getNumber();
 
 /*This function is a loop that first check the selection value in an if statement. If the selection value matches a phone number from customerArray
 then the function shows the rest of the data from the customer object. */
-function showInfo () {
+
+/*function showInfo () {
     for (i = 0; i < customerArray.length; i++) {
         if (selection.value == customerArray[i].phone) {
             document.getElementById('customerName').innerHTML = customerArray[i].customerName;
@@ -301,6 +303,8 @@ function showInfo () {
         }
     }
 }
+   */
+
 /*function showOrder(){
     if (selection.value == customer1.phone){
 
