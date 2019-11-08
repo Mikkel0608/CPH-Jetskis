@@ -163,7 +163,6 @@ class Order {
 
 
 
-
 function storeOrder() {
     var orderAmount1JS = document.getElementById('orderAmount1').value;
     var orderAmount2JS = document.getElementById('orderAmount2').value;
@@ -177,12 +176,25 @@ function storeOrder() {
     localStorage.setItem('orderYear', document.getElementById('rentYear').value);
     localStorage.setItem('timePeriod', document.getElementById('rentTime').value);
     localStorage.setItem('orderPrice', finalPrice);
+
+    var storedOrders = JSON.parse(localStorage.getItem('storedOrders'));
+    if (storedOrders == null) {
+        storedOrders = [];
+        storedOrders.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400'));
+        storedOrders.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700'));
+        storedOrders.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600'));
+        storedOrders.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900'));
+        storedOrders.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600'));
+        storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
+    } else if (storedOrders != null) {
+        storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
+    }
+    localStorage.setItem('storedOrders', JSON.stringify(storedOrders));
     window.location = "orderConfirmation.html";
 }
-
 // Dette Loop
 
-function showOrder(){
+function showOrder() {
     for (i = 0; i < orderArray.length; i++) {
         if (selection.value === orderArray[i].phone) {
             document.getElementById('orderHeadline').innerHTML = "<h4>Din bestilling</h4>";
@@ -196,11 +208,3 @@ function showOrder(){
         }
     }
 }
-
-
-
-
-
-
-
-
