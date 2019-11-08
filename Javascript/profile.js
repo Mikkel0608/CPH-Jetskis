@@ -46,18 +46,21 @@ function deleteUser() {
 
 //MD: This function deletes the current order stored in localStorage
 function deleteOrder(){
-    localStorage.removeItem("amount1");
-    localStorage.removeItem("amount2");
-    localStorage.removeItem("amount3");
-    localStorage.removeItem("orderDay");
-    localStorage.removeItem("orderMonth");
-    localStorage.removeItem("orderYear");
-    localStorage.removeItem("timePeriod");
-    localStorage.removeItem("orderPrice");
+    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?");
+    if (choice == true) {
 
-    alert("Bestillingen er blevet aflyst");
+        localStorage.removeItem("amount1");
+        localStorage.removeItem("amount2");
+        localStorage.removeItem("amount3");
+        localStorage.removeItem("orderDay");
+        localStorage.removeItem("orderMonth");
+        localStorage.removeItem("orderYear");
+        localStorage.removeItem("timePeriod");
+        localStorage.removeItem("orderPrice");
 
-    window.location="profile.html";
+        alert("Bestillingen er blevet aflyst");
+        window.location = "profile.html";
+    }
 }
 
 

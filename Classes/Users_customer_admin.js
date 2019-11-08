@@ -30,7 +30,7 @@ storeLogin is called if the form is true, so the inputs are stored.
 The form is false if the inputs are invalid, i.e. if the input in the phone number field is not a number. An alert box
 will pop up if this is the case.
 
-The reason we chose to implement this code, is because we have had form validation lessons in our other course, BIS,
+The reason we chose to implement this cod, is because we have had form validation lessons in our other course, BIS,
 where we used this exact method of validating the form.
  */
 function register() {
