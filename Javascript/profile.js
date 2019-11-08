@@ -19,6 +19,9 @@ window.onload = function getCustomerInfo() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 
     //Inserts the order information from local storage
+    if (localStorage.getItem('orderPrice') == null) {
+        document.getElementById('timePeriod').innerHTML ="Ingen aktive ordre på nuværende tidspunkt";
+        } else {
     var day = localStorage.getItem('orderDay');
     var month = localStorage.getItem('orderMonth');
     var year = localStorage.getItem('orderYear');
@@ -28,6 +31,7 @@ window.onload = function getCustomerInfo() {
     document.getElementById('amountOfJetski2').innerHTML ="Antal Yamaha Waverunner VX: " + localStorage.getItem('amount2');
     document.getElementById('amountOfJetski3').innerHTML ="Antal Kawasaki STX-15F: " + localStorage.getItem('amount3');
     document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
+    }
 }
 
 
@@ -39,6 +43,25 @@ function deleteUser() {
         window.location = 'Loginpage.html';
     }
 }
+
+//MD: This function deletes the current order stored in localStorage
+function deleteOrder(){
+    localStorage.removeItem("amount1");
+    localStorage.removeItem("amount2");
+    localStorage.removeItem("amount3");
+    localStorage.removeItem("orderDay");
+    localStorage.removeItem("orderMonth");
+    localStorage.removeItem("orderYear");
+    localStorage.removeItem("timePeriod");
+    localStorage.removeItem("orderPrice");
+
+    alert("Bestillingen er blevet aflyst");
+
+    window.location="profile.html";
+}
+
+
+
 
 function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
