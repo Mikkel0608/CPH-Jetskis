@@ -20,7 +20,7 @@ window.onload = function getCustomerInfo() {
 
     //Inserts the order information from local storage
     if (localStorage.getItem('orderPrice') == null) {
-        document.getElementById('timePeriod').innerHTML ="Ingen aktive ordre på nuværende tidspunkt";
+        document.getElementById('timePeriod').innerHTML ="Ingen aktive ordrer på nuværende tidspunkt";
         } else {
     var day = localStorage.getItem('orderDay');
     var month = localStorage.getItem('orderMonth');

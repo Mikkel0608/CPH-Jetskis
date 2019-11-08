@@ -147,6 +147,7 @@ function loginVal() {
 
     /*Now an if-statement is created to check whether these values match each other, which determines wheter
     the user can log in or not. If they match, it adds the predefined user values to local storage.
+
      */
 
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
