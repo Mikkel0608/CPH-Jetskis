@@ -18,10 +18,10 @@ class customer {
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
 
-        window.location = "Loginpage.html";
+
      
-    }
-    */
+    }*/
+
 }
 
 /*MD: This function is supposed to collect the inputs from the form as well as validating whether the input
@@ -35,6 +35,8 @@ will pop up if this is the case.
 The reason we chose to implement this cod, is because we have had form validation lessons in our other course, BIS,
 where we used this exact method of validating the form.
  */
+
+
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
@@ -119,12 +121,7 @@ function register() {
         localStorage.setItem("userArray", JSON.stringify(userArray));
         alert("Ny bruger er blevet oprettet");
         window.location = "Loginpage.html";
-       /* var storedUsers = [];
-        storedUsers.push(new customer(customerName, address, city, phone, email, password));
-        localStorage.setItem("storedUsers", JSON.stringify(storedUsers));
-        alert("Ny bruger er blevet oprettet");
-        window.location = "Loginpage.html";
-        console.log(localStorage);*/
+
 
 
 
@@ -141,6 +138,16 @@ function register() {
     }
 
 }
+
+function storeLogin() {
+    localStorage.setItem('customerName', customerName.value);
+    localStorage.setItem('address', address.value);
+    localStorage.setItem('city', city.value);
+    localStorage.setItem('phone', phone.value);
+    localStorage.setItem('email', email.value);
+    localStorage.setItem('password', password.value);
+}
+
 
 var userArray;
 if (localStorage.getItem('userArray')==null) {
@@ -176,7 +183,14 @@ function loginVal() {
 
     for (let i = 0; i < userArray.length; i++ ) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
-            window.location = "frontpage.html";
+            window.location = "frontpage.html"
+            localStorage.setItem('customerName', userArray[i].customerName);
+            localStorage.setItem('address', userArray[i].address);
+            localStorage.setItem('city', userArray[i].city);
+            localStorage.setItem('phone', userArray[i].phone);
+            localStorage.setItem('email', userArray[i].email);
+            localStorage.setItem('password', userArray[i].password);
+
             console.log("logged in");
         }
     }
