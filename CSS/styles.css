@@ -3,10 +3,6 @@
     src= url("../fonts/ModernSans-Light.otf")
 }
 
-html, body {
-    margin: 0px;
-    padding: 0px;
-}
 #headTitle {
     font-family: Candara;
     font-style: oblique;

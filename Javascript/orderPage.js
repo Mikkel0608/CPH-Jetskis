@@ -169,9 +169,9 @@ function storeOrder() {
     var orderAmount2JS = document.getElementById('orderAmount2').value;
     var orderAmount3JS = document.getElementById('orderAmount3').value;
     var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
-    localStorage.setItem('amount1', document.getElementById('orderAmount1').value);
-    localStorage.setItem('amount2', document.getElementById('orderAmount2').value);
-    localStorage.setItem('amount3', document.getElementById('orderAmount3').value);
+    localStorage.setItem('amount1', orderAmount1JS);
+    localStorage.setItem('amount2', orderAmount2JS);
+    localStorage.setItem('amount3', orderAmount3JS);
     localStorage.setItem('orderDay', document.getElementById('rentDay').value);
     localStorage.setItem('orderMonth', document.getElementById('rentMonth').value);
     localStorage.setItem('orderYear', document.getElementById('rentYear').value);
