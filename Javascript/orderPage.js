@@ -192,7 +192,7 @@ function storeOrder() {
     localStorage.setItem('storedOrders', JSON.stringify(storedOrders));
     window.location = "orderConfirmation.html";
 }
-// Dette Loop
+// Dette Loop test test
 
 function showOrder() {
     for (i = 0; i < orderArray.length; i++) {
