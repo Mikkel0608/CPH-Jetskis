@@ -112,7 +112,7 @@ function calculatePrice() {
     document.getElementById('basketDivFull').style.display = "";
 
     //Checks if all order amounts are 0, then the basket should be hidden again
-    if (orderAmount1JS == 00 && orderAmount2JS == 00 && orderAmount3JS == 00)
+    if (orderAmount1JS == 0 && orderAmount2JS == 0 && orderAmount3JS == 0)
         document.getElementById('basketDivFull').style.display = "none";
 
     /* Checks if the order amount if above 0, and if so, it adds the jetski name, photo, price and amount to the <p> in the basket.
