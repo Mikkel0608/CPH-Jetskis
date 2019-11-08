@@ -46,7 +46,7 @@ function deleteUser() {
 
 //MD: This function deletes the current order stored in localStorage
 function deleteOrder(){
-    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?");
+    var choice = window.confirm("Er du sikker på, at du vil annullere din bestilling?");
     if (choice == true) {
 
         localStorage.removeItem("amount1");

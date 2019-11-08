@@ -120,6 +120,11 @@ function register() {
 }
 
 
+if (localStorage.getItem('customer') == null {
+    var customerArray = [];
+    customerArray.push(new U)
+}
+
 var customerArray = [];
 //5 customer objects are created
 customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
