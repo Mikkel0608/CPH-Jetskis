@@ -281,6 +281,7 @@ function validate() {
         alert("Wrong Password")
     } else if (phone != admin1.username) {
         loginVal()
+        storePreDefinedOrder()
     }
 }
 
