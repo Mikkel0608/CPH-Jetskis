@@ -195,7 +195,7 @@ function storeOrder() {
 // Dette Loop test test
 
 function showOrder() {
-    for (i = 0; i < orderArray.length; i++) {
+    for (let i = 0; i < orderArray.length; i++) {
         if (selection.value === orderArray[i].phone) {
             document.getElementById('orderHeadline').innerHTML = "<h4>Din bestilling</h4>";
             document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
