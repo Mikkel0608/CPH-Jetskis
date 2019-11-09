@@ -280,8 +280,8 @@ function validate() {
     } else if (phone == admin1.username && password != admin1.password) {
         alert("Wrong Password")
     } else if (phone != admin1.username) {
-        loginVal()
-        storePreDefinedOrder()
+        loginVal();
+        storePreDefinedOrder();
     }
 }
 
