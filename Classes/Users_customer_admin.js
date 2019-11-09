@@ -180,16 +180,20 @@ function loginVal() {
     userArray = JSON.parse(localStorage.getItem('userArray'));
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
+    var loggedIn = "yes"
 
     for (let i = 0; i < userArray.length; i++) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
-            window.location = "frontpage.html"
+            window.location = "frontpage.html";
             localStorage.setItem('customerName', userArray[i].customerName);
             localStorage.setItem('address', userArray[i].address);
             localStorage.setItem('city', userArray[i].city);
             localStorage.setItem('phone', userArray[i].phone);
             localStorage.setItem('email', userArray[i].email);
             localStorage.setItem('password', userArray[i].password);
+            localStorage.setItem('loggedIn', loggedIn);
+
+            storePreDefinedOrder();
 
             console.log("logged in");
         }
@@ -281,7 +285,7 @@ function validate() {
         alert("Wrong Password")
     } else if (phone != admin1.username) {
         loginVal();
-        storePreDefinedOrder();
+        //storePreDefinedOrder();
     }
 }
 

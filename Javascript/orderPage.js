@@ -174,14 +174,14 @@ if (localStorage.getItem('orderArray')==null) {
     localStorage.setItem('orderArray', orderArrayString);
 }
 
-//Kan ikke få denne funktion til at virke :( Jeg forsøger at store disse oplysninger når der logges ind.
+//Denne funktion tjekker hvor vidt loggedIn = yes (hvilket bliver oprettet i loginVal ved succesfuld login)
 function storePreDefinedOrder() {
     orderArray = JSON.parse(localStorage.getItem('orderArray'));
-    var phone = document.getElementById("phone").value;
-    var password = document.getElementById("password").value;
+   // var phone = document.getElementById("phone").value;
+    //var password = document.getElementById("password").value;
 
     for (let i = 0; i < orderArray.length; i++) {
-        if (phone == orderArray[i].phone) {
+        if (localStorage.getItem("loggedIn") == "yes") {
             localStorage.setItem('amount1', orderArray[i].amount1);
             localStorage.setItem('amount2', orderArray[i].amount2);
             localStorage.setItem('amount3', orderArray[i].amount3);
