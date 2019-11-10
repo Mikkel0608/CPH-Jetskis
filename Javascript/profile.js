@@ -40,7 +40,7 @@ window.onload = function getCustomerInfo() {
         if (localStorage.getItem('phone') == storedUsers[0]) {
             var userInfo = document.createElement("P");
             userInfo.innerHTML ="Dato for udlejning: "+ day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + localStorage.getItem('timePeriod') + "</br></br>" + "Antal Sea Doo Spark: " + localStorage.getItem('amount1') + "</br></br>" + "Antal Yamaha Waverunner VX: " + localStorage.getItem('amount2') + "</br></br>" + "Antal Kawasaki STX-15F: " + localStorage.getItem('amount3') + "</br></br>" + "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
-            document.getElementById('rightTextArea').appendChild(userInfo);
+            document.getElementById('testDiv').appendChild(userInfo);
         }
     }
 
