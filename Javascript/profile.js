@@ -18,10 +18,12 @@ window.onload = function getCustomerInfo() {
     //This part shows the logged in user in the navibar
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 
+        /*
     //Inserts the order information from local storage
     if (localStorage.getItem('orderPrice') == null) {
         document.getElementById('timePeriod').innerHTML ="Ingen aktive ordrer på nuværende tidspunkt";
         } else {
+
     var day = localStorage.getItem('orderDay');
     var month = localStorage.getItem('orderMonth');
     var year = localStorage.getItem('orderYear');
@@ -31,16 +33,34 @@ window.onload = function getCustomerInfo() {
     document.getElementById('amountOfJetski2').innerHTML ="Antal Yamaha Waverunner VX: " + localStorage.getItem('amount2');
     document.getElementById('amountOfJetski3').innerHTML ="Antal Kawasaki STX-15F: " + localStorage.getItem('amount3');
     document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
+
     }
+
+         */
     var userAmount = JSON.parse(localStorage.getItem('orderArray')).length;
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
-    console.log(orderArray);
+
+    //The following loop goes through all the stored orders, and creates an HTML <p> with the order info if the logged in phone matches the order's phone value
     var i;
     for (i = 0; i <= userAmount; i++) {
-        if (localStorage.getItem('phone') == orderArray[0]) {
-            var userInfo = document.createElement("P");
-            userInfo.innerHTML ="Dato for udlejning: "+ day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + localStorage.getItem('timePeriod') + "</br></br>" + "Antal Sea Doo Spark: " + localStorage.getItem('amount1') + "</br></br>" + "Antal Yamaha Waverunner VX: " + localStorage.getItem('amount2') + "</br></br>" + "Antal Kawasaki STX-15F: " + localStorage.getItem('amount3') + "</br></br>" + "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
-            document.getElementById('testDiv').appendChild(userInfo);
+        if (localStorage.getItem('phone') == orderArray[i].phone) {
+            var day = orderArray[i].orderDay;
+            var month = orderArray[i].orderMonth;
+            var year = orderArray[i].orderYear;
+            var timePeriod = orderArray[i].timePeriod;
+            var amount1 = orderArray[i].amount1;
+            var amount2 = orderArray[i].amount2;
+            var amount3 = orderArray[i].amount3;
+            var orderPrice = orderArray[i].orderPrice;
+
+            // the userInfo is created as an array, as we want to dynamically create new variable names with userInfo[i] for each order the user has.
+            var orderInfo = [];
+            //for each order the user has, a new <p> is created in the orderList, with the order info
+            orderInfo[i] = document.createElement("P");
+            orderInfo[i].innerHTML ="Dato for udlejning: "+ day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + timePeriod + "</br></br>" + "Antal Sea Doo Spark: " + amount1 + "</br></br>" + "Antal Yamaha Waverunner VX: " + amount2 + "</br></br>" + "Antal Kawasaki STX-15F: " + amount3 + "</br></br>" + "Samlet pris til betaling ved udlejning: " + orderPrice + "</br></br>";
+            document.getElementById('orderList').appendChild(orderInfo[i]);
+            //The following line removes the "no curent orders" text
+            document.getElementById('noOrders').innerHTML = "";
         }
     }
 
