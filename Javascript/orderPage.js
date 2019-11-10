@@ -150,7 +150,7 @@ class Order {
     }
 }
 
-
+/*
     var orderArray = [];
     order1 = new Order(localStorage.getItem('phone'), localStorage.getItem('amount1'), localStorage.getItem('amount2'), localStorage.getItem('amount3'), localStorage.getItem('orderDay'), localStorage.getItem('orderMonth'), localStorage.getItem('orderYear'), localStorage.getItem('timePeriod'), localStorage.getItem('orderPrice'));
     order2 = new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400');
@@ -160,7 +160,37 @@ class Order {
     order6 = new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600');
 
     orderArray.push(order1, order2, order3, order4, order5, order6);
+*/
+var orderArray;
+if (localStorage.getItem('orderArray')==null) {
+    orderArray = [];
+    orderArray.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400'));
+    orderArray.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700'));
+    orderArray.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600'));
+    orderArray.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900'));
+    orderArray.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600'));
 
+    var orderArrayString = JSON.stringify(orderArray);
+    localStorage.setItem('orderArray', orderArrayString);
+}
+
+//Denne funktion tjekker hvor vidt loggedIn = yes (hvilket bliver oprettet i loginVal ved succesfuld login)
+function storePreDefinedOrder() {
+    orderArray = JSON.parse(localStorage.getItem('orderArray'));
+   // var phone = document.getElementById("phone").value;
+    //var password = document.getElementById("password").value;
+
+    for (let i = 0; i < orderArray.length; i++) {
+        if (localStorage.getItem("loggedIn") == "yes") {
+            localStorage.setItem('amount1', orderArray[i].amount1);
+            localStorage.setItem('amount2', orderArray[i].amount2);
+            localStorage.setItem('amount3', orderArray[i].amount3);
+            localStorage.setItem('orderDay', orderArray[i].orderDay);
+            localStorage.setItem('orderMonth', orderArray[i].orderMonth);
+            localStorage.setItem('orderYear', orderArray[i].orderYear);
+        }
+    }
+}
 
 
 function storeOrder() {
@@ -177,25 +207,48 @@ function storeOrder() {
     localStorage.setItem('timePeriod', document.getElementById('rentTime').value);
     localStorage.setItem('orderPrice', finalPrice);
 
-    var storedOrders = JSON.parse(localStorage.getItem('storedOrders'));
-    if (storedOrders == null) {
-        storedOrders = [];
-        storedOrders.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400'));
-        storedOrders.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700'));
-        storedOrders.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600'));
-        storedOrders.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900'));
-        storedOrders.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600'));
-        storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
-    } else if (storedOrders != null) {
-        storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
-    }
-    localStorage.setItem('storedOrders', JSON.stringify(storedOrders));
+    var orderArray = JSON.parse(localStorage.getItem('orderArray'));
+    orderArray.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
+
+    localStorage.setItem('orderArray', JSON.stringify(orderArray));
     window.location = "orderConfirmation.html";
+
+
+
+
+    /*Dette er blevet udkommenteret, da det var smartere at lave dette array i et globalt scope. Ellers ville man ikke
+    kunne referere til arrayet nede i showOrder(jeg har også ændret den funktion til at virke med de nye JSON objekter.
+    Før brugte vi det array længere oppe, hvor der var 'hardcodet' værdier ind.
+    Jeg har også ændret på det der if-statement, som Mikkel har lavet. Det ville ikke rigtigt loade orderArray ind altid.
+    Jeg har derfor også linket dette dokument til de fleste html dokumenter, så orderArray bliver loaded ind på de
+    fleste sider. :)
+     */
+
+
+    /* var storedOrders = JSON.parse(localStorage.getItem('storedOrders'));
+     if (storedOrders == null) {
+         storedOrders = [];
+         storedOrders.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400'));
+         storedOrders.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700'));
+         storedOrders.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600'));
+         storedOrders.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900'));
+         storedOrders.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600'));
+         storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
+     } else if (storedOrders != null) {
+         storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
+     }
+     localStorage.setItem('storedOrders', JSON.stringify(storedOrders));
+     window.location = "orderConfirmation.html";
+
+     */
 }
-// Dette Loop test test
+// This loop shows the
+
+getNumber();
 
 function showOrder() {
-    for (i = 0; i < orderArray.length; i++) {
+    orderArray = JSON.parse(localStorage.getItem('orderArray'));
+    for (let i = 0; i < orderArray.length; i++) {
         if (selection.value === orderArray[i].phone) {
             document.getElementById('orderHeadline').innerHTML = "<h4>Din bestilling</h4>";
             document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;

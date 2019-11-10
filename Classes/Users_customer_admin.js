@@ -18,10 +18,10 @@ class customer {
         localStorage.setItem('email', email.value);
         localStorage.setItem('password', password.value);
 
-        window.location = "Loginpage.html";
+
      
-    }
-    */
+    }*/
+
 }
 
 /*MD: This function is supposed to collect the inputs from the form as well as validating whether the input
@@ -35,6 +35,8 @@ will pop up if this is the case.
 The reason we chose to implement this cod, is because we have had form validation lessons in our other course, BIS,
 where we used this exact method of validating the form.
  */
+
+
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
@@ -119,12 +121,7 @@ function register() {
         localStorage.setItem("userArray", JSON.stringify(userArray));
         alert("Ny bruger er blevet oprettet");
         window.location = "Loginpage.html";
-       /* var storedUsers = [];
-        storedUsers.push(new customer(customerName, address, city, phone, email, password));
-        localStorage.setItem("storedUsers", JSON.stringify(storedUsers));
-        alert("Ny bruger er blevet oprettet");
-        window.location = "Loginpage.html";
-        console.log(localStorage);*/
+
 
 
 
@@ -141,6 +138,16 @@ function register() {
     }
 
 }
+/*
+function storeLogin() {
+    localStorage.setItem('customerName', customerName.value);
+    localStorage.setItem('address', address.value);
+    localStorage.setItem('city', city.value);
+    localStorage.setItem('phone', phone.value);
+    localStorage.setItem('email', email.value);
+    localStorage.setItem('password', password.value);
+}
+*/
 
 var userArray;
 if (localStorage.getItem('userArray')==null) {
@@ -173,16 +180,27 @@ function loginVal() {
     userArray = JSON.parse(localStorage.getItem('userArray'));
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
+    var loggedIn = "yes"
 
-    for (let i = 0; i < userArray.length; i++ ) {
+    for (let i = 0; i < userArray.length; i++) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
             window.location = "frontpage.html";
+            localStorage.setItem('customerName', userArray[i].customerName);
+            localStorage.setItem('address', userArray[i].address);
+            localStorage.setItem('city', userArray[i].city);
+            localStorage.setItem('phone', userArray[i].phone);
+            localStorage.setItem('email', userArray[i].email);
+            localStorage.setItem('password', userArray[i].password);
+            localStorage.setItem('loggedIn', loggedIn);
+
+            storePreDefinedOrder();
+
             console.log("logged in");
         }
     }
-
+}
     //Creating variables for the stored values
-    var storedPhone = localStorage.getItem('phone');
+   /* var storedPhone = localStorage.getItem('phone');
     var storedPassword = localStorage.getItem('password');
 
     //Creating variables for the input values
@@ -194,7 +212,7 @@ function loginVal() {
     the user can log in or not. If they match, it adds the predefined user values to local storage.
 
      */
-
+/*
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
         window.location ="frontpage.html";
     } else if (inputPhone.value == customer1.phone && inputPassword.value == customer1.password){
@@ -241,7 +259,7 @@ function loginVal() {
         alert('Fejl ved login - forkert telefonnummer og password kombination')
     }
 }
-
+*/
 
 //A class is created for the admin. The only variables in this class are username and password.
 class Admin {
@@ -266,17 +284,30 @@ function validate() {
     } else if (phone == admin1.username && password != admin1.password) {
         alert("Wrong Password")
     } else if (phone != admin1.username) {
-        loginVal()
+        loginVal();
+        //storePreDefinedOrder();
     }
 }
 
-/*
+
 // This function is made to get phone numbers from customers into the 'selectmenu' in the Changeuser HTML.
 var selection = document.getElementById("phoneSelect");
 var option = selection.options;
 
 //Here the function takes the customers phone number from the array.
 function getNumber() {
+    userArray = JSON.parse(localStorage.getItem('userArray'));
+    option [1].innerHTML = userArray[0].phone;
+    option [2].innerHTML = userArray[1].phone;
+    option [3].innerHTML = userArray[2].phone;
+    option [4].innerHTML = userArray[3].phone;
+    option [5].innerHTML = userArray[4].phone;
+    option [6].innerHTML = userArray[5].phone;
+}
+
+/*
+function getNumber() {
+
     option[1].innerHTML = customer1.phone;
     option[2].innerHTML = customer2.phone;
     option[3].innerHTML = customer3.phone;
@@ -284,26 +315,28 @@ function getNumber() {
     option[5].innerHTML = customer5.phone;
     option[6].innerHTML = customer6.phone;
 }
+*/
+
 // The function getNumber is being called.
 getNumber();
-*/
+
 
 /*This function is a loop that first check the selection value in an if statement. If the selection value matches a phone number from customerArray
 then the function shows the rest of the data from the customer object. */
 
-/*function showInfo () {
-    for (i = 0; i < customerArray.length; i++) {
-        if (selection.value == customerArray[i].phone) {
-            document.getElementById('customerName').innerHTML = customerArray[i].customerName;
-            document.getElementById('customerAddress').innerHTML = customerArray[i].address;
-            document.getElementById('customerCity').innerHTML = customerArray[i].city;
-            document.getElementById('customerPhone').innerHTML = customerArray[i].phone;
-            document.getElementById('customerEmail').innerHTML = customerArray[i].email;
-
+function showInfo () {
+    userArray = JSON.parse(localStorage.getItem('userArray'));
+    for (let i = 0; i < userArray.length; i++) {
+        if (selection.value == userArray[i].phone) {
+            document.getElementById('customerName').innerHTML = userArray[i].customerName;
+            document.getElementById('customerAddress').innerHTML = userArray[i].address;
+            document.getElementById('customerCity').innerHTML = userArray[i].city;
+            document.getElementById('customerPhone').innerHTML = userArray[i].phone;
+            document.getElementById('customerEmail').innerHTML = userArray[i].email;
         }
     }
 }
-   */
+
 
 /*function showOrder(){
     if (selection.value == customer1.phone){
