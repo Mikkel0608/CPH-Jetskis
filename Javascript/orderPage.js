@@ -94,6 +94,7 @@ function confirmTime() {
     } else if (occupiedAmount1 == 2) {
         document.getElementById('jetski1Amount3').style.display = "none";
         document.getElementById('jetski1Amount2').style.display = "none";
+        //The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
     } else if (occupiedAmount1 >= 3) {
         document.getElementById("modelContainer1").style.display = "none";
     }
@@ -103,6 +104,7 @@ function confirmTime() {
     } else if (occupiedAmount2== 2) {
         document.getElementById('jetski2Amount3').style.display = "none";
         document.getElementById('jetski2Amount2').style.display = "none";
+        //The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
     } else if (occupiedAmount2 >= 3) {
         document.getElementById("modelContainer2").style.display = "none";
     }
@@ -112,6 +114,7 @@ function confirmTime() {
     } else if (occupiedAmount3 == 2) {
         document.getElementById('jetski3Amount3').style.display = "none";
         document.getElementById('jetski3Amount2').style.display = "none";
+        //The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
     } else if (occupiedAmount3 >= 3) {
         document.getElementById("modelContainer3").style.display = "none";
     }
