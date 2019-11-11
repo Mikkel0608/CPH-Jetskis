@@ -240,6 +240,7 @@ function storeOrder() {
     var orderAmount2JS = document.getElementById('orderAmount2').value;
     var orderAmount3JS = document.getElementById('orderAmount3').value;
     var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
+    /*
     localStorage.setItem('amount1', orderAmount1JS);
     localStorage.setItem('amount2', orderAmount2JS);
     localStorage.setItem('amount3', orderAmount3JS);
@@ -248,7 +249,7 @@ function storeOrder() {
     localStorage.setItem('orderYear', document.getElementById('rentYear').value);
     localStorage.setItem('timePeriod', document.getElementById('rentTime').value);
     localStorage.setItem('orderPrice', finalPrice);
-
+*/
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
     orderArray.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
 
