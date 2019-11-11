@@ -125,21 +125,33 @@ window.onload = function getCustomerInfo() {
 
 function deleteUser() {
     var userArray = JSON.parse(localStorage.getItem("userArray"));
+    var orderArray = JSON.parse(localStorage.getItem("orderArray"));
 
-    for(var i = 0; i < userArray.length; i++){
+    for (var i = 0; i <= userArray.length; i++) {
         if (localStorage.getItem("phone") == userArray[i].phone) {
-            userArray.splice(i, 1)
+            window.location = 'Loginpage.html';
+            userArray.splice(i, 1);
 
             var userArrayString = JSON.stringify(userArray);
             localStorage.setItem('userArray', userArrayString);
 
-            alert("Bruger er blevet slettet");
-            window.location = 'Loginpage.html';
-            logOut()
+            //Kan kun fjerne én ordre
+            for (var i = 0; i <= orderArray.length; i++) {
+                if (localStorage.getItem("phone") == orderArray[i].phone) {
+                    orderArray.splice(i, 1);
 
+                    var orderArrayString = JSON.stringify(orderArray);
+                    localStorage.setItem("orderArray", orderArrayString);
+                    logOut();
+                    alert("Bruger er blevet slettet");
+                }
+            }
         }
     }
 }
+
+
+
 
 
 

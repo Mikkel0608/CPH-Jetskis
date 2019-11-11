@@ -187,7 +187,7 @@ function calculatePrice() {
 //Creating class to define each individual order
 
 class Order {
-    constructor(phone, amount1, amount2, amount3, orderDay, orderMonth, orderYear, timePeriod, orderPrice) {
+    constructor(phone, amount1, amount2, amount3, orderDay, orderMonth, orderYear, timePeriod, orderPrice, orderId) {
         this.phone = phone;
         this.amount1 = amount1;
         this.amount2 = amount2;
@@ -197,6 +197,7 @@ class Order {
         this.orderYear = orderYear;
         this.timePeriod = timePeriod;
         this.orderPrice = orderPrice;
+        this.orderId = orderId;
     }
 }
 
@@ -214,11 +215,11 @@ class Order {
 var orderArray;
 if (localStorage.getItem('orderArray')==null) {
     orderArray = [];
-    orderArray.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400'));
-    orderArray.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700'));
-    orderArray.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600'));
-    orderArray.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900'));
-    orderArray.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600'));
+    orderArray.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400', "54867"));
+    orderArray.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700', "38395"));
+    orderArray.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600', "45736"));
+    orderArray.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900', "69264"));
+    orderArray.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600', "72563"));
 
     var orderArrayString = JSON.stringify(orderArray);
     localStorage.setItem('orderArray', orderArrayString);
@@ -248,7 +249,8 @@ function storeOrder() {
     var orderAmount2JS = document.getElementById('orderAmount2').value;
     var orderAmount3JS = document.getElementById('orderAmount3').value;
     var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
-    localStorage.setItem('amount1', orderAmount1JS);
+    var orderId = Math.floor(Math.random()*10000) + 99999;
+    /*localStorage.setItem('amount1', orderAmount1JS);
     localStorage.setItem('amount2', orderAmount2JS);
     localStorage.setItem('amount3', orderAmount3JS);
     localStorage.setItem('orderDay', document.getElementById('rentDay').value);
@@ -256,9 +258,9 @@ function storeOrder() {
     localStorage.setItem('orderYear', document.getElementById('rentYear').value);
     localStorage.setItem('timePeriod', document.getElementById('rentTime').value);
     localStorage.setItem('orderPrice', finalPrice);
-
+*/
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
-    orderArray.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
+    orderArray.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice, orderId));
 
     localStorage.setItem('orderArray', JSON.stringify(orderArray));
     window.location = "orderConfirmation.html";
