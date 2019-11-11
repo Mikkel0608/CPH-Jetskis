@@ -1,3 +1,29 @@
+function checkLoginOrderPage() {
+    if (localStorage.getItem('phone') == null) {
+        window.location = "Loginpage.html"
+    } else {
+        window.location ="orderPage.html"
+    }
+}
+
+function checkLoginProfilePage() {
+    if (localStorage.getItem('phone') == null) {
+        window.location = "Loginpage.html"
+    } else {
+        window.location ="profile.html"
+    }
+}
+
+
+function logOut(){
+    localStorage.removeItem("customerName");
+    localStorage.removeItem("address");
+    localStorage.removeItem("city");
+    localStorage.removeItem("phone");
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+}
+
 window.onload = function getCustomerInfo() {
     var storedName = localStorage.getItem('customerName');
     var storedAddress = localStorage.getItem('address');
@@ -37,12 +63,12 @@ window.onload = function getCustomerInfo() {
     }
 
          */
-    var userAmount = JSON.parse(localStorage.getItem('orderArray')).length;
+    var orderAmount = JSON.parse(localStorage.getItem('orderArray')).length;
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
 
     //The following loop goes through all the stored orders, and creates an HTML <p> with the order info if the logged in phone matches the order's phone value
     var i;
-    for (i = 0; i <= userAmount; i++) {
+    for (i = 0; i <= orderAmount; i++) {
         if (localStorage.getItem('phone') == orderArray[i].phone) {
             var day = orderArray[i].orderDay;
             var month = orderArray[i].orderMonth;
@@ -67,7 +93,7 @@ window.onload = function getCustomerInfo() {
 }
 
 
-function deleteUser() {
+/*function deleteUser() {
     var choice = window.confirm("Er du sikker på, at du vil slette din bruger?");
     if (choice == true) {
         localStorage.clear();
@@ -75,9 +101,9 @@ function deleteUser() {
         window.location = 'Loginpage.html';
     }
 }
-
+*/
 //MD: This function deletes the current order stored in localStorage
-function deleteOrder(){
+/*function deleteOrder(){
     var choice = window.confirm("Er du sikker på, at du vil annullere din bestilling?");
     if (choice == true) {
 
@@ -94,32 +120,27 @@ function deleteOrder(){
         window.location = "profile.html";
     }
 }
+*/
 
 
+function deleteUser() {
+    var userArray = JSON.parse(localStorage.getItem("userArray"));
 
+    for(var i = 0; i < userArray.length; i++){
+        if (localStorage.getItem("phone") == userArray[i].phone) {
+            userArray.splice(i, 1)
 
-function checkLoginOrderPage() {
-    if (localStorage.getItem('phone') == null) {
-        window.location = "Loginpage.html"
-    } else {
-        window.location ="orderPage.html"
+            var userArrayString = JSON.stringify(userArray);
+            localStorage.setItem('userArray', userArrayString);
+
+            alert("Bruger er blevet slettet");
+            window.location = 'Loginpage.html';
+            logOut()
+
+        }
     }
 }
 
-function checkLoginProfilePage() {
-    if (localStorage.getItem('phone') == null) {
-        window.location = "Loginpage.html"
-    } else {
-        window.location ="profile.html"
-    }
-}
 
 
-function logOut(){
-    localStorage.removeItem("customerName");
-    localStorage.removeItem("address");
-    localStorage.removeItem("city");
-    localStorage.removeItem("phone");
-    localStorage.removeItem("email");
-    localStorage.removeItem("password");
-}
+

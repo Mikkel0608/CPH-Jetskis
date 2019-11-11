@@ -180,9 +180,8 @@ function loginVal() {
     userArray = JSON.parse(localStorage.getItem('userArray'));
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
-    var loggedIn = "yes"
 
-    for (let i = 0; i < userArray.length; i++) {
+    for (let i = 0; i <= userArray.length; i++) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
             window.location = "frontpage.html";
             localStorage.setItem('customerName', userArray[i].customerName);
