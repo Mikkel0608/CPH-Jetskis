@@ -59,9 +59,10 @@ function confirmTime() {
     var occupiedAmount2 = 0;
     var occupiedAmount3 = 0;
 
+    //The following loop cycles through all registered orders and counts the amount of occupied jetskis for the selected date/time period.
     for (var i = 0; i < orderAmount; i++) {
         if (rentDayValue == orderArray[i].orderDay && rentMonthValue == orderArray[i].orderMonth && rentYearValue == orderArray[i].orderYear && rentTimeValue == orderArray[i].timePeriod) {
-            //Corrects the amount of jetski 1 if there are any in earlier orders
+            //Counts the amount of jetski1 reserved and adds to the var
             if (orderArray[i].amount1 == 1) {
                 occupiedAmount1 = occupiedAmount1+1;
             } else if (orderArray[i].amount1 == 2) {
@@ -69,7 +70,7 @@ function confirmTime() {
             } else if (orderArray[i].amount1 == 3) {
                 occupiedAmount1 = occupiedAmount1+3;
             }
-            //Corrects the amount of jetski 1 if there are any in earlier orders
+            //Counts the amount of jetski2 reserved and adds to the var
             if (orderArray[i].amount2 == 1) {
                 occupiedAmount2 = occupiedAmount2+1;
             } else if (orderArray[i].amount2 == 2) {
@@ -77,7 +78,7 @@ function confirmTime() {
             } else if (orderArray[i].amount2 == 3) {
                 occupiedAmount2 = occupiedAmount2+3;
             }
-            //Corrects the amount of jetski 1 if there are any in earlier orders
+            //Counts the amount of jetski3 reserved and adds to the var
             if (orderArray[i].amount3 == 1) {
                 occupiedAmount3 = occupiedAmount3+1;
             } else if (orderArray[i].amount3 == 2) {
@@ -87,6 +88,7 @@ function confirmTime() {
             }
         }
     }
+    //Corrects the amount of jetski 1 if there are any reserved
     if (occupiedAmount1 == 1) {
         document.getElementById('jetski1Amount3').style.display = "none";
     } else if (occupiedAmount1 == 2) {
@@ -95,7 +97,7 @@ function confirmTime() {
     } else if (occupiedAmount1 >= 3) {
         document.getElementById("modelContainer1").style.display = "none";
     }
-    //Corrects the amount of jetski 1 if there are any in earlier orders
+    //Corrects the amount of jetski 2 if there are any reserved
     if (occupiedAmount2 == 1) {
         document.getElementById('jetski2Amount3').style.display = "none";
     } else if (occupiedAmount2== 2) {
@@ -104,7 +106,7 @@ function confirmTime() {
     } else if (occupiedAmount2 >= 3) {
         document.getElementById("modelContainer2").style.display = "none";
     }
-    //Corrects the amount of jetski 1 if there are any in earlier orders
+    //Corrects the amount of jetski 3 if there are any reserved
     if (occupiedAmount3 == 1) {
         document.getElementById('jetski3Amount3').style.display = "none";
     } else if (occupiedAmount3 == 2) {
