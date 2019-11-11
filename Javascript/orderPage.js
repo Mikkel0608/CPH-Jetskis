@@ -40,18 +40,21 @@ function confirmTime() {
 
     //Tests if the variables set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
-        var timeValid = true;
         document.getElementById("modelContainer1").style.display = "";
         document.getElementById("modelContainer2").style.display = "";
         document.getElementById("modelContainer3").style.display = "";
+        document.getElementById('jetski1Amount3').style.display = '';
+        document.getElementById('jetski1Amount2').style.display = '';
+        document.getElementById('jetski2Amount3').style.display = '';
+        document.getElementById('jetski2Amount2').style.display = '';
+        document.getElementById('jetski3Amount3').style.display = '';
+        document.getElementById('jetski3Amount2').style.display = '';
     } else {
         alert("Udfyld venligst alle felter.");
-        timeValid = false;
     }
 
     var orderAmount = JSON.parse(localStorage.getItem('orderArray')).length;
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
-    var matchingOrder = false;
 
     for (var i = 0; i <= orderAmount; i++) {
         if (rentDayValue == orderArray[i].orderDay && rentMonthValue == orderArray[i].orderMonth && rentYearValue == orderArray[i].orderYear && rentTimeValue == orderArray[i].timePeriod) {
@@ -82,20 +85,9 @@ function confirmTime() {
             } else if (orderArray[i].amount3 == 3) {
                 document.getElementById("modelContainer3").style.display = "none";
             }
-            matchingOrder==true;
         }
     }
-    if (timeValid==true && matchingOrder==false) {
-        document.getElementById("modelContainer1").style.display = "initial";
-        document.getElementById("modelContainer2").style.display = "initial";
-        document.getElementById("modelContainer3").style.display = "initial";
-        document.getElementById('jetski1Amount3').style.display = "initial";
-        document.getElementById('jetski1Amount2').style.display = "initial";
-        document.getElementById('jetski2Amount3').style.display = "initial";
-        document.getElementById('jetski2Amount2').style.display = "initial";
-        document.getElementById('jetski3Amount3').style.display = "initial";
-        document.getElementById('jetski3Amount2').style.display = "initial";
-    }
+
     /*
     //This next if statement checks the localstorage and sees if there are already any reservation for the given date/time.
     if (rentDayValue == localStorage.getItem('orderDay') && rentMonthValue == localStorage.getItem('orderMonth') && rentYearValue == localStorage.getItem('orderYear') && rentTimeValue == localStorage.getItem('timePeriod')) {
@@ -251,6 +243,8 @@ function storeOrder() {
     var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
     var orderId = Math.floor(Math.random()*10000) + 99999;
     /*localStorage.setItem('amount1', orderAmount1JS);
+    /*
+    localStorage.setItem('amount1', orderAmount1JS);
     localStorage.setItem('amount2', orderAmount2JS);
     localStorage.setItem('amount3', orderAmount3JS);
     localStorage.setItem('orderDay', document.getElementById('rentDay').value);
@@ -297,6 +291,7 @@ function storeOrder() {
 // This loop shows the
 
 getNumber();
+
 
 function showOrder() {
     orderArray = JSON.parse(localStorage.getItem('orderArray'));
