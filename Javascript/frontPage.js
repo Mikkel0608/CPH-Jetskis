@@ -9,15 +9,21 @@ window.onload = function checkLoginButton() {
 
 function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
-        window.location = "Loginpage.html"
+        var confirmLoginOrder = window.confirm("Du skal være logget ind for at bestille en tid. Tryk OK for at logge ind.");
+        if (confirmLoginOrder == true) {
+            window.location = "Loginpage.html"
+        }
     } else {
-        window.location ="orderPage.html"
+        window.location = "orderPage.html"
     }
 }
 
 function checkLoginProfilePage() {
     if (localStorage.getItem('phone') == null) {
-        window.location = "Loginpage.html"
+        var confirmLoginOrder = window.confirm("Du skal være logget ind for at se din profil. Tryk OK for at logge ind.");
+        if (confirmLoginOrder == true) {
+            window.location = "Loginpage.html"
+        }
     } else {
         window.location ="profile.html"
     }
