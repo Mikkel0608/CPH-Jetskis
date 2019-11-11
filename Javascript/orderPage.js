@@ -175,7 +175,7 @@ if (localStorage.getItem('orderArray')==null) {
 }
 
 //Denne funktion tjekker hvor vidt loggedIn = yes (hvilket bliver oprettet i loginVal ved succesfuld login)
-function storePreDefinedOrder() {
+/*function storePreDefinedOrder() {
     orderArray = JSON.parse(localStorage.getItem('orderArray'));
    // var phone = document.getElementById("phone").value;
     //var password = document.getElementById("password").value;
@@ -191,7 +191,7 @@ function storePreDefinedOrder() {
         }
     }
 }
-
+*/
 
 function storeOrder() {
     var orderAmount1JS = document.getElementById('orderAmount1').value;
