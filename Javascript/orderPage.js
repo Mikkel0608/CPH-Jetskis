@@ -49,6 +49,54 @@ function confirmTime() {
         timeValid = false;
     }
 
+    var orderAmount = JSON.parse(localStorage.getItem('orderArray')).length;
+    var orderArray = JSON.parse(localStorage.getItem('orderArray'));
+    var matchingOrder = false;
+
+    for (var i = 0; i <= orderAmount; i++) {
+        if (rentDayValue == orderArray[i].orderDay && rentMonthValue == orderArray[i].orderMonth && rentYearValue == orderArray[i].orderYear && rentTimeValue == orderArray[i].timePeriod) {
+            //Corrects the amount of jetski 1 if there are any in earlier orders
+            if (orderArray[i].amount1 == 1) {
+                document.getElementById('jetski1Amount3').style.display = "none";
+            } else if (orderArray[i].amount1 == 2) {
+                document.getElementById('jetski1Amount3').style.display = "none";
+                document.getElementById('jetski1Amount2').style.display = "none";
+            } else if (orderArray[i].amount1 == 3) {
+                document.getElementById("modelContainer1").style.display = "none";
+            }
+            //Corrects the amount of jetski 1 if there are any in earlier orders
+            if (orderArray[i].amount2 == 1) {
+                document.getElementById('jetski2Amount3').style.display = "none";
+            } else if (orderArray[i].amount2 == 2) {
+                document.getElementById('jetski2Amount3').style.display = "none";
+                document.getElementById('jetski2Amount2').style.display = "none";
+            } else if (orderArray[i].amount2 == 3) {
+                document.getElementById("modelContainer2").style.display = "none";
+            }
+            //Corrects the amount of jetski 1 if there are any in earlier orders
+            if (orderArray[i].amount3 == 1) {
+                document.getElementById('jetski3Amount3').style.display = "none";
+            } else if (orderArray[i].amount3 == 2) {
+                document.getElementById('jetski3Amount3').style.display = "none";
+                document.getElementById('jetski3Amount2').style.display = "none";
+            } else if (orderArray[i].amount3 == 3) {
+                document.getElementById("modelContainer3").style.display = "none";
+            }
+            matchingOrder==true;
+        }
+    }
+    if (timeValid==true && matchingOrder==false) {
+        document.getElementById("modelContainer1").style.display = "initial";
+        document.getElementById("modelContainer2").style.display = "initial";
+        document.getElementById("modelContainer3").style.display = "initial";
+        document.getElementById('jetski1Amount3').style.display = "initial";
+        document.getElementById('jetski1Amount2').style.display = "initial";
+        document.getElementById('jetski2Amount3').style.display = "initial";
+        document.getElementById('jetski2Amount2').style.display = "initial";
+        document.getElementById('jetski3Amount3').style.display = "initial";
+        document.getElementById('jetski3Amount2').style.display = "initial";
+    }
+    /*
     //This next if statement checks the localstorage and sees if there are already any reservation for the given date/time.
     if (rentDayValue == localStorage.getItem('orderDay') && rentMonthValue == localStorage.getItem('orderMonth') && rentYearValue == localStorage.getItem('orderYear') && rentTimeValue == localStorage.getItem('timePeriod')) {
         //Checks if there are any orders of Jetski 1 in local storage and adjusts the amount shown
@@ -84,6 +132,8 @@ function confirmTime() {
         document.getElementById("modelContainer2").style.display = "";
         document.getElementById("modelContainer3").style.display = "";
     }
+
+     */
 }
 
 class Jetski {
