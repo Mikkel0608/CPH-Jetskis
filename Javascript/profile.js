@@ -113,3 +113,13 @@ function checkLoginProfilePage() {
         window.location ="profile.html"
     }
 }
+
+
+function logOut(){
+    localStorage.removeItem("customerName");
+    localStorage.removeItem("address");
+    localStorage.removeItem("city");
+    localStorage.removeItem("phone");
+    localStorage.removeItem("email");
+    localStorage.removeItem("password");
+}

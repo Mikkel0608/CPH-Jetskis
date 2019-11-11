@@ -191,9 +191,8 @@ function loginVal() {
             localStorage.setItem('phone', userArray[i].phone);
             localStorage.setItem('email', userArray[i].email);
             localStorage.setItem('password', userArray[i].password);
-            localStorage.setItem('loggedIn', loggedIn);
 
-            storePreDefinedOrder();
+            //storePreDefinedOrder();
 
             console.log("logged in");
         }
