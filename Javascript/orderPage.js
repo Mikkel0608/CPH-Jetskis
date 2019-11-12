@@ -64,27 +64,27 @@ function confirmTime() {
         if (rentDayValue == orderArray[i].orderDay && rentMonthValue == orderArray[i].orderMonth && rentYearValue == orderArray[i].orderYear && rentTimeValue == orderArray[i].timePeriod) {
             //Counts the amount of jetski1 reserved and adds to the var
             if (orderArray[i].amount1 == 1) {
-                occupiedAmount1 = occupiedAmount1+1;
+                occupiedAmount1++;
             } else if (orderArray[i].amount1 == 2) {
-                occupiedAmount1 = occupiedAmount1+2;
+                occupiedAmount1+=2;
             } else if (orderArray[i].amount1 == 3) {
-                occupiedAmount1 = occupiedAmount1+3;
+                occupiedAmount1+=3;
             }
             //Counts the amount of jetski2 reserved and adds to the var
             if (orderArray[i].amount2 == 1) {
-                occupiedAmount2 = occupiedAmount2+1;
+                occupiedAmount2++;
             } else if (orderArray[i].amount2 == 2) {
-                occupiedAmount2 = occupiedAmount2+2;
+                occupiedAmount2+=2;
             } else if (orderArray[i].amount2 == 3) {
-                occupiedAmount2 = occupiedAmount2+3;
+                occupiedAmount2+=3;
             }
             //Counts the amount of jetski3 reserved and adds to the var
             if (orderArray[i].amount3 == 1) {
-                occupiedAmount3 = occupiedAmount3+1;
+                occupiedAmount3++;
             } else if (orderArray[i].amount3 == 2) {
-                occupiedAmount3 = occupiedAmount3+2;
+                occupiedAmount3+=2;
             } else if (orderArray[i].amount3 == 3) {
-                occupiedAmount3 = occupiedAmount3+3;
+                occupiedAmount3+=3;
             }
         }
     }
