@@ -14,6 +14,7 @@ window.onload = function getOrderInfo() {
     var amount2 = orderArray[orderAmount-1].amount2;
     var amount3 = orderArray[orderAmount-1].amount3;
     var orderPrice = orderArray[orderAmount-1].orderPrice;
+    var orderID = orderArray[orderAmount-1].orderId;
     //Uses HTML DOM getElementByID to refer to the empty P tags on the page, and inserts the relevant information stored in the variables above
     document.getElementById('date').innerHTML ="Dato for udlejning: "+ day + "/" + month+"/"+year;
     document.getElementById('timePeriod').innerHTML ="Tidspunkt for udlejning: kl. " + timePeriod;
@@ -21,6 +22,7 @@ window.onload = function getOrderInfo() {
     document.getElementById('amountOfJetski2').innerHTML ="Antal Yamaha Waverunner VX: " + amount2;
     document.getElementById('amountOfJetski3').innerHTML ="Antal Kawasaki STX-15F: " + amount3;
     document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + orderPrice;
+    document.getElementById('orderID').innerHTML = "Ordre ID: " + orderID;
 }
 
 function checkLoginOrderPage() {
