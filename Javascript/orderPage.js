@@ -23,7 +23,7 @@ function checkLoginProfilePage() {
     }
 }
 /*MM: The following function is activated by the confirm time button, and does the following:
-1. It checks if the date/time values have been filed out, and displays and error if not.
+1. It checks if the date/time values have been filled out, and displays and error if not.
 2. It checks if there already are reservations for the given time/date, and adjusts the amount of jetskis shown. */
 function confirmTime() {
     // creating variables that represents the user selection of date and time
