@@ -104,20 +104,56 @@ window.onload = function getCustomerInfo() {
 }
 */
 //MD: This function deletes the current order stored in localStorage
-function deleteOrder() {
+/*function deleteOrder() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
+    alert("Dine bestillinger er blevet aflyst");
+    window.location = "profile.html";
         for (var i = 0; i <= orderArray.length; i++) {
             if (localStorage.getItem("phone") == orderArray[i].phone) {
+
                 orderArray.splice(i, 1);
-                i--;
+                //i--;
 
                 var orderArrayString = JSON.stringify(orderArray);
                 localStorage.setItem("orderArray", orderArrayString);
 
-                alert("Dine bestillinger er blevet aflyst");
-                window.location = "profile.html";
             }
         }
+}
+*/
+
+var selection = document.getElementById("orderId");
+var option = selection.options;
+
+function getOrderId() {
+    var orderArray = JSON.parse(localStorage.getItem("orderArray"));
+
+    for (var i = 0; i <= orderArray.length; i++) {
+        if (localStorage.getItem("phone") == orderArray[i].phone) {
+
+            var orderIdArray = [];
+            orderIdArray[i] = document.createElement("option");
+            orderIdArray[i].innerHTML = orderArray[i].orderId;
+
+            document.getElementById("orderId").appendChild(orderIdArray[i]);
+        }
+    }
+}
+getOrderId();
+
+function deleteOrder() {
+    var orderArray = JSON.parse(localStorage.getItem("orderArray"));
+    alert("Bestillingen er blevet annulleret")
+    //window.location = "loginpage.html";
+    for (var i = 0; i <= orderArray.length; i++) {
+        if (selection.value == orderArray[i].orderId) {
+            window.location = "profile.html";
+            orderArray.splice(i, 1);
+
+            var orderArrayString = JSON.stringify(orderArray);
+            localStorage.setItem("orderArray", orderArrayString);
+        }
+    }
 }
 
 
