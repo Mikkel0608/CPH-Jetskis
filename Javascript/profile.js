@@ -103,48 +103,37 @@ window.onload = function getCustomerInfo() {
 }
 */
 //MD: This function deletes the current order stored in localStorage
-/*function deleteOrder(){
-    var choice = window.confirm("Er du sikker på, at du vil annullere din bestilling?");
-    if (choice == true) {
+function deleteOrder() {
+    var orderArray = JSON.parse(localStorage.getItem("orderArray"));
+        for (var i = 0; i <= orderArray.length; i++) {
+            if (localStorage.getItem("phone") == orderArray[i].phone) {
+                orderArray.splice(i, 1);
+                i--;
 
-        localStorage.removeItem("amount1");
-        localStorage.removeItem("amount2");
-        localStorage.removeItem("amount3");
-        localStorage.removeItem("orderDay");
-        localStorage.removeItem("orderMonth");
-        localStorage.removeItem("orderYear");
-        localStorage.removeItem("timePeriod");
-        localStorage.removeItem("orderPrice");
+                var orderArrayString = JSON.stringify(orderArray);
+                localStorage.setItem("orderArray", orderArrayString);
 
-        alert("Bestillingen er blevet aflyst");
-        window.location = "profile.html";
-    }
+                alert("Dine bestillinger er blevet aflyst");
+                window.location = "profile.html";
+            }
+        }
 }
-*/
 
 
 function deleteUser() {
     var userArray = JSON.parse(localStorage.getItem("userArray"));
-    var orderArray = JSON.parse(localStorage.getItem("orderArray"));
+    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?")
+    if (choice == true) {
+        for (var i = 0; i <= userArray.length; i++) {
+            if (localStorage.getItem("phone") == userArray[i].phone) {
+                window.location = 'Loginpage.html';
+                userArray.splice(i, 1);
 
-    for (var i = 0; i <= userArray.length; i++) {
-        if (localStorage.getItem("phone") == userArray[i].phone) {
-            window.location = 'Loginpage.html';
-            userArray.splice(i, 1);
-
-            var userArrayString = JSON.stringify(userArray);
-            localStorage.setItem('userArray', userArrayString);
-
-            //Kan kun fjerne én ordre
-            for (var i = 0; i <= orderArray.length; i++) {
-                if (localStorage.getItem("phone") == orderArray[i].phone) {
-                    orderArray.splice(i, 1);
-
-                    var orderArrayString = JSON.stringify(orderArray);
-                    localStorage.setItem("orderArray", orderArrayString);
-                    logOut();
-                    alert("Bruger er blevet slettet");
-                }
+                var userArrayString = JSON.stringify(userArray);
+                localStorage.setItem('userArray', userArrayString);
+                logOut();
+                deleteOrder();
+                alert("Bruger er blevet slettet");
             }
         }
     }
