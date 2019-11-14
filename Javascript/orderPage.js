@@ -320,10 +320,10 @@ function storeOrder() {
 }
 // This loop shows the
 
-getNumber();
+//getNumber();
 
 
-function showOrder() {
+/*function showOrder() {
     orderArray = JSON.parse(localStorage.getItem('orderArray'));
     for (let i = 0; i < orderArray.length; i++) {
         if (selection.value === orderArray[i].phone) {
@@ -337,4 +337,4 @@ function showOrder() {
 
         }
     }
-}
+}*/

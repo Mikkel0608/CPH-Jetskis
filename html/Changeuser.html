@@ -26,12 +26,6 @@
 <br>
 <select id="phoneSelect">
     <option selected disabled id="optionTlf"> -Tlf- </option>
-    <option id="customer1"> </option>
-    <option id="customer2"></option>
-    <option id="customer3"></option>
-    <option id="customer4"></option>
-    <option id="customer5"></option>
-    <option id="customer6"></option>
 </select>
 <button id=showinfo onclick="showInfo(),showOrder()">Vis brugeroplysninger</button>
 
@@ -52,14 +46,18 @@
 
 </div>
 
-<div id="orderDetails">
-    <p id="orderHeadline"></p>
-    <p id="date"></p>
-    <p id="timePeriod"></p>
-    <p id="amountOfJetski1"></p>
-    <p id="amountOfJetski2"></p>
-    <p id="amountOfJetski3"></p>
-    <p id="orderPrice"></p>
+<div style="position: absolute; top: 184px; left: 200px; z-index: 1;" id="orderArea">
+    <div id="orderDetails" style="height: 500px; width: 300px; border: solid black 2px; overflow: scroll;">
+        <p id="noOrders"> Ingen aktive ordrer på nuværende tidspunkt. </p>
+     </div>
+       <!-- <p id="orderHeadline"></p>
+        <p id="date"></p>
+        <p id="timePeriod"></p>
+        <p id="amountOfJetski1"></p>
+        <p id="amountOfJetski2"></p>
+        <p id="amountOfJetski3"></p>
+        <p id="orderPrice"></p>
+        <p id="orderId"></p>-->
 </div>
 
 

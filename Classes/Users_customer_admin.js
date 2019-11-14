@@ -293,14 +293,18 @@ var option = selection.options;
 
 //Here the function takes the customers phone number from the array.
 function getNumber() {
-    userArray = JSON.parse(localStorage.getItem('userArray'));
-    option [1].innerHTML = userArray[0].phone;
-    option [2].innerHTML = userArray[1].phone;
-    option [3].innerHTML = userArray[2].phone;
-    option [4].innerHTML = userArray[3].phone;
-    option [5].innerHTML = userArray[4].phone;
-    option [6].innerHTML = userArray[5].phone;
+    var userArray = JSON.parse(localStorage.getItem('userArray'));
+
+    for (var i = 0; i <= userArray.length; i++) {
+        var allUsersArray = [];
+        allUsersArray[i] = document.createElement("option");
+        allUsersArray[i].innerHTML = userArray[i].phone;
+
+        document.getElementById("phoneSelect").appendChild(allUsersArray[i]);
+    }
 }
+getNumber();
+
 
 /*
 function getNumber() {
@@ -315,14 +319,14 @@ function getNumber() {
 */
 
 // The function getNumber is being called.
-getNumber();
+
 
 
 /*This function is a loop that first check the selection value in an if statement. If the selection value matches a phone number from customerArray
 then the function shows the rest of the data from the customer object. */
 
 function showInfo () {
-    userArray = JSON.parse(localStorage.getItem('userArray'));
+    var userArray = JSON.parse(localStorage.getItem('userArray'));
     for (let i = 0; i < userArray.length; i++) {
         if (selection.value == userArray[i].phone) {
             document.getElementById('customerName').innerHTML = userArray[i].customerName;
@@ -333,6 +337,44 @@ function showInfo () {
         }
     }
 }
+
+function showOrder() {
+    var orderArray = JSON.parse(localStorage.getItem('orderArray'));
+    for (let i = 0; i < orderArray.length; i++) {
+            if (selection.value == orderArray[i].phone) {
+                var day = orderArray[i].orderDay;
+                var month = orderArray[i].orderMonth;
+                var year = orderArray[i].orderYear;
+                var timePeriod = orderArray[i].timePeriod;
+                var amount1 = orderArray[i].amount1;
+                var amount2 = orderArray[i].amount2;
+                var amount3 = orderArray[i].amount3;
+                var orderPrice = orderArray[i].orderPrice;
+                var orderID = orderArray[i].orderId;
+
+
+                var orderInfo = [];
+
+                orderInfo[i] = document.createElement("P");
+                orderInfo[i].innerHTML = "Dato for udlejning: " + day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + timePeriod + "</br></br>" + "Antal Sea Doo Spark: " + amount1 + "</br></br>" + "Antal Yamaha Waverunner VX: " + amount2 + "</br></br>" + "Antal Kawasaki STX-15F: " + amount3 + "</br></br>" + "Samlet pris til betaling ved udlejning: " + orderPrice + "</br></br> Ordre ID: " + orderID + "<br><br>";
+
+                document.getElementById('orderDetails').appendChild(orderInfo[i]);
+                document.getElementById('noOrders').innerHTML = "";
+
+
+                /*document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
+                document.getElementById('timePeriod').innerHTML = "Tidspunkt for udlejning: kl. " + orderArray[i].timePeriod;
+                document.getElementById('amountOfJetski1').innerHTML = "Antal Sea Doo Spark: " + orderArray[i].amount1;
+                document.getElementById('amountOfJetski2').innerHTML = "Antal Yamaha Waverunner VX: " + orderArray[i].amount2;
+                document.getElementById('amountOfJetski3').innerHTML = "Antal Kawasaki STX-15F: " + orderArray[i].amount3;
+                document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + orderArray[i].orderPrice;
+                 */
+            }
+    }
+}
+
+
+
 
 
 /*function showOrder(){

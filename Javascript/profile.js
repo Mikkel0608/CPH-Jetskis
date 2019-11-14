@@ -63,6 +63,7 @@ window.onload = function getCustomerInfo() {
     }
 
          */
+
     var orderAmount = JSON.parse(localStorage.getItem('orderArray')).length;
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
 
@@ -84,6 +85,7 @@ window.onload = function getCustomerInfo() {
             var orderInfo = [];
             //for each order the user has, a new <p> is created in the orderList, with the order info
             orderInfo[i] = document.createElement("P");
+
             orderInfo[i].innerHTML ="Dato for udlejning: "+ day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + timePeriod + "</br></br>" + "Antal Sea Doo Spark: " + amount1 + "</br></br>" + "Antal Yamaha Waverunner VX: " + amount2 + "</br></br>" + "Antal Kawasaki STX-15F: " + amount3 + "</br></br>" + "Samlet pris til betaling ved udlejning: " + orderPrice + "</br></br> Ordre ID: " + orderID + "<br><br>";
             document.getElementById('orderList').appendChild(orderInfo[i]);
             //The following line removes the "no curent orders" text
