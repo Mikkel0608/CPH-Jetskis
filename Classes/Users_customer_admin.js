@@ -287,7 +287,7 @@ function validate() {
 }
 
 
-// This function is made to get phone numbers from customers into the 'selectmenu' in the Changeuser HTML.
+// This function is made to get phone numbers from customers into the 'phoneSelect' in the Changeuser HTML.
 var selection = document.getElementById("phoneSelect");
 var option = selection.options;
 

@@ -237,11 +237,11 @@ class Order {
 var orderArray;
 if (localStorage.getItem('orderArray')==null) {
     orderArray = [];
-    orderArray.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400', "54867"));
-    orderArray.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700', "38395"));
-    orderArray.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600', "45736"));
-    orderArray.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900', "69264"));
-    orderArray.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600', "72563"));
+    orderArray.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400', "548676"));
+    orderArray.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700', "383953"));
+    orderArray.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600', "457364"));
+    orderArray.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900', "692642"));
+    orderArray.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600', "725637"));
 
     var orderArrayString = JSON.stringify(orderArray);
     localStorage.setItem('orderArray', orderArrayString);
