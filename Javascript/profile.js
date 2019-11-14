@@ -145,7 +145,6 @@ getOrderId();
 
 function deleteOrder() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
-    alert("Bestillingen er blevet annulleret")
     //window.location = "loginpage.html";
     for (var i = 0; i <= orderArray.length; i++) {
         if (selection.value == orderArray[i].orderId) {
@@ -158,6 +157,14 @@ function deleteOrder() {
     }
 }
 
+function deleteOrderAlert() {
+    var choice = window.confirm("Er du sikker på, at du vil slette din ordre?");
+    if (choice == true) {
+        alert("Ordren er blevet slettet");
+        deleteOrder();
+    }
+}
+
 
 function deleteUser() {
     var userArray = JSON.parse(localStorage.getItem("userArray"));
@@ -165,6 +172,7 @@ function deleteUser() {
     if (choice == true) {
         for (var i = 0; i <= userArray.length; i++) {
             if (localStorage.getItem("phone") == userArray[i].phone) {
+                alert("Bruger er blevet slettet");
                 window.location = 'Loginpage.html';
                 userArray.splice(i, 1);
 
@@ -172,7 +180,7 @@ function deleteUser() {
                 localStorage.setItem('userArray', userArrayString);
                 logOut();
                 deleteOrder();
-                alert("Bruger er blevet slettet");
+
             }
         }
     }
