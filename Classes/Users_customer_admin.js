@@ -1,5 +1,8 @@
-//A class is created. It's variables are info about the customers.
-class customer {
+//MD: A class is created. Classes can in JavaScript be used for creating objects (instantiation)
+//A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized
+//Then comes the constructor method, which lists the properties of the class: name, address, city and so on...
+//The 'this' keyword refers to the 'owner' of the method, which is Customer in this case.
+class Customer {
     constructor(customerName, address, city, phone, email, password){
         this.customerName = customerName;
         this.address = address;
@@ -24,19 +27,44 @@ class customer {
 
 }
 
-/*MD: This function is supposed to collect the inputs from the form as well as validating whether the input
-is valid.
-This is accomplished by creating a variable called form_valid, which has a boolean value. The form can either be true
-or false. If the form is true, the registration is successful and the user is redirected to the login page. The method
-storeLogin is called if the form is true, so the inputs are stored.
-The form is false if the inputs are invalid, i.e. if the input in the phone number field is not a number. An alert box
-will pop up if this is the case.
 
-The reason we chose to implement this cod, is because we have had form validation lessons in our other course, BIS,
-where we used this exact method of validating the form.
+/*MD: This is a function. A function is a little piece of program wrapped in a value. Functions can be called/invoked
+in order to run the 'program'. The basic syntax for a function is using the keyword function followed by the name of the
+function, followed by parantheses containing possible parameters. Inside the brackets is the 'body' of the function.
+The body is always wrapped in braces. The body contains the statements that are going to be run if the function is called.
+
+Different bindings/variables are created using the keyword 'var' (variable), which can hold values. Now, the variable called customerName now has a
+value, which is determined by using the '=' operator. Here we assign the variable customerName to the element in our HTML
+document with the id = "customerName".
+
+Here JavaScript reads the DOM (document object model), which is the tree-like structure of an HTML document. The keyword
+'document' represents the web page. The getElementbyId method can find a specific node in the DOM by its id. The id is
+specified in the HTML document. In this case, its the "customerName" text field we are looking for. We can use the .value
+property to access the actual value entered in the text field. Now, the variable customerName holds the value entered in
+the text field. Same procedure for all the other text fields.
+
+After that, the validation of the input starts. The variable form_value holds a boolean value, which is a value that can
+only have two possibilities - in this case true/false. We also create a variable validation_message, which contains a string.
+Strings are used to represent text.
+
+We start using conditional statements to validate the input. An if-statement is used to execute a piece of code, if a
+certain condition is met. If customerName is equal to (using the '==' operator) null or (using the || operator) equal to
+an empty string. Null is the absence of a value. If any of these conditions are met (because we are using the || operator,
+which means or), the code in the brackets will execute:
+- Again collecting the specific elementId, we color the border of the text field red using inline CSS styling.
+- Using the += operator (which takes the variable and adds itself with whatever comes after the equals sign) a string
+containing some text is created.
+- the form_valid is set to false.
+
+We do this with all the different variables.
+
+IsNaN: Means 'is not a number'
+
+
+
+
+
  */
-
-
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
@@ -103,20 +131,46 @@ function register() {
         validation_message += "Venligst udfyld password!";
         form_valid = false;
     }
-    else if (document.getElementById("password").value!=document.getElementById("confirmPassword").value) {
+
+    //This if statement checks whether the password and confirmPassword values are equal to eachother
+    //!= operator: means is not equal to
+    if (document.getElementById("password").value!=document.getElementById("confirmPassword").value) {
         document.getElementById('confirmPassword').style.borderColor = "red";
-        validation_message += "Passwords er ikke ens"
+        validation_message += "Passwords er ikke ens";
         form_valid = false;
     }
+/*
+This statement checks whether the form is valid. If it is valid, that means that none of the above conditions have
+been met in order to make the form_valid = false.
 
-    /*
-    If the form is valid, then an alert box will pop up,
-    and the function storeLogin, which stores the inputs, will be called.
-     */
+JSON (Javascript Object Notation) is introduced. It is a kind of format used for storing data. JSON is used in our
+code in order to be able to store arrays in the localStorage.
+
+The JSON.parse command takes some JSON data and converts it back to JavaScript values.
+The JSON.stringify command does the opposite, and converts JavaScript values to a JSON-encoded string.
+
+We collect this data from localStorage using the .getItem method. The data has a 'key' from which we can locate the data.
+LocalStorage is where data can be stored in the browser.
+
+The method .push is used to introduce a new customer object into the userArray. This method pushes the new data into the
+back of the array.
+
+An object is an instance of the class created in the beginning (Customer). We can have many objects that with the same
+properties as the class. The properties are specific to the object. So this Customer object will contain the properties
+of whatever has been typed in the registration form.
+
+.setItem is used to put data into the localStorage. First comes the name of the key, and then the value.
+
+window.location object loads another html page.
+
+alert method puts a box on the screen containing a string of text.
+
+The else statement will execute if the if-statement is false.
+*/
     if (form_valid) {
 
         var userArray = JSON.parse(localStorage.getItem('userArray'));
-        userArray.push(new customer(customerName, address, city, phone, email, password));
+        userArray.push(new Customer(customerName, address, city, phone, email, password));
 
         localStorage.setItem("userArray", JSON.stringify(userArray));
         alert("Ny bruger er blevet oprettet");
@@ -149,15 +203,16 @@ function storeLogin() {
 }
 */
 
+//An array is created "userArray". An array is used for storing sequences of values.
 var userArray;
 if (localStorage.getItem('userArray')==null) {
     userArray = [];
 
-    userArray.push(new customer('Per','Nørregade 31, 4th', 'København', '45678904','per@købenahvn.dk', 'per123'));
-    userArray.push(new customer('Tina','Gothersgade 42, 3tv', 'København', '22340987','tina@gmail.com', 'Minkode122'));
-    userArray.push(new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42'));
-    userArray.push(new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig'));
-    userArray.push(new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477'));
+    userArray.push(new Customer('Per','Nørregade 31, 4th', 'København', '45678904','per@købenahvn.dk', 'per123'));
+    userArray.push(new Customer('Tina','Gothersgade 42, 3tv', 'København', '22340987','tina@gmail.com', 'Minkode122'));
+    userArray.push(new Customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42'));
+    userArray.push(new Customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig'));
+    userArray.push(new Customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477'));
     
     var userArrayString = JSON.stringify(userArray);
     localStorage.setItem('userArray', userArrayString);
