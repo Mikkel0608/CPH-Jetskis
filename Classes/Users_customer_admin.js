@@ -11,24 +11,11 @@ class Customer {
         this.email = email;
         this.password = password;
     }
-
-//This method stores input from the sign-up page in the local storage, as well as redirecting to the login-page.
-    /*storeLogin(){
-        localStorage.setItem('customerName', customerName.value);
-        localStorage.setItem('address', address.value);
-        localStorage.setItem('city', city.value);
-        localStorage.setItem('phone', phone.value);
-        localStorage.setItem('email', email.value);
-        localStorage.setItem('password', password.value);
-
-
-     
-    }*/
-
 }
 
 
-/*MD: This is a function. A function is a little piece of program wrapped in a value. Functions can be called/invoked
+/*MD:
+This is a function. A function is a little piece of program wrapped in a value. Functions can be called/invoked
 in order to run the 'program'. The basic syntax for a function is using the keyword function followed by the name of the
 function, followed by parantheses containing possible parameters. Inside the brackets is the 'body' of the function.
 The body is always wrapped in braces. The body contains the statements that are going to be run if the function is called.
@@ -45,7 +32,7 @@ the text field. Same procedure for all the other text fields.
 
 After that, the validation of the input starts. The variable form_value holds a boolean value, which is a value that can
 only have two possibilities - in this case true/false. We also create a variable validation_message, which contains a string.
-Strings are used to represent text.
+Strings are used to represent text using "" or ''.
 
 We start using conditional statements to validate the input. An if-statement is used to execute a piece of code, if a
 certain condition is met. If customerName is equal to (using the '==' operator) null or (using the || operator) equal to
@@ -59,12 +46,8 @@ containing some text is created.
 We do this with all the different variables.
 
 IsNaN: Means 'is not a number'
-
-
-
-
-
  */
+
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
@@ -139,7 +122,7 @@ function register() {
         validation_message += "Passwords er ikke ens";
         form_valid = false;
     }
-/*
+/*MD:
 This statement checks whether the form is valid. If it is valid, that means that none of the above conditions have
 been met in order to make the form_valid = false.
 
@@ -152,14 +135,14 @@ The JSON.stringify command does the opposite, and converts JavaScript values to 
 We collect this data from localStorage using the .getItem method. The data has a 'key' from which we can locate the data.
 LocalStorage is where data can be stored in the browser.
 
-The method .push is used to introduce a new customer object into the userArray. This method pushes the new data into the
+The method .push is used to introduce a new customer object into the userArray. This method pushes the new values into the
 back of the array.
 
 An object is an instance of the class created in the beginning (Customer). We can have many objects that with the same
 properties as the class. The properties are specific to the object. So this Customer object will contain the properties
 of whatever has been typed in the registration form.
 
-.setItem is used to put data into the localStorage. First comes the name of the key, and then the value.
+.setItem is used to put data into the localStorage. Inside the parentheses the key comes first, followed by the value.
 
 window.location object loads another html page.
 
@@ -176,34 +159,21 @@ The else statement will execute if the if-statement is false.
         alert("Ny bruger er blevet oprettet");
         window.location = "Loginpage.html";
 
-
-
-
-        /*var userArray = JSON.parse(localStorage.getItem('user'));
-        userArray.push(new customer(customerName.value, address.value, city.value, phone.value, email.value, password.value));
-
-        localStorage.setItem("customer", JSON.stringify(customerArray));
-        alert("Ny bruger er blevet oprettet");
-        window.location ="Loginpage.html";
-        console.log(localStorage);
-*/
     } else {
         alert(validation_message)
     }
 
 }
-/*
-function storeLogin() {
-    localStorage.setItem('customerName', customerName.value);
-    localStorage.setItem('address', address.value);
-    localStorage.setItem('city', city.value);
-    localStorage.setItem('phone', phone.value);
-    localStorage.setItem('email', email.value);
-    localStorage.setItem('password', password.value);
-}
-*/
 
-//An array is created "userArray". An array is used for storing sequences of values.
+
+
+/*MD:
+An array is created "userArray". An array is used for storing sequences of values.
+The following code will execute if the value of the userArray key in localStorage is null. If it is empty, it will push
+the following pre-defined user objects into the array, then stringify to JSON format and then add them to localStorage.
+The objects all have the same properties, but with different values.
+This is a good implementation, as this code will execute when the user opens the front page, and all the users will load in.
+ */
 var userArray;
 if (localStorage.getItem('userArray')==null) {
     userArray = [];
@@ -217,26 +187,33 @@ if (localStorage.getItem('userArray')==null) {
     var userArrayString = JSON.stringify(userArray);
     localStorage.setItem('userArray', userArrayString);
 }
-/*
-//5 customer objects are created
-customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
-customer2 = new customer('Per','Nørregade 31, 4th', 'København', '45678904','per@købenahvn.dk', 'per123');
-customer3 = new customer('Tina','Gothersgade 42, 3tv', 'København', '22340987','tina@gmail.com', 'Minkode122');
-customer4 = new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Louise@hotmail.com', 'nulnul42');
-customer5 = new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig');
-customer6 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477');
 
-//The 5 objects i just created is being pushed into the customerArray
-customerArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
-*/
 
-//This function will validate whether the input values correspond to the values stored in localStorage.
+
+/*MD:
+This function will validate whether the input values correspond to the values stored in localStorage.
+Some variables are created: the userArray (parsed, to convert back to JS format), phone (value comes from text field),
+password (value retrieved from text field using document.getElementById).
+
+Since we have an array of users, we have more than just one pair of matching phone/password pairs. We have one for however
+many objects there are in the array. A "for loop" is introduced to loop through the array, and an if-statement is used
+to check if a specific condition is met.
+A variable i is created. Its value is set to 0. The loop is set to loop through the whole length of the array using
+.length, a property that returns the length of something (in this case the array). i++ means i+1. Therefore the loop
+will go through the length of the array with +1 at a time, checking for the condition.
+
+The condition checks whether the input phone/password matches the phone/password of the array at index i. An index is
+the 'position' of data in an array. In our case, index 0 is Per, and index 4 is Niels.
+If it matches, the user is sent to the front page, and the user information is stored in their respective keys. We use these
+localStorage keys to check whether a user is logged in.
+
+ */
 function loginVal() {
-    userArray = JSON.parse(localStorage.getItem('userArray'));
+    var userArray = JSON.parse(localStorage.getItem('userArray'));
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
 
-    for (let i = 0; i <= userArray.length; i++) {
+    for (var i = 0; i <= userArray.length; i++) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
             window.location = "frontpage.html";
             localStorage.setItem('customerName', userArray[i].customerName);
@@ -246,87 +223,29 @@ function loginVal() {
             localStorage.setItem('email', userArray[i].email);
             localStorage.setItem('password', userArray[i].password);
 
-
+//The console.log method is used to display data. This string is displayed in the browser console.
             console.log("logged in");
         }
     }
 }
-    //Creating variables for the stored values
-   /* var storedPhone = localStorage.getItem('phone');
-    var storedPassword = localStorage.getItem('password');
-
-    //Creating variables for the input values
-    var inputPhone = document.getElementById('phone');
-    var inputPassword = document.getElementById('password');
 
 
-    /*Now an if-statement is created to check whether these values match each other, which determines wheter
-    the user can log in or not. If they match, it adds the predefined user values to local storage.
-
-     */
-/*
-    if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
-        window.location ="frontpage.html";
-    } else if (inputPhone.value == customer1.phone && inputPassword.value == customer1.password){
-        localStorage.setItem('customerName', customer1.customerName);
-        localStorage.setItem('address', customer1.address);
-        localStorage.setItem('city', customer1.city);
-        localStorage.setItem('phone', customer1.phone);
-        localStorage.setItem('email', customer1.email);
-        localStorage.setItem('password', customer1.password);
-        window.location ="frontpage.html";
-    } else if (inputPhone.value == customer2.phone && inputPassword.value == customer2.password) {
-        localStorage.setItem('customerName', customer2.customerName);
-        localStorage.setItem('address', customer2.address);
-        localStorage.setItem('city', customer2.city);
-        localStorage.setItem('phone', customer2.phone);
-        localStorage.setItem('email', customer2.email);
-        localStorage.setItem('password', customer2.password);
-        window.location = "frontpage.html";
-    } else if (inputPhone.value == customer3.phone && inputPassword.value == customer3.password) {
-        localStorage.setItem('customerName', customer3.customerName);
-        localStorage.setItem('address', customer3.address);
-        localStorage.setItem('city', customer3.city);
-        localStorage.setItem('phone', customer3.phone);
-        localStorage.setItem('email', customer3.email);
-        localStorage.setItem('password', customer3.password);
-        window.location = "frontpage.html";
-    } else if (inputPhone.value == customer4.phone && inputPassword.value == customer4.password) {
-        localStorage.setItem('customerName', customer4.customerName);
-        localStorage.setItem('address', customer4.address);
-        localStorage.setItem('city', customer4.city);
-        localStorage.setItem('phone', customer4.phone);
-        localStorage.setItem('email', customer4.email);
-        localStorage.setItem('password', customer4.password);
-        window.location = "frontpage.html";
-    } else if (inputPhone.value == customer5.phone && inputPassword.value == customer5.password) {
-        localStorage.setItem('customerName', customer5.customerName);
-        localStorage.setItem('address', customer5.address);
-        localStorage.setItem('city', customer5.city);
-        localStorage.setItem('phone', customer5.phone);
-        localStorage.setItem('email', customer5.email);
-        localStorage.setItem('password', customer5.password);
-        window.location = "frontpage.html";
-    } else {
-        alert('Fejl ved login - forkert telefonnummer og password kombination')
-    }
-}
-*/
-
-//A class is created for the admin. The only variables in this class are username and password.
+//A class is created for the admin. The only properties in this class are username and password.
 class Admin {
     constructor(username, password) {
         this.username = username;
         this.password = password;
     }
 }
-//An object is created from the class
+//We make an instance of this class by creating an object.
 admin1 = new Admin('admin', 12345);
 
 
-/*This function validates the login. It retrieves the input entered, and uses an if-statement to check whether
-the input matches the properties in the admin1 object. It also calls the function loginVal, to validate the
-customer log-in.
+/*MD:
+This function validates the login using if and else if-statements.
+It retrieves the input entered, and uses an if-statement to check whether the input matches the properties in the admin1
+object. The first else if statement will execute if the if statement is false. If the phone (username) entered is not
+admin, it will call the loginVal function, which loops through the user array.
  */
 function validate() {
     var phone = document.getElementById("phone").value;
@@ -337,16 +256,30 @@ function validate() {
         alert("Wrong Password")
     } else if (phone != admin1.username) {
         loginVal();
-        //storePreDefinedOrder();
     }
 }
 
 
-// This function is made to get phone numbers from customers into the 'phoneSelect' in the Changeuser HTML.
-var selection = document.getElementById("phoneSelect");
-var option = selection.options;
 
-//Here the function takes the customers phone number from the array.
+
+/*MD:
+The selection variable has the value of the select field created in HTML. Here the admin can select a user phone number
+to view their orders.
+
+This function creates options in the select field depending on how many customers there are.
+There is not an if statement, so the loop doesn't check for a specific condition. It will just list all the users phones
+in the select field.
+A new array, allUsersArray is created, and each index is set to create a new option using document.createElement(). We
+can create elements in the DOM using this method. To create an option, we use the option tag (like one would do in HTMl
+<option>).
+The value of this option is manipulated using the .innerHTML property, which lets us change the content of an HTML document.
+
+Lastly, the .appendChild method is used to append the new node (option) into the select field. Inside the parentheses is
+the value.
+ */
+
+var selection = document.getElementById("phoneSelect");
+
 function getNumber() {
     var userArray = JSON.parse(localStorage.getItem('userArray'));
 
@@ -361,25 +294,15 @@ function getNumber() {
 getNumber();
 
 
-/*
-function getNumber() {
 
-    option[1].innerHTML = customer1.phone;
-    option[2].innerHTML = customer2.phone;
-    option[3].innerHTML = customer3.phone;
-    option[4].innerHTML = customer4.phone;
-    option[5].innerHTML = customer5.phone;
-    option[6].innerHTML = customer6.phone;
-}
+
+
+
+/*MD:
+This function is a loop that first check the selection value in an if statement. If the selection value matches a
+phone number from userArray then the function shows the rest of the information of the customer object, again using the
+.innerHTML method to manipulate the HTML document.
 */
-
-// The function getNumber is being called.
-
-
-
-/*This function is a loop that first check the selection value in an if statement. If the selection value matches a phone number from customerArray
-then the function shows the rest of the data from the customer object. */
-
 function showInfo () {
     var userArray = JSON.parse(localStorage.getItem('userArray'));
     for (let i = 0; i < userArray.length; i++) {
@@ -393,6 +316,12 @@ function showInfo () {
     }
 }
 
+/*MD:
+This function shows the order of the specific customer selected in the select field. Same procedure as the showInfo
+function, but this function can also dynamically show any new orders by using document.createElement. The procedure is the
+same as the getNumber function, but this function displays a paragraph instead of an option.
+We add some strings in between the variables, so the user can see what the different values represent.
+ */
 function showOrder() {
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
     for (let i = 0; i < orderArray.length; i++) {
@@ -415,46 +344,8 @@ function showOrder() {
 
                 document.getElementById('orderDetails').appendChild(orderInfo[i]);
                 document.getElementById('noOrders').innerHTML = "";
-
-
-                /*document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
-                document.getElementById('timePeriod').innerHTML = "Tidspunkt for udlejning: kl. " + orderArray[i].timePeriod;
-                document.getElementById('amountOfJetski1').innerHTML = "Antal Sea Doo Spark: " + orderArray[i].amount1;
-                document.getElementById('amountOfJetski2').innerHTML = "Antal Yamaha Waverunner VX: " + orderArray[i].amount2;
-                document.getElementById('amountOfJetski3').innerHTML = "Antal Kawasaki STX-15F: " + orderArray[i].amount3;
-                document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + orderArray[i].orderPrice;
-                 */
             }
     }
 }
 
-
-
-
-
-/*function showOrder(){
-    if (selection.value == customer1.phone){
-
-    var day = localStorage.getItem('orderDay');
-    var month = localStorage.getItem('orderMonth');
-    var year = localStorage.getItem('orderYear');
-
-    document.getElementById('orderHeadline').innerHTML = "<h4>Nuværende og tidligere bestilling</h4>";
-    document.getElementById('date').innerHTML ="Dato for udlejning: "+ day + "/" + month+"/"+year;
-    document.getElementById('timePeriod').innerHTML ="Tidspunkt for udlejning: kl. " + localStorage.getItem('timePeriod');
-    document.getElementById('amountOfJetski1').innerHTML ="Antal Sea Doo Spark: " + localStorage.getItem('amountOfJetski1');
-    document.getElementById('amountOfJetski2').innerHTML ="Antal Yamaha Waverunner VX: " + localStorage.getItem('amountOfJetski2');
-    document.getElementById('amountOfJetski3').innerHTML ="Antal Kawasaki STX-15F: " + localStorage.getItem('amountOfJetski3');
-    document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + localStorage.getItem('orderPrice');
-    }
-    else{
-        document.getElementById('orderHeadline').innerHTML = "";
-        document.getElementById('date').innerHTML ="";
-        document.getElementById('timePeriod').innerHTML ="";
-        document.getElementById('amountOfJetski1').innerHTML ="";
-        document.getElementById('amountOfJetski2').innerHTML ="";
-        document.getElementById('amountOfJetski3').innerHTML ="";
-        document.getElementById('orderPrice').innerHTML = "";
-    }
-}*/
 
