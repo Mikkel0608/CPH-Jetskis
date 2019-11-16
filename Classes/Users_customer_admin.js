@@ -135,7 +135,7 @@ The JSON.stringify command does the opposite, and converts JavaScript values to 
 We collect this data from localStorage using the .getItem method. The data has a 'key' from which we can locate the data.
 LocalStorage is where data can be stored in the browser.
 
-The method .push is used to introduce a new customer object into the userArray. This method pushes the new values into the
+The method .push is used to introduce a new customer object into the userArray. This method pushes the object into the
 back of the array.
 
 An object is an instance of the class created in the beginning (Customer). We can have many objects that with the same
