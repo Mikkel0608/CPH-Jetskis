@@ -1,3 +1,16 @@
+/*This is a function. A function is a little piece of program wrapped in a value. Functions can be called/invoked
+in order to run the 'program'. The basic syntax for a function is using the keyword function followed by the name of the
+function, followed by parantheses containing possible parameters. Inside the brackets is the 'body' of the function.
+The body is always wrapped in braces. The body contains the statements that are going to be run if the function is called.
+
+This function check if the user is logged in this function is using an if statement. The if statement contains localStorage.getitem.
+localStorage.getItem is take the chosen key from the information saved in localStorage her we choose the phone.
+We use the operator '==' that means is equal to in this case null. This means that if a phone is not saved in localstorage the login button will direct to the login page when activated.
+
+
+
+ */
+
 window.onload = function checkLoginButton() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 
@@ -22,7 +35,9 @@ function checkLoginProfilePage() {
         window.location ="profile.html"
     }
 }
-/*MM: The following function is activated by the confirm time button, and does the following:
+/*MM/MK: The following function is activated by the confirm time button.
+
+
 1. It checks if the date/time values have been filled out, and displays and error if not.
 2. It checks if there already are reservations for the given time/date, and adjusts the amount of jetskis shown. */
 function confirmTime() {
@@ -157,7 +172,10 @@ function confirmTime() {
 
      */
 }
-
+//MK: A class is created. Classes in Javascript is used to create objects.
+//A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized in this case Jetski.
+//Then comes the constructor method, which lists the properties of the class: model, price and horsepower.
+//The 'this' keyword refers to the 'owner' of the method, which is Jetski in this case.
 class Jetski {
     constructor(model, price, HorsePower) {
         this.model = model;
@@ -165,7 +183,8 @@ class Jetski {
         this.HorsePower = HorsePower;
     }
 }
-
+//MK: Variables are created for the 3 different types of jetski. Here the class for Jetski is used to define the different models.
+//The variables are created using the keyword var which can hold values. The variable called jetski1 is assigned with using the '=' operator.
 var jetski1= new Jetski('Sea Doo Spark', 300, 60);
 var jetski2= new Jetski('Yamaha Waverunner VX', 500, 125);
 var jetski3= new Jetski('Kawasaki STX 15F', 600, 160);
@@ -206,7 +225,11 @@ function calculatePrice() {
     }
 }
 
-//Creating class to define each individual order
+//MK: A class is created. Classes in Javascript is used to create objects.
+//A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized in this case Order.
+//Then comes the constructor method, which lists the properties of the class: phone, amount1/2/3, orderDay, orderMonth and so on.
+//Amount1/2/3 is defining the amount of the three different types of Jetski's placed in the order.
+//The 'this' keyword refers to the 'owner' of the method, which is Order in this case.
 
 class Order {
     constructor(phone, amount1, amount2, amount3, orderDay, orderMonth, orderYear, timePeriod, orderPrice, orderId) {
