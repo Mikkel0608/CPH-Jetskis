@@ -1,12 +1,13 @@
-/*This is a function. A function is a little piece of program wrapped in a value. Functions can be called/invoked
-in order to run the 'program'. The basic syntax for a function is using the keyword function followed by the name of the
+/*MK: This funtion is activated when the user load this window. window.onload is activated this means that it will activate a function when the the window is loaded.
+
+The basic syntax for a function is using the keyword function followed by the name of the
 function, followed by parantheses containing possible parameters. Inside the brackets is the 'body' of the function.
 The body is always wrapped in braces. The body contains the statements that are going to be run if the function is called.
 
-This function check if the user is logged in this function is using an if statement. The if statement contains localStorage.getitem.
-localStorage.getItem is take the chosen key from the information saved in localStorage her we choose the phone.
-We use the operator '==' that means is equal to in this case null. This means that if a phone is not saved in localstorage the login button will direct to the login page when activated.
-
+This function check if the user is logged in. This function is using an if statement. The if statement contains localStorage.getitem.
+localStorage.getItem takes the information from the chosen key saved in localStorage here we use phone. Local storage is used to save data in the users browser storage.
+We use the operator '==' that means is equal to in this case null.
+This means that if a phone is not saved in localstorage the login button will direct to the login page when activated.
 
 
  */
@@ -14,12 +15,14 @@ We use the operator '==' that means is equal to in this case null. This means th
 window.onload = function checkLoginButton() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 
-    //checks if the user is logged in and redirects to loginpage if not (this is used if the user is linked directly to this page)
+    //checks if the user is logged in and redirects to loginpage if not (this is used if the user is linked directly to this page and have not logged in or registered before.)
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
     }
 }
-
+//MK: The purpose of this function is to make sure that the user of the website cannot enter the orderPage if the user is not logged in.
+//This function use the same if statement as the function above but here it is an if else statement. The difference is mainly that this function is activated when a button is clicked.
+//This if statement locate the user to either the loginPage or the orderPage. If the key in local storage is null they direct to loginPage else the user go to orderPage where the order can be made.
 function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
@@ -27,7 +30,8 @@ function checkLoginOrderPage() {
         window.location ="orderPage.html"
     }
 }
-
+//MK: This function has the same purpose and use the same if else statement as the one above.
+//MK: But this is for the profilePage this means that if the user of the programme is logged in it can now see information about the profile and orders.
 function checkLoginProfilePage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
@@ -36,12 +40,14 @@ function checkLoginProfilePage() {
     }
 }
 /*MM/MK: The following function is activated by the confirm time button.
+1. It checks if the date/time values have been filled out, and displays an error if not.
+In this function we also use the document.getElementById(). The id refers to the html file. Here the elementid is rentDay/Month/Year/Time.
+innerhtml means that the
+2. It checks if there already are reservations for the given time/date, and adjusts the amount of jetskis shown.
 
-
-1. It checks if the date/time values have been filled out, and displays and error if not.
-2. It checks if there already are reservations for the given time/date, and adjusts the amount of jetskis shown. */
+ */
 function confirmTime() {
-    // creating variables that represents the user selection of date and time
+    // Creating variables that represents the user selection of date and time
     var rentDayID = document.getElementById("rentDay");
     var rentDayValue = rentDayID.options[rentDayID.selectedIndex].value;
     var rentMonthID = document.getElementById("rentMonth");
@@ -53,7 +59,7 @@ function confirmTime() {
     var rentTimeValue = rentTimeID.options[rentTimeID.selectedIndex].value;
 
 
-    //Tests if the variables set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
+    //MM:Tests if the variables set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
         document.getElementById("modelContainer1").style.display = '';
         document.getElementById("modelContainer2").style.display = '';
@@ -67,17 +73,27 @@ function confirmTime() {
     } else {
         alert("Udfyld venligst alle felter.");
     }
-
+    /*
+       MM:
+       Two variables are created. The variable "orderAmount" is set equal to the length of the array "orderArray" that is saved in local storage.
+       The array is retrieved from local storage by using JSON.parse. This method retrieves the saved string from local storage and
+       translates it back into an array.
+        */
     var orderAmount = JSON.parse(localStorage.getItem('orderArray')).length;
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
+    //MK: Three new variables are created for occupiedAmount1/2/3 which refers to the jetskis. They are defined using number 0 because they as a standard is free to use.
     var occupiedAmount1 = 0;
     var occupiedAmount2 = 0;
     var occupiedAmount3 = 0;
 
-    //The following loop cycles through all registered orders and counts the amount of occupied jetskis for the selected date/time period.
+    /*MK: A loop is created to cycle through all registred order and counts if possible amount of occupied jetskis for the selected period.
+    The purpose of this loop is to make sure that you cannot create an order if the jetskis are already rented out. The loop is created to make a more generic system so you dont have to hardcode created orders into the array.
+    In this loop we have different types of if statements and else if statements.
+
+     */
     for (var i = 0; i < orderAmount; i++) {
         if (rentDayValue == orderArray[i].orderDay && rentMonthValue == orderArray[i].orderMonth && rentYearValue == orderArray[i].orderYear && rentTimeValue == orderArray[i].timePeriod) {
-            //Counts the amount of jetski1 reserved and adds to the var
+            //MM:Counts the amount of jetski1 reserved and adds to the var
             if (orderArray[i].amount1 == 1) {
                 occupiedAmount1++;
             } else if (orderArray[i].amount1 == 2) {
@@ -85,7 +101,7 @@ function confirmTime() {
             } else if (orderArray[i].amount1 == 3) {
                 occupiedAmount1+=3;
             }
-            //Counts the amount of jetski2 reserved and adds to the var
+            //MM:Counts the amount of jetski2 reserved and adds to the var
             if (orderArray[i].amount2 == 1) {
                 occupiedAmount2++;
             } else if (orderArray[i].amount2 == 2) {
@@ -93,7 +109,7 @@ function confirmTime() {
             } else if (orderArray[i].amount2 == 3) {
                 occupiedAmount2+=3;
             }
-            //Counts the amount of jetski3 reserved and adds to the var
+            //MM:Counts the amount of jetski3 reserved and adds to the var
             if (orderArray[i].amount3 == 1) {
                 occupiedAmount3++;
             } else if (orderArray[i].amount3 == 2) {
@@ -103,6 +119,7 @@ function confirmTime() {
             }
         }
     }
+
     //Corrects the amount of jetski 1 if there are any reserved
     if (occupiedAmount1 == 1) {
         document.getElementById('jetski1Amount3').style.display = "none";
@@ -133,44 +150,7 @@ function confirmTime() {
     } else if (occupiedAmount3 >= 3) {
         document.getElementById("modelContainer3").style.display = "none";
     }
-    /*
-    //This next if statement checks the localstorage and sees if there are already any reservation for the given date/time.
-    if (rentDayValue == localStorage.getItem('orderDay') && rentMonthValue == localStorage.getItem('orderMonth') && rentYearValue == localStorage.getItem('orderYear') && rentTimeValue == localStorage.getItem('timePeriod')) {
-        //Checks if there are any orders of Jetski 1 in local storage and adjusts the amount shown
-        if (localStorage.getItem('amount1') == 1) {
-            document.getElementById('jetski1Amount3').style.display = "none";
-        } else if (localStorage.getItem('amount1') == 2) {
-            document.getElementById('jetski1Amount3').style.display = "none";
-            document.getElementById('jetski1Amount2').style.display = "none";
-        } else if (localStorage.getItem('amount1') == 3) {
-            document.getElementById("modelContainer1").style.display = "none";
-        }
-        // Checks if there are any orders of Jetski 2 in local storage and adjusts the amount shown
-        if (localStorage.getItem('amount2') == 1) {
-            document.getElementById('jetski2Amount3').style.display = "none";
-        } else if (localStorage.getItem('amount2') == 2) {
-            document.getElementById('jetski2Amount3').style.display = "none";
-            document.getElementById('jetski2Amount2').style.display = "none";
-        } else if (localStorage.getItem('amount2') == 3) {
-            document.getElementById("modelContainer2").style.display = "none";
-        }
-        // Checks if there are any orders of Jetski 3 in local storage and adjusts the amount shown
-        if (localStorage.getItem('amount3') == 1) {
-            document.getElementById('jetski3Amount3').style.display = "none";
-        } else if (localStorage.getItem('amount3') == 2) {
-            document.getElementById('jetski3Amount3').style.display = "none";
-            document.getElementById('jetski3Amount2').style.display = "none";
-        } else if (localStorage.getItem('amount3') == 3) {
-            document.getElementById("modelContainer3").style.display = "none";
-        }
-        //If the chosen date is not the date that may exist in the local storage, it should show all jetskis/amounts
-    } else if (timeValid == true) {
-        document.getElementById("modelContainer1").style.display = "";
-        document.getElementById("modelContainer2").style.display = "";
-        document.getElementById("modelContainer3").style.display = "";
-    }
 
-     */
 }
 //MK: A class is created. Classes in Javascript is used to create objects.
 //A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized in this case Jetski.
@@ -184,7 +164,7 @@ class Jetski {
     }
 }
 //MK: Variables are created for the 3 different types of jetski. Here the class for Jetski is used to define the different models.
-//The variables are created using the keyword var which can hold values. The variable called jetski1 is assigned with using the '=' operator.
+//The variables are created using the keyword var which can hold values.
 var jetski1= new Jetski('Sea Doo Spark', 300, 60);
 var jetski2= new Jetski('Yamaha Waverunner VX', 500, 125);
 var jetski3= new Jetski('Kawasaki STX 15F', 600, 160);
@@ -225,9 +205,8 @@ function calculatePrice() {
     }
 }
 
-//MK: A class is created. Classes in Javascript is used to create objects.
-//A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized in this case Order.
-//Then comes the constructor method, which lists the properties of the class: phone, amount1/2/3, orderDay, orderMonth and so on.
+//MK: A class is created. This Class is made for Orders.
+//This class methods, is the following: phone, amount1/2/3, orderDay, orderMonth and so on.
 //Amount1/2/3 is defining the amount of the three different types of Jetski's placed in the order.
 //The 'this' keyword refers to the 'owner' of the method, which is Order in this case.
 
@@ -246,17 +225,14 @@ class Order {
     }
 }
 
-/*
-    var orderArray = [];
-    order1 = new Order(localStorage.getItem('phone'), localStorage.getItem('amount1'), localStorage.getItem('amount2'), localStorage.getItem('amount3'), localStorage.getItem('orderDay'), localStorage.getItem('orderMonth'), localStorage.getItem('orderYear'), localStorage.getItem('timePeriod'), localStorage.getItem('orderPrice'));
-    order2 = new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400');
-    order3 = new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700');
-    order4 = new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600');
-    order5 = new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900');
-    order6 = new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600');
+/*MK: An Array is created for pre defined orders and orders made in the system and saved in local storage.
+Spørg Mikkel om hjælp til det her if statement.
+We first define the orderArray as an variable. Then we use the method '.push' to push our new orders into our orderArray. The orders is made with the Order Class.
 
-    orderArray.push(order1, order2, order3, order4, order5, order6);
-*/
+JSON.stringify is used. This method saves the orderArray in local storage as a string. We use JSON.stringify so it is possible for the predefined users to 'see' their orders when they are logged in.
+Without JSON.stringify this would not be possible.
+
+ */
 var orderArray;
 if (localStorage.getItem('orderArray')==null) {
     orderArray = [];
@@ -270,42 +246,24 @@ if (localStorage.getItem('orderArray')==null) {
     localStorage.setItem('orderArray', orderArrayString);
 }
 
-//Denne funktion tjekker hvor vidt loggedIn = yes (hvilket bliver oprettet i loginVal ved succesfuld login)
-/*function storePreDefinedOrder() {
-    orderArray = JSON.parse(localStorage.getItem('orderArray'));
-   // var phone = document.getElementById("phone").value;
-    //var password = document.getElementById("password").value;
 
-    for (let i = 0; i < orderArray.length; i++) {
-        if (localStorage.getItem("loggedIn") == "yes") {
-            localStorage.setItem('amount1', orderArray[i].amount1);
-            localStorage.setItem('amount2', orderArray[i].amount2);
-            localStorage.setItem('amount3', orderArray[i].amount3);
-            localStorage.setItem('orderDay', orderArray[i].orderDay);
-            localStorage.setItem('orderMonth', orderArray[i].orderMonth);
-            localStorage.setItem('orderYear', orderArray[i].orderYear);
-        }
-    }
-}
-*/
-
+//MK: This function's purpose is to store the created order in the array.
 function storeOrder() {
+    // MK:Variables are created for the amount picked of the three different types of Jetski.
+    // MK: document.getElementById.value refers to the what the amount of the different types of jetski the user have ordered(selected) the elementid refers to the HTML file where there is a dropdown menu.
     var orderAmount1JS = document.getElementById('orderAmount1').value;
     var orderAmount2JS = document.getElementById('orderAmount2').value;
     var orderAmount3JS = document.getElementById('orderAmount3').value;
+    // MK: A variable is created to the total price of the order calculating simple math.
+    // MK: Totalprice = Amount picked of jetski1 * jetski1's price + Amount picked of jetski2 * jetski2's price and so on...
     var finalPrice = orderAmount1JS * jetski1.price + orderAmount2JS * jetski2.price + orderAmount3JS * jetski3.price;
+    //MK: A orderId is created to the order. The purpose of this is to make a unique ID for every order. This variable picks a random number up to 999.999.
     var orderId = Math.floor(Math.random()*10000) + 99999;
-    /*localStorage.setItem('amount1', orderAmount1JS);
-    /*
-    localStorage.setItem('amount1', orderAmount1JS);
-    localStorage.setItem('amount2', orderAmount2JS);
-    localStorage.setItem('amount3', orderAmount3JS);
-    localStorage.setItem('orderDay', document.getElementById('rentDay').value);
-    localStorage.setItem('orderMonth', document.getElementById('rentMonth').value);
-    localStorage.setItem('orderYear', document.getElementById('rentYear').value);
-    localStorage.setItem('timePeriod', document.getElementById('rentTime').value);
-    localStorage.setItem('orderPrice', finalPrice);
-*/
+
+    // MM: The array is retrieved from local storage by using JSON.parse. This method retrieves the saved string from local storage and translates it back into an array.
+    // MK: Here we push the created order into the already created orderArray. But this time a new order is created using localStorage.getItem and document.getElementById.
+    // MK: localStorage.getItem takes the information from the chosen key saved in localStorage here we use phone and save it to the new Order.
+    // MK: document.getElementById().value takes the value that are selected in the different ID's field's. The id refers to the html file. Here the elementid's is the different methods from the class except phone.
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
     orderArray.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice, orderId));
 
@@ -315,49 +273,5 @@ function storeOrder() {
 
 
 
-    /*Dette er blevet udkommenteret, da det var smartere at lave dette array i et globalt scope. Ellers ville man ikke
-    kunne referere til arrayet nede i showOrder(jeg har også ændret den funktion til at virke med de nye JSON objekter.
-    Før brugte vi det array længere oppe, hvor der var 'hardcodet' værdier ind.
-    Jeg har også ændret på det der if-statement, som Mikkel har lavet. Det ville ikke rigtigt loade orderArray ind altid.
-    Jeg har derfor også linket dette dokument til de fleste html dokumenter, så orderArray bliver loaded ind på de
-    fleste sider. :)
-     */
 
-
-    /* var storedOrders = JSON.parse(localStorage.getItem('storedOrders'));
-     if (storedOrders == null) {
-         storedOrders = [];
-         storedOrders.push(new Order('45678904', '1', '1', '1', '03', '3', '2019', '10-12', '1400'));
-         storedOrders.push(new Order('22340987', '2', '3', '1', '12', '7', '2020', '16-18', '2700'));
-         storedOrders.push(new Order('67880322', '3', '1', '2', '24', '12', '2021', '12-14', '2600'));
-         storedOrders.push(new Order('33445522', '2', '1', '3', '15', '5', '2019', '12-14', '2900'));
-         storedOrders.push(new Order('73459025', '1', '3', '3', '21', '9', '2020', '10-12', '3600'));
-         storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
-     } else if (storedOrders != null) {
-         storedOrders.push(new Order(localStorage.getItem('phone'), orderAmount1JS, orderAmount2JS, orderAmount3JS, document.getElementById('rentDay').value, document.getElementById('rentMonth').value, document.getElementById('rentYear').value, document.getElementById('rentTime').value, finalPrice));
-     }
-     localStorage.setItem('storedOrders', JSON.stringify(storedOrders));
-     window.location = "orderConfirmation.html";
-
-     */
 }
-// This loop shows the
-
-//getNumber();
-
-
-/*function showOrder() {
-    orderArray = JSON.parse(localStorage.getItem('orderArray'));
-    for (let i = 0; i < orderArray.length; i++) {
-        if (selection.value === orderArray[i].phone) {
-            document.getElementById('orderHeadline').innerHTML = "<h4>Din bestilling</h4>";
-            document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
-            document.getElementById('timePeriod').innerHTML = "Tidspunkt for udlejning: kl. " + orderArray[i].timePeriod;
-            document.getElementById('amountOfJetski1').innerHTML = "Antal Sea Doo Spark: " + orderArray[i].amount1;
-            document.getElementById('amountOfJetski2').innerHTML = "Antal Yamaha Waverunner VX: " + orderArray[i].amount2;
-            document.getElementById('amountOfJetski3').innerHTML = "Antal Kawasaki STX-15F: " + orderArray[i].amount3;
-            document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + orderArray[i].orderPrice;
-
-        }
-    }
-}*/
