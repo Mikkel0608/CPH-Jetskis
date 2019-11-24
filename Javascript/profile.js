@@ -243,7 +243,7 @@ MM: The deleteUser function deletes the current user from the userArray.
 //Function written by Morten Dyberg
 function deleteUser() {
     var userArray = JSON.parse(localStorage.getItem("userArray"));
-    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?")
+    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?");
     if (choice == true) {
         /*
         MM: The following for loop runs through all the stored users in the userArray, and if the active phone and the
