@@ -291,7 +291,7 @@ the value.
 //Function originally written by Markus Kronborg, changed quite a bit by Morten Dyberg
 var selection = document.getElementById("phoneSelect");
 
-function getNumber() {
+(function getNumber() {
     var userArray = JSON.parse(localStorage.getItem('userArray'));
 
     for (var i = 0; i <= userArray.length; i++) {
@@ -301,8 +301,8 @@ function getNumber() {
 
         document.getElementById("phoneSelect").appendChild(allUsersArray[i]);
     }
-}
-getNumber();
+}());
+
 
 
 

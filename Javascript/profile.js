@@ -161,7 +161,7 @@ attribute in the stored order matches the phone of the active user.
 A variable is created that is equal to the order array stored in localstorage.
  */
 //Function written by Morten Dyberg
-function getOrderId() {
+(function getOrderId() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
     /*
     MM: This for loop cycles through all the orders in the orderArray. For each repetition, variable i is increased by 1.
@@ -188,9 +188,8 @@ function getOrderId() {
             document.getElementById("orderId").appendChild(orderIdArray[i]);
         }
     }
-}
-// The getOrderId function is called.
-getOrderId();
+}());
+
 /*
 MM: The following function deletes the order that is currently selected.
  */
