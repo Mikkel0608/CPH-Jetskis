@@ -2,6 +2,7 @@
 //A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized
 //Then comes the constructor method, which lists the properties of the class: name, address, city and so on...
 //The 'this' keyword refers to the 'owner' of the method, which is Customer in this case.
+//Written by Morten Dyberg/Markus Kronborg
 class Customer {
     constructor(customerName, address, city, phone, email, password){
         this.customerName = customerName;
@@ -48,6 +49,7 @@ We do this with all the different variables.
 IsNaN: Means 'is not a number'
  */
 
+//This code is written by Morten Dyberg
 function register() {
     var customerName = document.getElementById("customerName").value;
     var address = document.getElementById("address").value;
@@ -174,6 +176,7 @@ the following pre-defined user objects into the array, then stringify to JSON fo
 The objects all have the same properties, but with different values.
 This is a good implementation, as this code will execute when the user opens the front page, and all the users will load in.
  */
+//Originally written by Markus Kronborg, changed to fit new needs by Morten Dyberg
 var userArray;
 if (localStorage.getItem('userArray')==null) {
     userArray = [];
@@ -208,6 +211,7 @@ If it matches, the user is sent to the front page, and the user information is s
 localStorage keys to check whether a user is logged in.
 
  */
+//Function written by Morten Dyberg
 function loginVal() {
     var userArray = JSON.parse(localStorage.getItem('userArray'));
     var phone = document.getElementById("phone").value;
@@ -231,6 +235,8 @@ function loginVal() {
 
 
 //A class is created for the admin. The only properties in this class are username and password.
+
+//Class written by Markus Kronborg
 class Admin {
     constructor(username, password) {
         this.username = username;
@@ -247,6 +253,8 @@ It retrieves the input entered, and uses an if-statement to check whether the in
 object. The first else if statement will execute if the if statement is false. If the phone (username) entered is not
 admin, it will call the loginVal function, which loops through the user array.
  */
+
+//Function written by Morten Dyberg
 function validate() {
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
@@ -278,6 +286,7 @@ Lastly, the .appendChild method is used to append the new node (option) into the
 the value.
  */
 
+//Function originally written by Markus Kronborg, changed quite a bit by Morten Dyberg
 var selection = document.getElementById("phoneSelect");
 
 function getNumber() {
@@ -303,6 +312,7 @@ This function is a loop that first check the selection value in an if statement.
 phone number from userArray then the function shows the rest of the information of the customer object, again using the
 .innerHTML method to manipulate the HTML document.
 */
+//Function written by Markus Kronborg
 function showInfo () {
     var userArray = JSON.parse(localStorage.getItem('userArray'));
     for (let i = 0; i < userArray.length; i++) {
@@ -322,6 +332,7 @@ function, but this function can also dynamically show any new orders by using do
 same as the getNumber function, but this function displays a paragraph instead of an option.
 We add some strings in between the variables, so the user can see what the different values represent.
  */
+//Function originally written by Markus Kronborg and changed completely by Morten Dyberg
 function showOrder() {
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
     for (let i = 0; i < orderArray.length; i++) {

@@ -191,6 +191,7 @@ getOrderId();
 /*
 MM: The following function deletes the order that is currently selected.
  */
+//Function written by Morten Dyberg
 function deleteOrder() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
     /*
@@ -220,6 +221,7 @@ function deleteOrder() {
 /*
 MM: The following function prompts the user to confirm that they want to delete their order.
  */
+//Function written by Morten Dyberg
 function deleteOrderAlert() {
     /*
     MM: The window.confirm method prompts the user to either confirm or cancel the cancellation action.
@@ -236,6 +238,7 @@ function deleteOrderAlert() {
 /*
 MM: The deleteUser function deletes the current user from the userArray.
  */
+//Function written by Morten Dyberg
 function deleteUser() {
     var userArray = JSON.parse(localStorage.getItem("userArray"));
     var choice = window.confirm("Er du sikker på, at du vil slette din bruger?")
