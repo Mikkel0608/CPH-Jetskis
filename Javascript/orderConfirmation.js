@@ -24,7 +24,7 @@ window.onload = function getOrderInfo() {
     document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + orderPrice;
     document.getElementById('orderID').innerHTML = "Ordre ID: " + orderID;
 }
-
+//Checks if there is stored a phone value when the user pressed the order page button. If not, it sends the user to the login page
 function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
@@ -32,7 +32,7 @@ function checkLoginOrderPage() {
         window.location ="orderPage.html"
     }
 }
-
+//Checks if there is stored a phone value when the user pressed the profile button. If not, it sends the user to the login page
 function checkLoginProfilePage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
