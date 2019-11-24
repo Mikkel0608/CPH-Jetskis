@@ -32,6 +32,7 @@ function checkLoginProfilePage() {
 
 /* MM: The logOut function removes the specified keys from the local storage. By removing the keys, the user is seen as logged out by the system.
  */
+//Function written by Morten Dyberg
 function logOut(){
     localStorage.removeItem("customerName");
     localStorage.removeItem("address");
@@ -43,6 +44,7 @@ function logOut(){
 
 /*  MM: The following function is activated whenever the window has loaded. This is done by using the "window.onload" event handler.
  */
+//Function written by Mikkel Marcher
 window.onload = function getCustomerInfo() {
     /*
     MM: Variables are properties that hold information.
@@ -158,6 +160,7 @@ MM: This function goes through all the stored orders in localStorage and adds th
 attribute in the stored order matches the phone of the active user.
 A variable is created that is equal to the order array stored in localstorage.
  */
+//Function written by Morten Dyberg
 function getOrderId() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
     /*

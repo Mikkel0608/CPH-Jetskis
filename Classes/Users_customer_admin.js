@@ -216,9 +216,11 @@ function loginVal() {
     var userArray = JSON.parse(localStorage.getItem('userArray'));
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
+    var status;
 
     for (var i = 0; i <= userArray.length; i++) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
+            status = true;
             window.location = "frontpage.html";
             localStorage.setItem('customerName', userArray[i].customerName);
             localStorage.setItem('address', userArray[i].address);
