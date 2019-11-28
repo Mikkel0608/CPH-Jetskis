@@ -11,7 +11,7 @@ This means that if a phone is not saved in localstorage the login button will di
 
 
  */
-
+//Function written by: Mikkel
 window.onload = function checkLoginButton() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 
@@ -23,6 +23,7 @@ window.onload = function checkLoginButton() {
 //MK: The purpose of this function is to make sure that the user of the website cannot enter the orderPage if the user is not logged in.
 //This function use the same if statement as the function above but here it is an if else statement. The difference is mainly that this function is activated when a button is clicked.
 //This if statement locate the user to either the loginPage or the orderPage. If the key in local storage is null they direct to loginPage else the user go to orderPage where the order can be made.
+//Function written by: MM
 function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
@@ -32,6 +33,7 @@ function checkLoginOrderPage() {
 }
 //MK: This function has the same purpose and use the same if else statement as the one above.
 //MK: But this is for the profilePage this means that if the user of the programme is logged in it can now see information about the profile and orders.
+//Function written by: MM
 function checkLoginProfilePage() {
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
@@ -47,6 +49,7 @@ In this function we also use the document.getElementById(). The id refers to the
 2. It checks if there already are reservations for the given time/date, and adjusts the amount of jetskis shown.
 
  */
+//Function written by: MM
 function confirmTime() {
     /* MK/MM Creating variables that represents the user selection of date and time we assign the variable to the different elementID's from our HTML
     */
@@ -179,6 +182,7 @@ var jetski3= new Jetski('Kawasaki STX 15F', 600, 160);
 2. It shows the basket if the amount of jetskis is above 0.
 3. It shows the name of the jetski, the photo, and the price of the selected jetskis in the basket.
  */
+//Function written by: MM
 function calculatePrice() {
     var orderAmount1JS = document.getElementById('orderAmount1').value;
     var orderAmount2JS = document.getElementById('orderAmount2').value;
@@ -238,6 +242,7 @@ JSON.stringify is used. This method saves the orderArray in local storage as a s
 Without JSON.stringify this would not be possible.
 
  */
+//Statements written by: MD
 var orderArray;
 if (localStorage.getItem('orderArray')==null) {
     orderArray = [];
@@ -253,6 +258,7 @@ if (localStorage.getItem('orderArray')==null) {
 
 
 //MK: This function's purpose is to store the created order in the array.
+//Function written by: MM & MD
 function storeOrder() {
     // MK:Variables are created for the amount picked of the three different types of Jetski.
     // MK: document.getElementById.value refers to the what the amount of the different types of jetski the user have ordered(selected) the elementid refers to the HTML file where there is a dropdown menu.
@@ -274,9 +280,4 @@ function storeOrder() {
 
     localStorage.setItem('orderArray', JSON.stringify(orderArray));
     window.location = "orderConfirmation.html";
-
-
-
-
-
 }

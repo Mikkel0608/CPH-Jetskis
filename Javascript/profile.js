@@ -32,6 +32,7 @@ function checkLoginProfilePage() {
 
 /* MM: The logOut function removes the specified keys from the local storage. By removing the keys, the user is seen as logged out by the system.
  */
+//Function written by Morten Dyberg
 function logOut(){
     localStorage.removeItem("customerName");
     localStorage.removeItem("address");
@@ -43,6 +44,7 @@ function logOut(){
 
 /*  MM: The following function is activated whenever the window has loaded. This is done by using the "window.onload" event handler.
  */
+//Function written by Mikkel Marcher
 window.onload = function getCustomerInfo() {
     /*
     MM: Variables are properties that hold information.
@@ -158,7 +160,8 @@ MM: This function goes through all the stored orders in localStorage and adds th
 attribute in the stored order matches the phone of the active user.
 A variable is created that is equal to the order array stored in localstorage.
  */
-function getOrderId() {
+//Function written by Morten Dyberg
+(function getOrderId() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
     /*
     MM: This for loop cycles through all the orders in the orderArray. For each repetition, variable i is increased by 1.
@@ -185,12 +188,12 @@ function getOrderId() {
             document.getElementById("orderId").appendChild(orderIdArray[i]);
         }
     }
-}
-// The getOrderId function is called.
-getOrderId();
+}());
+
 /*
 MM: The following function deletes the order that is currently selected.
  */
+//Function written by Morten Dyberg
 function deleteOrder() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
     /*
@@ -220,6 +223,7 @@ function deleteOrder() {
 /*
 MM: The following function prompts the user to confirm that they want to delete their order.
  */
+//Function written by Morten Dyberg
 function deleteOrderAlert() {
     /*
     MM: The window.confirm method prompts the user to either confirm or cancel the cancellation action.
@@ -236,9 +240,10 @@ function deleteOrderAlert() {
 /*
 MM: The deleteUser function deletes the current user from the userArray.
  */
+//Function written by Morten Dyberg
 function deleteUser() {
     var userArray = JSON.parse(localStorage.getItem("userArray"));
-    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?")
+    var choice = window.confirm("Er du sikker på, at du vil slette din bruger?");
     if (choice == true) {
         /*
         MM: The following for loop runs through all the stored users in the userArray, and if the active phone and the
