@@ -40,14 +40,16 @@ function checkLoginProfilePage() {
     }
 }
 /*MM/MK: The following function is activated by the confirm time button.
-1. It checks if the date/time values have been filled out, and displays an error if not.
+The Purpose of this function is to make sure that the user confirms time and date, jetski type, jetski amount, price.
+The function also store the new order into the order array so the order is now saved in the array and cannot be rented out again at the specific time.
+It checks if the date/time values have been filled out, and displays an error if not.
 In this function we also use the document.getElementById(). The id refers to the html file. Here the elementid is rentDay/Month/Year/Time.
-innerhtml means that the
 2. It checks if there already are reservations for the given time/date, and adjusts the amount of jetskis shown.
 
  */
 function confirmTime() {
-    // Creating variables that represents the user selection of date and time
+    /* MK/MM Creating variables that represents the user selection of date and time we assign the variable to the different elementID's from our HTML
+    */
     var rentDayID = document.getElementById("rentDay");
     var rentDayValue = rentDayID.options[rentDayID.selectedIndex].value;
     var rentMonthID = document.getElementById("rentMonth");
@@ -59,7 +61,8 @@ function confirmTime() {
     var rentTimeValue = rentTimeID.options[rentTimeID.selectedIndex].value;
 
 
-    //MM:Tests if the variables set before are equal to 00 (haven't been set). If they are not, it shows the jetskis
+    //MM:Tests if the variables set before are equal to 00 (haven't been set).
+    //Spørg om mikkel ikke kan lave en kommentar hertil
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
         document.getElementById("modelContainer1").style.display = '';
         document.getElementById("modelContainer2").style.display = '';
@@ -70,7 +73,7 @@ function confirmTime() {
         document.getElementById('jetski2Amount2').style.display = '';
         document.getElementById('jetski3Amount3').style.display = '';
         document.getElementById('jetski3Amount2').style.display = '';
-    } else {
+    } else { //MK: Here we make an else statement that is activated if the user have not selected all the fields they will get an alert with a message.
         alert("Udfyld venligst alle felter.");
     }
     /*
@@ -87,8 +90,10 @@ function confirmTime() {
     var occupiedAmount3 = 0;
 
     /*MK: A loop is created to cycle through all registred order and counts if possible amount of occupied jetskis for the selected period.
-    The purpose of this loop is to make sure that you cannot create an order if the jetskis are already rented out. The loop is created to make a more generic system so you dont have to hardcode created orders into the array.
+    The purpose of this loop is to make sure that you cannot create an order if the jetskis are already rented out. The loop is created to make a more generic system so you dont need to hardcode the system to check every part of the array.
     In this loop we have different types of if statements and else if statements.
+
+    This loop is using the orderAmount and the orderArray.
 
      */
     for (var i = 0; i < orderAmount; i++) {
@@ -120,33 +125,33 @@ function confirmTime() {
         }
     }
 
-    //Corrects the amount of jetski 1 if there are any reserved
+    //MK: This if statement corrects the amount of jetski 1 if there are any reserved
     if (occupiedAmount1 == 1) {
         document.getElementById('jetski1Amount3').style.display = "none";
     } else if (occupiedAmount1 == 2) {
         document.getElementById('jetski1Amount3').style.display = "none";
         document.getElementById('jetski1Amount2').style.display = "none";
-        //The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
+        //MM:The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
     } else if (occupiedAmount1 >= 3) {
         document.getElementById("modelContainer1").style.display = "none";
     }
-    //Corrects the amount of jetski 2 if there are any reserved
+    //MK: This if statement corrects the amount of jetski 2 if there are any reserved
     if (occupiedAmount2 == 1) {
         document.getElementById('jetski2Amount3').style.display = "none";
     } else if (occupiedAmount2== 2) {
         document.getElementById('jetski2Amount3').style.display = "none";
         document.getElementById('jetski2Amount2').style.display = "none";
-        //The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
+        //MM:The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
     } else if (occupiedAmount2 >= 3) {
         document.getElementById("modelContainer2").style.display = "none";
     }
-    //Corrects the amount of jetski 3 if there are any reserved
+    //MK: This if statement corrects the amount of jetski 3 if there are any reserved
     if (occupiedAmount3 == 1) {
         document.getElementById('jetski3Amount3').style.display = "none";
     } else if (occupiedAmount3 == 2) {
         document.getElementById('jetski3Amount3').style.display = "none";
         document.getElementById('jetski3Amount2').style.display = "none";
-        //The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
+        //MM: The following condition is set to >= in case a bug occurs and the amount of reserved jetskis exceeds 3.
     } else if (occupiedAmount3 >= 3) {
         document.getElementById("modelContainer3").style.display = "none";
     }
