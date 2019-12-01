@@ -15,7 +15,8 @@ This means that if a phone is not saved in localstorage the login button will di
 window.onload = function checkLoginButton() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 
-    //checks if the user is logged in and redirects to loginpage if not (this is used if the user is linked directly to this page and have not logged in or registered before.)
+    //checks if the user is logged in and redirects to loginpage if not
+    // (this is used if the user is linked directly to this page and have not logged in or registered before.)
     if (localStorage.getItem('phone') == null) {
         window.location = "Loginpage.html"
     }
