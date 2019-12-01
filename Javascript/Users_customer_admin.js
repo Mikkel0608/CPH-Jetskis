@@ -124,6 +124,7 @@ function register() {
         validation_message += "Passwords er ikke ens";
         form_valid = false;
     }
+
 /*MD:
 This statement checks whether the form is valid. If it is valid, that means that none of the above conditions have
 been met in order to make the form_valid = false.
@@ -244,6 +245,9 @@ class Admin {
         this.username = username;
         this.password = password;
     }
+    logIn(){
+        console.log(this.username, "Har lige logget ind");
+    }
 }
 //We make an instance of this class by creating an object.
 admin1 = new Admin('admin', 12345);
@@ -262,6 +266,7 @@ function validate() {
     var password = document.getElementById("password").value;
     if (phone == admin1.username && password == admin1.password) {
         window.location = "adminpage.html";
+        admin1.logIn();
     } else if (phone == admin1.username && password != admin1.password) {
         alert("Wrong Password")
     } else if (phone != admin1.username) {

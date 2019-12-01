@@ -29,15 +29,15 @@ function deleteOrder() {
     var orderArray = JSON.parse(localStorage.getItem("orderArray"));
     alert("Dine bestillinger er blevet aflyst");
     window.location = "profile.html";
-        for (var i = 0; i <= orderArray.length; i++) {
-            if (localStorage.getItem("phone") == orderArray[i].phone) {
+    for (var i = 0; i <= orderArray.length; i++) {
+        if (localStorage.getItem("phone") == orderArray[i].phone) {
 
-                orderArray.splice(i, 1);
-                //i--;
+            orderArray.splice(i, 1);
+            //i--;
 
-                var orderArrayString = JSON.stringify(orderArray);
-                localStorage.setItem("orderArray", orderArrayString);
+            var orderArrayString = JSON.stringify(orderArray);
+            localStorage.setItem("orderArray", orderArrayString);
 
-            }
         }
+    }
 }
