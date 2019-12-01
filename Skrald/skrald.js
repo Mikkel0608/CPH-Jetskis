@@ -62,7 +62,7 @@ function loginVal() {
      */
 
     if(inputPhone.value == storedUsers[3] && inputPassword.value == storedUsers[5]) {
-        window.location ="frontpage.html";
+        window.location ="index.html";
     } else if (inputPhone.value == customer1.phone && inputPassword.value == customer1.password){
         localStorage.setItem('customerName', customer1.customerName);
         localStorage.setItem('address', customer1.address);
@@ -70,7 +70,7 @@ function loginVal() {
         localStorage.setItem('phone', customer1.phone);
         localStorage.setItem('email', customer1.email);
         localStorage.setItem('password', customer1.password);
-        window.location ="frontpage.html";
+        window.location ="index.html";
     } else if (inputPhone.value == customer2.phone && inputPassword.value == customer2.password) {
         localStorage.setItem('customerName', customer2.customerName);
         localStorage.setItem('address', customer2.address);
@@ -78,7 +78,7 @@ function loginVal() {
         localStorage.setItem('phone', customer2.phone);
         localStorage.setItem('email', customer2.email);
         localStorage.setItem('password', customer2.password);
-        window.location = "frontpage.html";
+        window.location = "index.html";
     } else if (inputPhone.value == customer3.phone && inputPassword.value == customer3.password) {
         localStorage.setItem('customerName', customer3.customerName);
         localStorage.setItem('address', customer3.address);
@@ -86,7 +86,7 @@ function loginVal() {
         localStorage.setItem('phone', customer3.phone);
         localStorage.setItem('email', customer3.email);
         localStorage.setItem('password', customer3.password);
-        window.location = "frontpage.html";
+        window.location = "index.html";
     } else if (inputPhone.value == customer4.phone && inputPassword.value == customer4.password) {
         localStorage.setItem('customerName', customer4.customerName);
         localStorage.setItem('address', customer4.address);
@@ -94,7 +94,7 @@ function loginVal() {
         localStorage.setItem('phone', customer4.phone);
         localStorage.setItem('email', customer4.email);
         localStorage.setItem('password', customer4.password);
-        window.location = "frontpage.html";
+        window.location = "index.html";
     } else if (inputPhone.value == customer5.phone && inputPassword.value == customer5.password) {
         localStorage.setItem('customerName', customer5.customerName);
         localStorage.setItem('address', customer5.address);
@@ -102,7 +102,7 @@ function loginVal() {
         localStorage.setItem('phone', customer5.phone);
         localStorage.setItem('email', customer5.email);
         localStorage.setItem('password', customer5.password);
-        window.location = "frontpage.html";
+        window.location = "index.html";
     } else {
         alert('Fejl ved login - forkert telefonnummer og password kombination') */
     }

@@ -222,7 +222,7 @@ function loginVal() {
     for (var i = 0; i < userArray.length; i++) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
             status = true;
-            window.location = "frontpage.html";
+            window.location = "index.html";
             localStorage.setItem('customerName', userArray[i].customerName);
             localStorage.setItem('address', userArray[i].address);
             localStorage.setItem('city', userArray[i].city);
