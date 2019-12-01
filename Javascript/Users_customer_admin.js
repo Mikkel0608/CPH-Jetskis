@@ -217,9 +217,9 @@ function loginVal() {
     var userArray = JSON.parse(localStorage.getItem('userArray'));
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
-    var status;
+    var status = false;
 
-    for (var i = 0; i <= userArray.length; i++) {
+    for (var i = 0; i < userArray.length; i++) {
         if (phone == userArray[i].phone && password == userArray[i].password) {
             status = true;
             window.location = "frontpage.html";
@@ -233,6 +233,9 @@ function loginVal() {
 //The console.log method is used to display data. This string is displayed in the browser console.
             console.log("logged in");
         }
+    }
+    if (status==false) {
+        alert("Forkert ID eller password. Prøv igen.");
     }
 }
 
