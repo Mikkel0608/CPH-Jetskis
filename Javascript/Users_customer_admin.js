@@ -96,13 +96,6 @@ function register() {
         validation_message += "Venligst udfyld telefonnummer!";
         form_valid = false;
     }
-    var userArray = JSON.parse(localStorage.getItem("userArray"));
-    for (var i=0; i < userArray.length; i++) {
-        if (phone == userArray[i].phone) {
-            validation_message += "En bruger med det telefonnummer eksisterer allerede!";
-            form_valid = false;
-        }
-    }
 
     //6. Validating the e-mail
     if (email==null || email=="")
