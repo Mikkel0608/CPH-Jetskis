@@ -11,7 +11,7 @@ This means that if a phone is not saved in localstorage the login button will di
 
 
  */
-//Function written by: Mikkel
+//Function written by: MM
 window.onload = function checkLoginButton() {
     document.getElementById('loginPhone').innerHTML="Logget ind med ID: <br>" + localStorage.getItem('phone');
 
@@ -64,8 +64,9 @@ function confirmTime() {
     var rentTimeID = document.getElementById("rentTime");
     var rentTimeValue = rentTimeID.options[rentTimeID.selectedIndex].value;
 
-    //MM:Tests if the variables set before are equal to 00 (haven't been set).
-    //Spørg om mikkel ikke kan lave en kommentar hertil
+    //MM: Tests if the variables set before are equal to 00 (haven't been set).
+    //MM: If the variables have been set, it changes the display property from "none" to "", showing all the jetski models
+    //and all the jetski amounts.
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
         document.getElementById("modelContainer1").style.display = '';
         document.getElementById("modelContainer2").style.display = '';
