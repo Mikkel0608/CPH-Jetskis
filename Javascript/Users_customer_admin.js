@@ -271,7 +271,7 @@ function validate() {
         window.location = "adminpage.html";
         admin1.logIn();
     } else if (phone == admin1.username && password != admin1.password) {
-        alert("Wrong Password")
+        alert("Forkert ID eller password. Prøv igen.")
     } else if (phone != admin1.username) {
         loginVal();
     }
