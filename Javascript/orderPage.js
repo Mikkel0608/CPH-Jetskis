@@ -64,7 +64,6 @@ function confirmTime() {
     var rentTimeID = document.getElementById("rentTime");
     var rentTimeValue = rentTimeID.options[rentTimeID.selectedIndex].value;
 
-
     //MM:Tests if the variables set before are equal to 00 (haven't been set).
     //Spørg om mikkel ikke kan lave en kommentar hertil
     if (rentDayValue != "00" && rentMonthValue != "00" && rentYearValue != "00" && rentTimeValue != "00") {
@@ -160,7 +159,7 @@ function confirmTime() {
         document.getElementById("modelContainer3").style.display = "none";
     }
 
-}
+}xs
 //MK: A class is created. Classes in Javascript is used to create objects.
 //A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized in this case Jetski.
 //Then comes the constructor method, which lists the properties of the class: model, price and horsepower.
