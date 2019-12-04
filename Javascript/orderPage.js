@@ -22,7 +22,7 @@ window.onload = function checkLoginButton() {
     }
 }
 //MK: The purpose of this function is to make sure that the user of the website cannot enter the orderPage if the user is not logged in.
-//This function use the same if statement as the function above but here it is an if else statement. The difference is mainly that this function is activated when a button is clicked.
+//This function uses the same if statement as the function above but here it is an if else statement. The difference is mainly that this function is activated when a button is clicked.
 //This if statement locate the user to either the loginPage or the orderPage. If the key in local storage is null they direct to loginPage else the user go to orderPage where the order can be made.
 //Function written by: MM
 function checkLoginOrderPage() {
@@ -159,7 +159,6 @@ function confirmTime() {
     } else if (occupiedAmount3 >= 3) {
         document.getElementById("modelContainer3").style.display = "none";
     }
-
 }
 //MK: A class is created. Classes in Javascript is used to create objects.
 //A class has the following structure: the keyword 'class' followed by the name of the class, first letter capitalized in this case Jetski.
