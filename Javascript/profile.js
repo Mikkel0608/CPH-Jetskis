@@ -153,7 +153,6 @@ These are globally scoped variables, as they are not placed inside a function. T
 of the code.
  */
 var selection = document.getElementById("orderId");
-var option = selection.options;
 
 /*
 MM: This function goes through all the stored orders in localStorage and adds the orderID to the order selector if the phone
@@ -267,7 +266,11 @@ function deleteUser() {
     }
 }
 
+function deleteAllOrders(){
+    var orderArray = JSON.parse(localStorage.getItem("orderArray"));
 
+    var index = array.indexOf()
+}
 
 
 
