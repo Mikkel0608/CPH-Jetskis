@@ -165,16 +165,16 @@ A variable is created that is equal to the order array stored in localstorage.
     for (var i = 0; i < orderArray.length; i++) {
         if (localStorage.getItem("phone") == orderArray[i].phone) {
 
-            var orderIdArray = document.createElement("option");
+            var orderId = document.createElement("option");
             /*
             MM: The innerHTML of the newly created option tag is set equal to the orderID of order object number i in the orderArray.
              */
-            orderIdArray.innerHTML = orderArray[i].orderId;
+            orderId.innerHTML = orderArray[i].orderId;
 
             /*
             MM: The appendChild method is used to set the newly created option tag as a child to the "orderId" ID.
              */
-            document.getElementById("orderId").appendChild(orderIdArray);
+            document.getElementById("orderId").appendChild(orderId);
         }
     }
 }());

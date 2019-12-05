@@ -304,10 +304,10 @@ var selection = document.getElementById("phoneSelect");
 
     for (var i = 0; i <= userArray.length; i++) {
 
-        var allUsersArray = document.createElement("option");
-        allUsersArray.innerHTML = userArray[i].phone;
+        var allUsers = document.createElement("option");
+        allUsers.innerHTML = userArray[i].phone;
 
-        document.getElementById("phoneSelect").appendChild(allUsersArray);
+        document.getElementById("phoneSelect").appendChild(allUsers);
     }
 }());
 
