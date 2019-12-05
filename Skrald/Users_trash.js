@@ -1,23 +1,7 @@
 
 //Brugt under Customer class
 //This method stores input from the sign-up page in the local storage, as well as redirecting to the login-page.
-/*storeLogin(){
-    localStorage.setItem('customerName', customerName.value);
-    localStorage.setItem('address', address.value);
-    localStorage.setItem('city', city.value);
-    localStorage.setItem('phone', phone.value);
-    localStorage.setItem('email', email.value);
-    localStorage.setItem('password', password.value);
-
-
-
-}*/
-
-
-
-
-/*
-function storeLogin() {
+storeLogin(){
     localStorage.setItem('customerName', customerName.value);
     localStorage.setItem('address', address.value);
     localStorage.setItem('city', city.value);
@@ -25,13 +9,11 @@ function storeLogin() {
     localStorage.setItem('email', email.value);
     localStorage.setItem('password', password.value);
 }
-*/
 
 
 
 
 
-/*
 //5 customer objects are created
 customer1 = new customer(localStorage.getItem('customerName'),localStorage.getItem('address'),localStorage.getItem('city'),localStorage.getItem('phone'),localStorage.getItem('email'),localStorage.getItem('password'));
 customer2 = new customer('Per','Nørregade 31, 4th', 'København', '45678904','per@købenahvn.dk', 'per123');
@@ -40,9 +22,6 @@ customer4 = new customer('Louise','Brostykkevej 81', 'Hvidovre', '67880322', 'Lo
 customer5 = new customer('Martin', 'Lemchesvej 22', 'Hellerup', '33445522', 'martin@privat.eu','Hejmeddig');
 customer6 = new customer('Niels', 'Gurrevej 12', 'Helsingør', '73459025','Niels123@yahoo.dk','Niels8477');
 
-//The 5 objects i just created is being pushed into the customerArray
-customerArray.push(customer1, customer2, customer3, customer4, customer5, customer6);
-*/
 
 
 
@@ -51,10 +30,11 @@ customerArray.push(customer1, customer2, customer3, customer4, customer5, custom
 
 
 
-//Det her var den gamle loginVal funktion!
 
+
+//This was the old loginVal funktion!
 //Creating variables for the stored values
-/* var storedPhone = localStorage.getItem('phone');
+ var storedPhone = localStorage.getItem('phone');
  var storedPassword = localStorage.getItem('password');
 
  //Creating variables for the input values
@@ -62,11 +42,11 @@ customerArray.push(customer1, customer2, customer3, customer4, customer5, custom
  var inputPassword = document.getElementById('password');
 
 
- /*Now an if-statement is created to check whether these values match each other, which determines wheter
+ Now an if-statement is created to check whether these values match each other, which determines wheter
  the user can log in or not. If they match, it adds the predefined user values to local storage.
 
-  */
-/*
+
+
     if(inputPhone.value == storedPhone && inputPassword.value == storedPassword) {
         window.location ="index.html";
     } else if (inputPhone.value == customer1.phone && inputPassword.value == customer1.password){
@@ -112,11 +92,10 @@ customerArray.push(customer1, customer2, customer3, customer4, customer5, custom
     } else {
         alert('Fejl ved login - forkert telefonnummer og password kombination')
     }
-}
-*/
 
 
-/*
+
+
 function getNumber() {
 
     option[1].innerHTML = customer1.phone;
@@ -126,9 +105,7 @@ function getNumber() {
     option[5].innerHTML = customer5.phone;
     option[6].innerHTML = customer6.phone;
 }
-*/
 
-// The function getNumber is being called.
 
 
 
@@ -136,19 +113,19 @@ function getNumber() {
 
 //Blev brugt til at vise ordren. Kunne dog ikke dynamisk vise flere ordrer. Dengang manipulerede vi også med .innerhtml,
 //hvor vi derimod nu bare laver et nyt element med .createElement
-/*document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
+document.getElementById('date').innerHTML = "Dato for udlejning: " + orderArray[i].orderDay + "/" + orderArray[i].orderMonth + "/" + orderArray[i].orderYear;
                 document.getElementById('timePeriod').innerHTML = "Tidspunkt for udlejning: kl. " + orderArray[i].timePeriod;
                 document.getElementById('amountOfJetski1').innerHTML = "Antal Sea Doo Spark: " + orderArray[i].amount1;
                 document.getElementById('amountOfJetski2').innerHTML = "Antal Yamaha Waverunner VX: " + orderArray[i].amount2;
                 document.getElementById('amountOfJetski3').innerHTML = "Antal Kawasaki STX-15F: " + orderArray[i].amount3;
                 document.getElementById('orderPrice').innerHTML = "Samlet pris til betaling ved udlejning: " + orderArray[i].orderPrice;
-                 */
 
 
 
 
 
-/*function showOrder(){
+
+function showOrder(){
     if (selection.value == customer1.phone){
 
     var day = localStorage.getItem('orderDay');
@@ -172,7 +149,7 @@ function getNumber() {
         document.getElementById('amountOfJetski3').innerHTML ="";
         document.getElementById('orderPrice').innerHTML = "";
     }
-}*/
+}
 
 
 
