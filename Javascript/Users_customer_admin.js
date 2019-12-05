@@ -303,11 +303,11 @@ var selection = document.getElementById("phoneSelect");
     var userArray = JSON.parse(localStorage.getItem('userArray'));
 
     for (var i = 0; i <= userArray.length; i++) {
-        var allUsersArray = [];
-        allUsersArray[i] = document.createElement("option");
-        allUsersArray[i].innerHTML = userArray[i].phone;
 
-        document.getElementById("phoneSelect").appendChild(allUsersArray[i]);
+        var allUsersArray = document.createElement("option");
+        allUsersArray.innerHTML = userArray[i].phone;
+
+        document.getElementById("phoneSelect").appendChild(allUsersArray);
     }
 }());
 
@@ -358,12 +358,11 @@ function showOrder() {
                 var orderID = orderArray[i].orderId;
 
 
-                var orderInfo = [];
 
-                orderInfo[i] = document.createElement("P");
-                orderInfo[i].innerHTML = "Dato for udlejning: " + day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + timePeriod + "</br></br>" + "Antal Sea Doo Spark: " + amount1 + "</br></br>" + "Antal Yamaha Waverunner VX: " + amount2 + "</br></br>" + "Antal Kawasaki STX-15F: " + amount3 + "</br></br>" + "Samlet pris til betaling ved udlejning: " + orderPrice + "</br></br> Ordre ID: " + orderID + "<br><br>";
+                var orderInfo = document.createElement("P");
+                orderInfo.innerHTML = "Dato for udlejning: " + day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + timePeriod + "</br></br>" + "Antal Sea Doo Spark: " + amount1 + "</br></br>" + "Antal Yamaha Waverunner VX: " + amount2 + "</br></br>" + "Antal Kawasaki STX-15F: " + amount3 + "</br></br>" + "Samlet pris til betaling ved udlejning: " + orderPrice + "</br></br> Ordre ID: " + orderID + "<br><br>";
 
-                document.getElementById('orderDetails').appendChild(orderInfo[i]);
+                document.getElementById('orderDetails').appendChild(orderInfo);
                 document.getElementById('noOrders').innerHTML = "";
             }
     }

@@ -122,22 +122,18 @@ window.onload = function getCustomerInfo() {
             the userInfo is created as an array, as we want to dynamically create new variable names with userInfo[i] for each order the user has.
 
              */
-            var orderInfo = [];
-            /*
-            MM: For each value of i, a new element in the orderInfo array is created. This new element is set equal to the
-            document.createElement method. This method creates a new HTML element of the specified tag. In this case, it
-            is a new <p> tag that is created.
-             */
-            orderInfo[i] = document.createElement("P");
+
+
+            var orderInfo = document.createElement("P");
             /*
             MM: The innerHTML of the newly created <p> tag is set equal to a section of text and the variables above.
              */
-            orderInfo[i].innerHTML ="Dato for udlejning: "+ day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + timePeriod + "</br></br>" + "Antal Sea Doo Spark: " + amount1 + "</br></br>" + "Antal Yamaha Waverunner VX: " + amount2 + "</br></br>" + "Antal Kawasaki STX-15F: " + amount3 + "</br></br>" + "Samlet pris til betaling ved udlejning: " + orderPrice + "</br></br> Ordre ID: " + orderID + "</br></br>";
+            orderInfo.innerHTML ="Dato for udlejning: "+ day + "/" + month + "/" + year + "</br></br>" + "Tidspunkt for udlejning: kl." + timePeriod + "</br></br>" + "Antal Sea Doo Spark: " + amount1 + "</br></br>" + "Antal Yamaha Waverunner VX: " + amount2 + "</br></br>" + "Antal Kawasaki STX-15F: " + amount3 + "</br></br>" + "Samlet pris til betaling ved udlejning: " + orderPrice + "</br></br> Ordre ID: " + orderID + "</br></br>";
             /*
             MM: The appendChild method is used to set the newly created <p> tag as a child to to the ID "orderList", specified in the
             getElementById method.
              */
-            document.getElementById('orderList').appendChild(orderInfo[i]);
+            document.getElementById('orderList').appendChild(orderInfo);
             /*
             MM: The following line empties the innerHTML of the noOrders ID tag. If the line below is not run, the text
             explains that there are no orders. Whenever the line below is run, the text is removed.
@@ -168,23 +164,17 @@ A variable is created that is equal to the order array stored in localstorage.
      */
     for (var i = 0; i < orderArray.length; i++) {
         if (localStorage.getItem("phone") == orderArray[i].phone) {
-            /*
-            MM: An empty array is created.
-             */
-            var orderIdArray = [];
-            /*
-            MM: Number i element in the array is set equal to the method createElement, which creates a new option tag in the HTML.
-             */
-            orderIdArray[i] = document.createElement("option");
+
+            var orderIdArray = document.createElement("option");
             /*
             MM: The innerHTML of the newly created option tag is set equal to the orderID of order object number i in the orderArray.
              */
-            orderIdArray[i].innerHTML = orderArray[i].orderId;
+            orderIdArray.innerHTML = orderArray[i].orderId;
 
             /*
             MM: The appendChild method is used to set the newly created option tag as a child to the "orderId" ID.
              */
-            document.getElementById("orderId").appendChild(orderIdArray[i]);
+            document.getElementById("orderId").appendChild(orderIdArray);
         }
     }
 }());
@@ -266,11 +256,6 @@ function deleteUser() {
     }
 }
 
-function deleteAllOrders(){
-    var orderArray = JSON.parse(localStorage.getItem("orderArray"));
-
-    var index = array.indexOf()
-}
 
 
 
