@@ -98,7 +98,7 @@ window.onload = function getCustomerInfo() {
 
      */
     var i;
-    for (i = 0; i <= orderAmount; i++) {
+    for (i = 0; i < orderAmount; i++) {
         /*
         MM: The following if statement's condition is that the "phone" key's value in local storage has to be equal to the phone
         property of the number i object of the orderArray.
@@ -167,7 +167,7 @@ A variable is created that is equal to the order array stored in localstorage.
     MM: This for loop cycles through all the orders in the orderArray. For each repetition, variable i is increased by 1.
     The loop only stops once i is greater than the length of the orderArray.
      */
-    for (var i = 0; i <= orderArray.length; i++) {
+    for (var i = 0; i < orderArray.length; i++) {
         if (localStorage.getItem("phone") == orderArray[i].phone) {
             /*
             MM: An empty array is created.
@@ -200,7 +200,7 @@ function deleteOrder() {
     MM: The following for loop cycles through all the stored orders. If the currently selected order is equal to
     the stored order's orderId attribute, the order is removed from the order array.
      */
-    for (var i = 0; i <= orderArray.length; i++) {
+    for (var i = 0; i < orderArray.length; i++) {
         if (selection.value == orderArray[i].orderId) {
             /*
             MM: The page is reloaded using the location property.

@@ -52,7 +52,7 @@ In this function we also use the document.getElementById(). The id refers to the
  */
 //Function written by: MM
 function confirmTime() {
-    /* MK/MM Creating variables that represents the user selection of date and time we assign the variable to the different elementID's from our HTML
+    /* MK/MM Creating variables that represent the user selection of date and time we assign the variable to the different elementID's from our HTML
     */
     var rentDayID = document.getElementById("rentDay");
     var rentDayValue = rentDayID.options[rentDayID.selectedIndex].value;
