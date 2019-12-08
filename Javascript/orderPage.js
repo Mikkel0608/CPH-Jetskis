@@ -173,9 +173,13 @@ class Jetski {
 }
 //MK: Variables are created for the 3 different types of jetski. Here the class for Jetski is used to define the different models.
 //The variables are created using the keyword var which can hold values.
-var jetski1= new Jetski('Sea Doo Spark', 300, 60);
+var jetski1= new Jetski('Sea Doo Spark', 300, 60)
 var jetski2= new Jetski('Yamaha Waverunner VX', 500, 125);
 var jetski3= new Jetski('Kawasaki STX 15F', 600, 160);
+Object.freeze(jetski1);
+Object.freeze(jetski2);
+Object.freeze(jetski3);
+
 
 /*MM: The following function is activated when the user changes the amount of jetskis in the selector. It does the following:
 1. It add up the total price of the selected jetskis and shows it in the basket.
