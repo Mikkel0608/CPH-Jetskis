@@ -176,6 +176,7 @@ class Jetski {
 var jetski1= new Jetski('Sea Doo Spark', 300, 60)
 var jetski2= new Jetski('Yamaha Waverunner VX', 500, 125);
 var jetski3= new Jetski('Kawasaki STX 15F', 600, 160);
+//the Object.freeze is used to make sure customers can't change the price property of the objects.
 Object.freeze(jetski1);
 Object.freeze(jetski2);
 Object.freeze(jetski3);
