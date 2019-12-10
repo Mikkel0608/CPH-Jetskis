@@ -225,9 +225,3 @@ function deleteUser() {
         }
     }
 }
-
-
-
-
-
-
