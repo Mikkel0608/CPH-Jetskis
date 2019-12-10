@@ -196,7 +196,7 @@ function validate() {
     var phone = document.getElementById("phone").value;
     var password = document.getElementById("password").value;
     if (phone == admin1.username && password == admin1.password) {
-        //window.location = "adminpage.html";
+        window.location = "adminpage.html";
         admin1.logIn();
     } else if (phone == admin1.username && password != admin1.password) {
         alert("Forkert ID eller password. Prøv igen.")
