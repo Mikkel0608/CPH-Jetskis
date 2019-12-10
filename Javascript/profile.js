@@ -1,17 +1,6 @@
 /* MM: The following function uses an if statement with the condition that the phone key in local storage has to equal null.
 If the condition is true, it sends the user to the login page, as the user is not logged in. If not, it allows the user to access the order page.
 The function is activated by the onclick attribute specified on the "Bestil tid" button HTML tag.
-
-A function is a piece of code that is activated whenever the function is called.
-
-An if statement is a piece of code that is only activated if the given condition is true. If the condition is not true,
-an alternative piece of code can be activated instead by writing an else statement.
-
-Local storage allows the system to save data locally in the users browser storage. In our system, local storage is used as
-the database for users and orders. In the future, this could be changed to a real database.
-
-The window.location statement refers to the property "location" of the "window" object. By changing this to another page,
-the user is linked to another HTML page.
  */
 function checkLoginOrderPage() {
     if (localStorage.getItem('phone') == null) {
@@ -60,9 +49,7 @@ window.onload = function getCustomerInfo() {
     var storedEmail = localStorage.getItem('email');
 
     /*
-    MM: The following lines use the HTML DOM document object, and the "getElementById" method. This method finds specific tags in the
-    HTML code by identifying the ID that they have. The .innerHTML attribute specifies that it is the innerHTML part of the specified tag
-    that should be targeted by the code. The innerHTML content is the text between the start tag and the end tag in HTML.
+    MM: Inserts the value of the variables created above into the innerHTML of a set of <p> tags.
      */
     document.getElementById('customerName').innerHTML=storedName;
     document.getElementById('customerAddress').innerHTML=storedAddress;
@@ -84,27 +71,16 @@ window.onload = function getCustomerInfo() {
     /*
     MM:
     Two variables are created. The variable "orderAmount" is set equal to the length of the array "orderArray" that is saved in local storage.
-    The array is retrieved from local storage by using JSON.parse. This method retrieves the saved string from local storage and
-    translates it back into an array. The method JSON.stringify has earlier been used to save an array as a string in local storage.
-    The array from local storage is saved as the "orderArray" variable.
+    The array is retrieved from local storage by using JSON.parse. The array from local storage is saved as the "orderArray" variable.
      */
-
     var orderAmount = JSON.parse(localStorage.getItem('orderArray')).length;
     var orderArray = JSON.parse(localStorage.getItem('orderArray'));
 
-    /* MM: The following section of code is a for loop. A for loop is a section of code that will repeat itself until a
-    specific condition is met. After each repetition, a change occurs to a variable. In this case, a variable i is set to 0.
-    After each repetition, it increases by 1. This repetition will continue until i is equal to or less than the amount
-    of orders in the order array. The ++ operator used on i increases the variable by one every time it is run.
-
+    /* MM: The following for loop cycles through all the stored orders and prints the order information onto the page
+    if the order's phone number matches the phone number of the logged in user.
      */
     var i;
     for (i = 0; i < orderAmount; i++) {
-        /*
-        MM: The following if statement's condition is that the "phone" key's value in local storage has to be equal to the phone
-        property of the number i object of the orderArray.
-        An object is an instance of a class. It has content attached to each property of the class.
-         */
         if (localStorage.getItem('phone') == orderArray[i].phone) {
             /*
             MM: Variables are created and set equal to the corresponding values of the number i object of the orderArray.
@@ -119,12 +95,8 @@ window.onload = function getCustomerInfo() {
             var orderPrice = orderArray[i].orderPrice;
             var orderID = orderArray[i].orderId;
 
-            /* MM: A new empty array called orderInfo is created.
-            the userInfo is created as an array, as we want to dynamically create new variable names with userInfo[i] for each order the user has.
-
+            /* MM: A new variable is created and set equal to the createElement() method, as we want to create a new <p> tag.
              */
-
-
             var orderInfo = document.createElement("P");
             /*
             MM: The innerHTML of the newly created <p> tag is set equal to a section of text and the variables above.
@@ -146,15 +118,12 @@ window.onload = function getCustomerInfo() {
 /*
 MM: Two variables are created. The "selection" variable is set equal to the HTML select tag with the ID "orderID".
 The "option" variable is set equal to the options of the "selection" variable.
-These are globally scoped variables, as they are not placed inside a function. This means they can be used in all parts
-of the code.
  */
 var selection = document.getElementById("orderId");
 
 /*
 MM: This function goes through all the stored orders in localStorage and adds the orderID to the order selector if the phone
 attribute in the stored order matches the phone of the active user.
-A variable is created that is equal to the order array stored in localstorage.
  */
 //Function written by Morten Dyberg
 (function getOrderId() {
