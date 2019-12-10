@@ -256,3 +256,4 @@ function storeOrder() {
     localStorage.setItem('orderArray', JSON.stringify(orderArray));
     window.location = "orderConfirmation.html";
 }
+
